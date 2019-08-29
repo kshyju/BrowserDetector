@@ -6,22 +6,30 @@ namespace Shyjus.BrowserDetector
 {
     public class BrowserDetector : IBrowserDetector
     {
+        private readonly Lazy<Browser> browser;
+
         private readonly IHttpContextAccessor httpContextAccessor;
         public BrowserDetector(IHttpContextAccessor httpContextAccessor)
         {
             this.httpContextAccessor = httpContextAccessor;
+            this.browser = this.GetBrowserLazy();
         }
 
-        private void PopulateBrowser()
+        private Lazy<Browser> GetBrowserLazy()
         {
-
+            return new Lazy<Browser>(() =>
+            {
+               return GetBrowser();
+            });
         }
+
 
         /// Populates a browser object from the userAgentString value
         /// </summary>
         /// <returns>A browser object or null</returns>
-        internal Browser GetBrowser()
+        private Browser GetBrowser()
         {
+           
             var userAgentString = this.httpContextAccessor.HttpContext.Request.Headers["User-Agent"][0].AsSpan();
 
             // Order is important, Go from most specific to generic
@@ -60,7 +68,7 @@ namespace Shyjus.BrowserDetector
         {
             get
             {
-                throw new NotImplementedException();
+                return this.browser.Value;
             }
         }
     }

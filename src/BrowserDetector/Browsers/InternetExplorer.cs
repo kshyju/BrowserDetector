@@ -3,7 +3,7 @@ namespace Shyjus.BrowserDetector.Browsers
 {
     public class InternetExplorer : Browser
     {
-        public override BrowserType Type => throw new System.NotImplementedException();
+        public override BrowserType Type => BrowserType.InternetExplorer;
 
         /// <summary>
         /// Populates an IE browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeeded.

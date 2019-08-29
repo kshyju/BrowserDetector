@@ -1,0 +1,63 @@
+using Xunit;
+using Moq;
+using Microsoft.AspNetCore.Http;
+using System.Collections.Generic;
+using Microsoft.Extensions.Primitives;
+
+namespace Shyjus.BrowserDetector.Tests
+{
+    public class BrowserDetectorTests
+    {
+        /// <summary>
+        /// Verify Chrome browser detection. 
+        /// </summary>
+        [Fact]
+        public void Verify_Chrome_Detection()
+        {
+            var headers = new Dictionary<string, StringValues>
+            {
+                { Headers.UserAgent, UserAgents.Chrome76 }
+            };
+
+            var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
+            var detector = new BrowserDetector(httpContextAccessor);
+
+            Browser actual = detector.Browser;
+
+            Assert.Equal(BrowserType.Chrome, actual.Type);
+        }
+        /// <summary>
+        /// Verify Edge browser detection. 
+        /// </summary>
+        [Fact]
+        public void Verify_Edge_Detection()
+        {
+            var headers = new Dictionary<string, StringValues>
+            {
+                { Headers.UserAgent, UserAgents.Edge18 }
+            };
+
+            var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
+            var detector = new BrowserDetector(httpContextAccessor);
+
+            Browser actual = detector.Browser;
+
+            Assert.Equal(BrowserType.Edge, actual.Type);
+        }
+
+        private IHttpContextAccessor GetMockedHttpContextAccessor(Dictionary<string, StringValues> headers)
+        {
+            var headerDictionary = new HeaderDictionary(headers);
+
+            var httpContextAccessor = new Mock<IHttpContextAccessor>();
+            var context = new Mock<HttpContext>();
+            var request = new Mock<HttpRequest>();
+            request.Setup(a => a.Headers).Returns(headerDictionary);
+
+            context.Setup(a=>a.Request).Returns(request.Object);
+            httpContextAccessor.Setup(a => a.HttpContext).Returns(context.Object);
+
+            return httpContextAccessor.Object;
+        }
+    }
+}

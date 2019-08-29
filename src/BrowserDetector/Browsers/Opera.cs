@@ -2,6 +2,6 @@
 {
     public class Opera : Browser
     {
-        public override BrowserType Type => throw new System.NotImplementedException();
+        public override BrowserType Type => BrowserType.Opera;
     }
 }

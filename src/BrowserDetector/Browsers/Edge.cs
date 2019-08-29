@@ -4,7 +4,7 @@ namespace Shyjus.BrowserDetector.Browsers
 {
     public class Edge : Browser
     {
-        public override BrowserType Type => throw new System.NotImplementedException();
+        public override BrowserType Type => BrowserType.Edge;
 
         /// <summary>
         /// Populates an Edge browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeeded.

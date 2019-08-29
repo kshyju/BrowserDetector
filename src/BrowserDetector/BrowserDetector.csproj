@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Shyjus.BrowserDetector</AssemblyName>
+    <RootNamespace>Shyjus.BrowserDetector</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
