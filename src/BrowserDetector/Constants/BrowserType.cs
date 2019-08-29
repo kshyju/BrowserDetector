@@ -4,6 +4,7 @@
     {
         Chrome,
         Edge,
+        EdgeChromium, 
         Firefox,
         InternetExplorer,
         Opera,

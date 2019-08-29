@@ -45,6 +45,25 @@ namespace Shyjus.BrowserDetector.Tests
             Assert.Equal(BrowserType.Edge, actual.Type);
         }
 
+        /// <summary>
+        /// Verify Edge chromium browser detection. 
+        /// </summary>
+        [Fact]
+        public void Verify_EdgeChromium_Detection()
+        {
+            var headers = new Dictionary<string, StringValues>
+            {
+                { Headers.UserAgent, UserAgents.EdgeChromium }
+            };
+
+            var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
+            var detector = new BrowserDetector(httpContextAccessor);
+
+            Browser actual = detector.Browser;
+
+            Assert.Equal(BrowserType.EdgeChromium, actual.Type);
+        }
+
         private IHttpContextAccessor GetMockedHttpContextAccessor(Dictionary<string, StringValues> headers)
         {
             var headerDictionary = new HeaderDictionary(headers);
