@@ -8,11 +8,27 @@ namespace Shyjus.BrowserDetector.Tests
 {
     public partial class BrowserDetectorTests
     {
+        [Fact]
+        public void Opera_Desktop()
+        {
+            var headers = new Dictionary<string, StringValues>
+            {
+                { Headers.UserAgent, UserAgents.Opera }
+            };
+
+            var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
+            var detector = new BrowserDetector(httpContextAccessor);
+
+            Browser actual = detector.Browser;
+
+            Assert.Equal(BrowserType.Opera, actual.Type);
+        }
+
         /// <summary>
-        /// Verify Chrome browser detection. 
+        /// Verify Chrome browser detection.
         /// </summary>
         [Fact]
-        public void Verify_Chrome_Detection()
+        public void Chrome_Desktop()
         {
             var headers = new Dictionary<string, StringValues>
             {
@@ -27,7 +43,7 @@ namespace Shyjus.BrowserDetector.Tests
             Assert.Equal(BrowserType.Chrome, actual.Type);
         }
         /// <summary>
-        /// Verify Edge browser detection. 
+        /// Verify Edge browser detection.
         /// </summary>
         [Fact]
         public void Verify_Edge_Detection()
@@ -46,7 +62,7 @@ namespace Shyjus.BrowserDetector.Tests
         }
 
         /// <summary>
-        /// Verify Edge chromium browser detection. 
+        /// Verify Edge chromium browser detection.
         /// </summary>
         [Fact]
         public void Verify_EdgeChromium_Detection()
@@ -65,7 +81,7 @@ namespace Shyjus.BrowserDetector.Tests
         }
 
         /// <summary>
-        /// Verify safari browser detection. 
+        /// Verify safari browser detection.
         /// </summary>
         [Fact]
         public void Verify_Safari_Detection()
@@ -84,7 +100,7 @@ namespace Shyjus.BrowserDetector.Tests
         }
 
         /// <summary>
-        /// Verify Opera browser detection. 
+        /// Verify Opera browser detection.
         /// </summary>
         [Fact]
         public void Verify_Opera_Detection()

@@ -13,16 +13,15 @@ namespace Shyjus.BrowserDetector.Browsers
                 throw new ArgumentNullException(nameof(userAgent));
             }
 
-            var operaIndex = userAgent.IndexOf("Opera/".AsSpan());
+            var operaIndex = userAgent.IndexOf("OPR/".AsSpan());
 
             if (operaIndex > -1)
             {
-                var versionIndex = userAgent.IndexOf("Version/".AsSpan());
-                var subStringWithVersion = userAgent.Slice(versionIndex + 8);
+                var version = userAgent.Slice(operaIndex + 4).ToString();
 
                 result = new Opera
                 {
-                    Version = Version.Parse(subStringWithVersion.ToString())
+                    Version = Version.Parse(version)
                 };
 
                 return true;
