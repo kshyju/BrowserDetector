@@ -64,6 +64,44 @@ namespace Shyjus.BrowserDetector.Tests
             Assert.Equal(BrowserType.EdgeChromium, actual.Type);
         }
 
+        /// <summary>
+        /// Verify safari browser detection. 
+        /// </summary>
+        [Fact]
+        public void Verify_Safari_Detection()
+        {
+            var headers = new Dictionary<string, StringValues>
+            {
+                { Headers.UserAgent, UserAgents.Safari12 }
+            };
+
+            var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
+            var detector = new BrowserDetector(httpContextAccessor);
+
+            Browser actual = detector.Browser;
+
+            Assert.Equal(BrowserType.Safari, actual.Type);
+        }
+
+        /// <summary>
+        /// Verify Opera browser detection. 
+        /// </summary>
+        [Fact]
+        public void Verify_Opera_Detection()
+        {
+            var headers = new Dictionary<string, StringValues>
+            {
+                { Headers.UserAgent, UserAgents.Opera }
+            };
+
+            var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
+            var detector = new BrowserDetector(httpContextAccessor);
+
+            Browser actual = detector.Browser;
+
+            Assert.Equal(BrowserType.Opera, actual.Type);
+        }
+
         private IHttpContextAccessor GetMockedHttpContextAccessor(Dictionary<string, StringValues> headers)
         {
             var headerDictionary = new HeaderDictionary(headers);
