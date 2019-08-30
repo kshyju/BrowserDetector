@@ -11,6 +11,19 @@
             @RenderBody()
         </main>
     </div>
+    <script>
+
+        function copyToClipBoard() {
+            var spanContent = this.parentElement.querySelector("span").innerText;
+            window.prompt("Copy to clipboard: Ctrl+C, Enter", spanContent);
+        }
+
+        var copyButtons = document.querySelectorAll(".copy");
+        copyButtons.forEach(function (item) {
+            item.addEventListener("click", copyToClipBoard)
+        });
+
+    </script>
     <style>
         body {
             font-family: "Segoe UI","Segoe WP",Arial,Sans-Serif;
