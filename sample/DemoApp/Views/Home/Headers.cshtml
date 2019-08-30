@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor httpContextAccessor
+@{
+    var headers = this.httpContextAccessor.HttpContext.Request.Headers;
+}
+<div class="text-center">
+    <div>
+        <h3 class="display-5">Request headers</h3>
+        <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Value</th>
+                </tr>
+            @foreach(var header in headers)
+            {
+            <tr>
+                <td>@header.Key</td>
+                <td class="label">@header.Value</td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>
