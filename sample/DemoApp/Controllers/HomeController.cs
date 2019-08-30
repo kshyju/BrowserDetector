@@ -1,13 +1,20 @@
-﻿using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Mvc;
+using Shyjus.BrowserDetector;
 
 namespace DemoApp.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IBrowserDetector browserDetector;
+        public HomeController(IBrowserDetector browserDetector)
+        {
+            this.browserDetector = browserDetector;
+        }
         public IActionResult Index()
         {
+            var browser = this.browserDetector.Browser;
+            // Use browser object as needed.
+
             return View();
         }
 
