@@ -259,3 +259,7 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+sample/DemoApp/Properties/PublishProfiles/browser-detection - Web Deploy.pubxml
+sample/DemoApp/DemoApp.csproj
+sample/DemoApp/DemoApp.csproj
+*.csproj
