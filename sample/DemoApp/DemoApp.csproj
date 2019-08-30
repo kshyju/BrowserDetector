@@ -3,13 +3,14 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.2</TargetFramework>
     <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <UserSecretsId>1b8df721-3c6e-434d-a706-d750bc16a56d</UserSecretsId>
   </PropertyGroup>
 
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
-    <PackageReference Include="Shyjus.BrowserDetector" Version="1.0.3" />
+    <PackageReference Include="Shyjus.BrowserDetector" Version="1.0.4" />
   </ItemGroup>
 
 </Project>

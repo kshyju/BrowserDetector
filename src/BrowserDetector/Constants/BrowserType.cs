@@ -3,11 +3,18 @@
     public enum BrowserType
     {
         Chrome,
+        ChromeIPad,
+        ChromeIPhone,
         Edge,
+        EdgeIPad,
         EdgeChromium, 
         Firefox,
+        FirefoxIPad,
+        FirefoxIPhone,
         InternetExplorer,
         Opera,
-        Safari
+        Safari,
+        SafariIPad,
+        SafariIPhone
     }
 }

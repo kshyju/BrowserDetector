@@ -6,7 +6,7 @@ using Microsoft.Extensions.Primitives;
 
 namespace Shyjus.BrowserDetector.Tests
 {
-    public class BrowserDetectorTests
+    public partial class BrowserDetectorTests
     {
         /// <summary>
         /// Verify Chrome browser detection. 

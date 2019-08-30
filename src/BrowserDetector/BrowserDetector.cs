@@ -36,6 +36,24 @@ namespace Shyjus.BrowserDetector
             // For example, The string "Chrome" is present in both Chrome and Edge,
             // So we will first check if it is Edge because Edge has something more specific we can check.
 
+            //Check tablets
+            if (ChromeIPad.TryParse(userAgentString, out var chromeIPad))
+            {
+                return chromeIPad;
+            }
+
+            if (EdgeIPad.TryParse(userAgentString, out var edgeIPad))
+            {
+                return edgeIPad;
+            }
+
+            //Safari iPad has the most generic ua in iPad ua's
+            if (SafariIPad.TryParse(userAgentString, out var safariIPad))
+            {
+                return safariIPad;
+            }
+
+            //Desktops
             if (Opera.TryParse(userAgentString, out var opera))
             {
                 return opera;
