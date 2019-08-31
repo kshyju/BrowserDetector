@@ -54,15 +54,26 @@ namespace Shyjus.BrowserDetector
             }
 
             //Desktops
-            if (Opera.TryParse(userAgentString, out var opera))
+            if (Firefox.TryParse(userAgentString, out var firefox))
             {
-                return opera;
+                return firefox;
             }
 
             if (EdgeChromium.TryParse(userAgentString, out var edgeChromium))
             {
                 return edgeChromium;
             }
+
+            if (InternetExplorer.TryParse(userAgentString, out var ie))
+            {
+                return ie;
+            }
+
+            if (Opera.TryParse(userAgentString, out var opera))
+            {
+                return opera;
+            }
+
 
             if (Edge.TryParse(userAgentString, out var edge))
             {
@@ -79,15 +90,7 @@ namespace Shyjus.BrowserDetector
                 return safari;
             }
 
-            if (Firefox.TryParse(userAgentString, out var firefox))
-            {
-                return firefox;
-            }
 
-            if (InternetExplorer.TryParse(userAgentString, out var ie))
-            {
-                return ie;
-            }
 
             return null;
         }

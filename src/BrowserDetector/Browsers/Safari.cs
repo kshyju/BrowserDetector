@@ -20,9 +20,11 @@ namespace Shyjus.BrowserDetector.Browsers
                 throw new ArgumentNullException(nameof(userAgent));
             }
 
-            var macintoshIndex = userAgent.IndexOf("Macintosh".AsSpan());
+            var safariIndex = userAgent.IndexOf("Safari/".AsSpan());
+            var chromeIndex = userAgent.IndexOf("Chrome/".AsSpan());
 
-            if (macintoshIndex > -1)
+            // Safari UA does not have the word "Chrome/"
+            if (safariIndex > -1 && chromeIndex == -1)
             {
                 var versionIndex = userAgent.IndexOf("Version/".AsSpan());
                 var subStringWithVersion = userAgent.Slice(versionIndex + 8);

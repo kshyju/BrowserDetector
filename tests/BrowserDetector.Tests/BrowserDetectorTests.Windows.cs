@@ -6,70 +6,57 @@ using Microsoft.Extensions.Primitives;
 
 namespace Shyjus.BrowserDetector.Tests
 {
+    /// <summary>
+    /// Desktop browsers in Windows.
+    /// </summary>
     public partial class BrowserDetectorTests
     {
+
         [Fact]
-        public void Opera_Desktop()
+        public void Chrome76_Windows()
         {
+            // Arrange
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.Opera }
+                { Headers.UserAgent, UserAgents.Chrome76_Windows }
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
             var detector = new BrowserDetector(httpContextAccessor);
 
+            // Act
             Browser actual = detector.Browser;
 
-            Assert.Equal(BrowserType.Opera, actual.Type);
-        }
-
-        /// <summary>
-        /// Verify Chrome browser detection.
-        /// </summary>
-        [Fact]
-        public void Chrome_Desktop()
-        {
-            var headers = new Dictionary<string, StringValues>
-            {
-                { Headers.UserAgent, UserAgents.Chrome76 }
-            };
-
-            var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
-            var detector = new BrowserDetector(httpContextAccessor);
-
-            Browser actual = detector.Browser;
-
+            // Assert
             Assert.Equal(BrowserType.Chrome, actual.Type);
         }
-        /// <summary>
-        /// Verify Edge browser detection.
-        /// </summary>
+
         [Fact]
-        public void Verify_Edge_Detection()
+        public void Edge18_Windows()
         {
+            // Arrange
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.Edge18 }
+                { Headers.UserAgent, UserAgents.Edge18_Windows }
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
             var detector = new BrowserDetector(httpContextAccessor);
 
+            // Act
             Browser actual = detector.Browser;
 
+            // Assert
             Assert.Equal(BrowserType.Edge, actual.Type);
         }
 
-        /// <summary>
-        /// Verify Edge chromium browser detection.
-        /// </summary>
+
         [Fact]
-        public void Verify_EdgeChromium_Detection()
+        public void EdgeChromium_Windows()
         {
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.EdgeChromium }
+                { Headers.UserAgent, UserAgents.EdgeChrome_Windows }
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
@@ -80,34 +67,12 @@ namespace Shyjus.BrowserDetector.Tests
             Assert.Equal(BrowserType.EdgeChromium, actual.Type);
         }
 
-        /// <summary>
-        /// Verify safari browser detection.
-        /// </summary>
         [Fact]
-        public void Verify_Safari_Detection()
+        public void Opera_Windows()
         {
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.Safari12 }
-            };
-
-            var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
-            var detector = new BrowserDetector(httpContextAccessor);
-
-            Browser actual = detector.Browser;
-
-            Assert.Equal(BrowserType.Safari, actual.Type);
-        }
-
-        /// <summary>
-        /// Verify Opera browser detection.
-        /// </summary>
-        [Fact]
-        public void Verify_Opera_Detection()
-        {
-            var headers = new Dictionary<string, StringValues>
-            {
-                { Headers.UserAgent, UserAgents.Opera }
+                { Headers.UserAgent, UserAgents.Opera_Windows }
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
@@ -116,7 +81,7 @@ namespace Shyjus.BrowserDetector.Tests
             Browser actual = detector.Browser;
 
             Assert.Equal(BrowserType.Opera, actual.Type);
-        }
+        }     
 
         private IHttpContextAccessor GetMockedHttpContextAccessor(Dictionary<string, StringValues> headers)
         {
