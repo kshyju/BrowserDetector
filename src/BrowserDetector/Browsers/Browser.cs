@@ -17,5 +17,14 @@ namespace Shyjus.BrowserDetector
         /// Version information of the browser instance
         /// </summary>
         public Version Version { protected set; get; }
+
+        /// <summary>
+        /// The device type.
+        /// Possible values are:
+        ///     1. Mobile
+        ///     2. Tablet
+        ///     3. Desktop
+        /// </summary>
+        public DeviceType DeviceType { internal set; get; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿namespace Shyjus.BrowserDetector
 {
+
     public enum BrowserType
     {
         Chrome,
