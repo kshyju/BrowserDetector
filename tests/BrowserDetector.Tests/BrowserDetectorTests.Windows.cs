@@ -11,7 +11,6 @@ namespace Shyjus.BrowserDetector.Tests
     /// </summary>
     public partial class BrowserDetectorTests
     {
-
         [Fact]
         public void Chrome76_Windows()
         {
@@ -49,7 +48,6 @@ namespace Shyjus.BrowserDetector.Tests
             // Assert
             Assert.Equal(BrowserType.Edge, actual.Type);
         }
-
 
         [Fact]
         public void EdgeChromium_Windows()

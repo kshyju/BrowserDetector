@@ -7,7 +7,7 @@ using Microsoft.Extensions.Primitives;
 namespace Shyjus.BrowserDetector.Tests
 {
     /// <summary>
-    /// OSX Tests
+    /// OSX Tests - Desktop
     /// </summary>
     public partial class BrowserDetectorTests
     {

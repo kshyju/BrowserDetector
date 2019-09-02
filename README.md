@@ -24,7 +24,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddMvc();
 }
 ````
-Step 3: Inject `IBrowserDetector` to your controller class or view file and access the `Browser` property.
+Step 3: Inject `IBrowserDetector` to your controller class or view file or middleware and access the `Browser` property.
 
 Example usage in controller code
 
@@ -54,5 +54,33 @@ Example usage in view code
 <h2> @browserDetector.Browser.Type.ToString() </h2>
 <h3> @browserDetector.Browser.Version.ToString() </h3>
 
+````
+
+Example usage in custom middlware
+
+You can inject the `IBrowserDetector` to the `InvokeAsync` method.
+
+````
+public class MyCustomMiddleware
+{
+    private RequestDelegate next;
+    public MyCustomMiddleware(RequestDelegate next)
+    {
+        this.next = next;
+    }
+    public async Task InvokeAsync(HttpContext httpContext, IBrowserDetector browserDetector)
+    {
+        var browser = browserDetector.Browser;
+
+        if (browser.Type == BrowserType.Edge)
+        {
+            await httpContext.Response.WriteAsync("Have you tried the new chromuim based edge ?");
+        }
+        else
+        {
+            await this.next.Invoke(httpContext);
+        }
+    }
+}
 ````
 
