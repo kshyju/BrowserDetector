@@ -9,7 +9,9 @@ namespace Shyjus.BrowserDetector.Browsers
     /// </summary>
     public class Chrome : Browser
     {
-        public override BrowserType Type => BrowserType.Chrome;
+        public override string Name => BrowserNames.Chrome;
+
+        public override string DeviceType => DeviceTypes.Desktop;
 
         /// <summary>
         /// Populates a Chrome browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeded.

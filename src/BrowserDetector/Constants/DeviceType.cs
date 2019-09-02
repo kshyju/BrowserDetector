@@ -1,9 +1,9 @@
 ﻿namespace Shyjus.BrowserDetector
 {
-    public enum DeviceType
+    public static class DeviceTypes
     {
-        Desktop,
-        Mobile,
-        Tablet
+        public const string Desktop = "Desktop";
+        public const string Mobile = "Mobile";
+        public const string Tablet = "Tablet";
     }
 }

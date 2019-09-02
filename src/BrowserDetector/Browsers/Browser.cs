@@ -11,7 +11,7 @@ namespace Shyjus.BrowserDetector
         /// Browser type
         /// Ex: Chrome/Edge
         /// </summary>
-        public abstract BrowserType Type { get; }
+        public abstract string Name { get; }
 
         /// <summary>
         /// Version information of the browser instance
@@ -25,6 +25,6 @@ namespace Shyjus.BrowserDetector
         ///     2. Tablet
         ///     3. Desktop
         /// </summary>
-        public DeviceType DeviceType { internal set; get; }
+        public abstract string DeviceType { get; }
     }
 }

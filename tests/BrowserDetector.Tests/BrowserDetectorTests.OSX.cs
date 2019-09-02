@@ -24,7 +24,7 @@ namespace Shyjus.BrowserDetector.Tests
 
             Browser actual = detector.Browser;
 
-            Assert.Equal(BrowserType.Opera, actual.Type);
+            Assert.Equal(BrowserNames.Opera, actual.Name);
         }
 
         [Fact]
@@ -40,7 +40,7 @@ namespace Shyjus.BrowserDetector.Tests
 
             Browser actual = detector.Browser;
 
-            Assert.Equal(BrowserType.Chrome, actual.Type);
+            Assert.Equal(BrowserNames.Chrome, actual.Name);
         }
 
         [Fact]
@@ -56,7 +56,7 @@ namespace Shyjus.BrowserDetector.Tests
 
             Browser actual = detector.Browser;
 
-            Assert.Equal(BrowserType.Safari, actual.Type);
+            Assert.Equal(BrowserNames.Safari, actual.Name);
         }
 
         [Fact]
@@ -72,7 +72,7 @@ namespace Shyjus.BrowserDetector.Tests
 
             Browser actual = detector.Browser;
 
-            Assert.Equal(BrowserType.Firefox, actual.Type);
+            Assert.Equal(BrowserNames.Firefox, actual.Name);
         }
     }
 }

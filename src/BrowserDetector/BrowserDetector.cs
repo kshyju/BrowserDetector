@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Shyjus.BrowserDetector.Browsers;
 using System;
+using System.Collections.Generic;
 
 namespace Shyjus.BrowserDetector
 {
+
     public class BrowserDetector : IBrowserDetector
     {
         private readonly Lazy<Browser> browser;
@@ -19,7 +21,7 @@ namespace Shyjus.BrowserDetector
         {
             return new Lazy<Browser>(() =>
             {
-               return GetBrowser();
+                return GetBrowser();
             });
         }
 
@@ -29,14 +31,23 @@ namespace Shyjus.BrowserDetector
         /// <returns>A browser object or null</returns>
         private Browser GetBrowser()
         {
-           
             var userAgentString = this.httpContextAccessor.HttpContext.Request.Headers["User-Agent"][0].AsSpan();
 
-            // Order is important, Go from most specific to generic
-            // For example, The string "Chrome" is present in both Chrome and Edge,
-            // So we will first check if it is Edge because Edge has something more specific we can check.
+            // First detect device type/
+            var deviceType = DeviceDetector.GetDeviceType(userAgentString);
 
-            //Check tablets
+            if (deviceType == DeviceTypes.Desktop)
+            {
+                return GetDesktopBrowser(userAgentString);
+            }
+
+            // tablet or mobiles
+            return GetMobileBrowser(userAgentString);
+
+        }
+
+        private static Browser GetMobileBrowser(ReadOnlySpan<char> userAgentString)
+        {
             if (ChromeIPad.TryParse(userAgentString, out var chromeIPad))
             {
                 return chromeIPad;
@@ -52,8 +63,14 @@ namespace Shyjus.BrowserDetector
             {
                 return safariIPad;
             }
+            return null;
+        }
 
-            //Desktops
+        private static Browser GetDesktopBrowser(ReadOnlySpan<char> userAgentString)
+        {
+            // Order is important, Go from most specific to generic
+            // For example, The string "Chrome" is present in both Chrome and Edge,
+            // So we will first check if it is Edge because Edge has something more specific we can check.
             if (Firefox.TryParse(userAgentString, out var firefox))
             {
                 return firefox;
@@ -89,8 +106,6 @@ namespace Shyjus.BrowserDetector
             {
                 return safari;
             }
-
-
 
             return null;
         }

@@ -4,7 +4,8 @@ namespace Shyjus.BrowserDetector.Browsers
 {
     public class SafariIPad : Browser
     {
-        public override BrowserType Type => BrowserType.SafariIPad;
+        public override string Name => BrowserNames.Safari;
+        public override string DeviceType => DeviceTypes.Tablet;
 
         /// <summary>
         /// Populates a Safari browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeded.

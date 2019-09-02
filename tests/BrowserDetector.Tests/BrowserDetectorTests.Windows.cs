@@ -27,7 +27,8 @@ namespace Shyjus.BrowserDetector.Tests
             Browser actual = detector.Browser;
 
             // Assert
-            Assert.Equal(BrowserType.Chrome, actual.Type);
+            Assert.Equal(BrowserNames.Chrome, actual.Name);
+            Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
         }
 
         [Fact]
@@ -46,7 +47,9 @@ namespace Shyjus.BrowserDetector.Tests
             Browser actual = detector.Browser;
 
             // Assert
-            Assert.Equal(BrowserType.Edge, actual.Type);
+            Assert.Equal(BrowserNames.Edge, actual.Name);
+            Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
+
         }
 
         [Fact]
@@ -62,7 +65,9 @@ namespace Shyjus.BrowserDetector.Tests
 
             Browser actual = detector.Browser;
 
-            Assert.Equal(BrowserType.EdgeChromium, actual.Type);
+            Assert.Equal(BrowserNames.EdgeChromium, actual.Name);
+            Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
+
         }
 
         [Fact]
@@ -78,8 +83,10 @@ namespace Shyjus.BrowserDetector.Tests
 
             Browser actual = detector.Browser;
 
-            Assert.Equal(BrowserType.Opera, actual.Type);
-        }     
+            Assert.Equal(BrowserNames.Opera, actual.Name);
+            Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
+
+        }
 
         private IHttpContextAccessor GetMockedHttpContextAccessor(Dictionary<string, StringValues> headers)
         {

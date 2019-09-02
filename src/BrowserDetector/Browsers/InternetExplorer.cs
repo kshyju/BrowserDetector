@@ -3,7 +3,8 @@ namespace Shyjus.BrowserDetector.Browsers
 {
     public class InternetExplorer : Browser
     {
-        public override BrowserType Type => BrowserType.InternetExplorer;
+        public override string Name => BrowserNames.InternetExplorer;
+        public override string DeviceType => DeviceTypes.Tablet;
 
         /// <summary>
         /// Populates an IE browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeeded.

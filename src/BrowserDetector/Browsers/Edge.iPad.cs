@@ -4,7 +4,9 @@ namespace Shyjus.BrowserDetector.Browsers
 {
     public class EdgeIPad : Browser
     {
-        public override BrowserType Type => BrowserType.EdgeIPad;
+        public override string Name => BrowserNames.Edge;
+
+        public override string DeviceType => DeviceTypes.Tablet;
 
         /// <summary>
         /// Populates an Edge browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeeded.

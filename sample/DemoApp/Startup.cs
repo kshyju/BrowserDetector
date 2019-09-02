@@ -1,7 +1,6 @@
 ﻿using DemoApp.Middleware;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -19,8 +18,6 @@ namespace DemoApp
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSwaggerDocument();
-
             // Add browser detection service
             services.AddBrowserDetection();
 
@@ -42,10 +39,6 @@ namespace DemoApp
             }
 
             app.UseStaticFiles();
-
-            // Register the Swagger generator and the Swagger UI middlewares
-            app.UseOpenApi();
-            app.UseSwaggerUi3();
 
             app.UseMvc(routes =>
             {

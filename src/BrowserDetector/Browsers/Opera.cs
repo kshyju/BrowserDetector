@@ -4,7 +4,9 @@ namespace Shyjus.BrowserDetector.Browsers
 {
     public class Opera : Browser
     {
-        public override BrowserType Type => BrowserType.Opera;
+        public override string DeviceType => DeviceTypes.Desktop;
+
+        public override string Name => BrowserNames.Opera;
 
         public static bool TryParse(ReadOnlySpan<char> userAgent, out Opera result)
         {
