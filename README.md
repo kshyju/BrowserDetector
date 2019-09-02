@@ -5,15 +5,15 @@ Browser detection capabilities for asp.net core.
 
 ## How to use ?
 
-Step 1: 
-Install the nuget package
+**Step 1:**
+Install the [BrowserDetector nuget package](https://www.nuget.org/packages/Shyjus.BrowserDetector/)
 
 
 ````
 Install-Package Shyjus.BrowserDetector
 ````
 
-Step 2: Enable the browser detection service inside the `ConfigureServices` method of `Startup.cs`.
+**Step 2:** Enable the browser detection service inside the `ConfigureServices` method of `Startup.cs`.
 
 ````
 public void ConfigureServices(IServiceCollection services)
@@ -24,7 +24,7 @@ public void ConfigureServices(IServiceCollection services)
     services.AddMvc();
 }
 ````
-Step 3: Inject `IBrowserDetector` to your controller class or view file or middleware and access the `Browser` property.
+**Step 3:** Inject `IBrowserDetector` to your controller class or view file or middleware and access the `Browser` property.
 
 Example usage in controller code
 
