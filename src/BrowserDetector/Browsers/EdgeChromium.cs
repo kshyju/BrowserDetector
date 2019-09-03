@@ -7,7 +7,7 @@ namespace Shyjus.BrowserDetector.Browsers
     /// Sample user agent string: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3803.0 Safari/537.36 Edg/76.0.176.0
     /// </summary>
     public class EdgeChromium : Browser
-    {
+    {  
         public override string Name => BrowserNames.EdgeChromium;
         public override string DeviceType => DeviceTypes.Desktop;
 

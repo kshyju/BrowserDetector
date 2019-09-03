@@ -58,6 +58,11 @@ namespace Shyjus.BrowserDetector
                 return edgeIPad;
             }
 
+            if (OperaTouch.TryParse(userAgentString, out var operaTouchMobile))
+            {
+                return operaTouchMobile;
+            }
+
             //Safari iPad has the most generic ua in iPad ua's
             if (SafariIPad.TryParse(userAgentString, out var safariIPad))
             {
@@ -90,7 +95,6 @@ namespace Shyjus.BrowserDetector
             {
                 return opera;
             }
-
 
             if (Edge.TryParse(userAgentString, out var edge))
             {
