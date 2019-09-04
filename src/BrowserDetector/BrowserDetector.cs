@@ -36,13 +36,14 @@ namespace Shyjus.BrowserDetector
             // First detect device type/
             var deviceType = DeviceDetector.GetDeviceType(userAgentString);
 
-            if (deviceType == DeviceTypes.Desktop)
+            if (deviceType == DeviceTypes.Mobile)
             {
-                return GetDesktopBrowser(userAgentString);
+                return GetMobileBrowser(userAgentString);
+
             }
 
-            // tablet or mobiles
-            return GetMobileBrowser(userAgentString);
+            // tablet or desktop
+            return GetDesktopBrowser(userAgentString);
 
         }
 

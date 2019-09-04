@@ -2,11 +2,11 @@
 
 namespace Shyjus.BrowserDetector.Browsers
 {
-    public class Firefox : Browser
+    public class FirefoxIOS : Browser
     {
         public override string Name => BrowserNames.Firefox;
 
-        public override string DeviceType => DeviceTypes.Desktop;
+        public override string DeviceType => DeviceTypes.Mobile;
 
         /// <summary>
         /// Populates a Firefox browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeeded.
@@ -14,20 +14,17 @@ namespace Shyjus.BrowserDetector.Browsers
         /// <param name="userAgent">User agent value</param>
         /// <param name="result">When this method returns True, the result will contain a Firefox object populated</param>
         /// <returns>True if parsing succeeded, else False</returns>
-        public static bool TryParse(ReadOnlySpan<char> userAgent, out Firefox result)
+        public static bool TryParse(ReadOnlySpan<char> userAgent, out FirefoxIOS result)
         {
-            if (userAgent == null)
-            {
-                throw new ArgumentNullException(nameof(userAgent));
-            }
-
-            var firefoxIndex = userAgent.IndexOf("Firefox/".AsSpan());
+            var firefoxIndex = userAgent.IndexOf("FxiOS/".AsSpan());
 
             if (firefoxIndex > -1)
             {
-                var version = userAgent.Slice(firefoxIndex + 8).ToString();
+                var sliceWithVersion = userAgent.Slice(firefoxIndex + 6);
+                var versionEndIndex = sliceWithVersion.IndexOf(' ');
+                var version = sliceWithVersion.Slice(0, versionEndIndex + 1).ToString();
 
-                result = new Firefox()
+                result = new FirefoxIPhone()
                 {
                     Version = Version.Parse(version)
                 };
@@ -38,18 +35,10 @@ namespace Shyjus.BrowserDetector.Browsers
             result = null;
 
             return false;
-        }
+        }   
+        
 
-        private string GetDeviceType(ReadOnlySpan<char> userAgent)
-        {
-            var isTabletPresent = userAgent.IndexOf("Tablet".AsSpan());
-            if (isTabletPresent > -1)
-            {
-                return DeviceTypes.Tablet;
-            }
-
-            return DeviceTypes.Desktop;
-        }
-       
     }
+
+   
 }

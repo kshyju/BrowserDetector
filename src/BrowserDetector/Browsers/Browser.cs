@@ -26,5 +26,20 @@ namespace Shyjus.BrowserDetector
         ///     3. Desktop
         /// </summary>
         public abstract string DeviceType { get; }
+
+
+        protected string GetDeviceType(ReadOnlySpan<char> userAgent)
+        {
+            var platform = PlatformDetector.GetPlatformAndOS(userAgent);
+
+            if (platform.Platform == Platforms.iPad)
+            {
+                return DeviceTypes.Tablet;
+            }
+            if (platform.Platform == Platforms.iPhone)
+            {
+                return DeviceTypes.Mobile;
+            }
+        }
     }
 }

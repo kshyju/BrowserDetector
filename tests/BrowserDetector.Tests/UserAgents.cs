@@ -28,9 +28,10 @@
         public const string Chrome_IPad         = "Mozilla/5.0 (iPad; CPU OS 10_3_3 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) CriOS/71.0.3578.89 Mobile/14G60 Safari/602.1";
         public const string Safari_IPad         = "Mozilla/5.0 (iPad; CPU OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.0 Mobile/14G60 Safari/602.1";
         public const string Edge_IPad           = "Mozilla/5.0 (iPad; CPU OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.0 EdgiOS/44.2.2 Mobile/14G60 Safari/603.3.8";
-        public const string Chrome_GalaxyTabS4      = "Mozilla/5.0 (Linux; Android 8.1.0; SM-T835) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.136 Safari/537.36";
+        public const string Chrome_GalaxyTabS4  = "Mozilla/5.0 (Linux; Android 8.1.0; SM-T835) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.136 Safari/537.36";
         public const string Firefox_GalaxyTabS4 = "Mozilla/5.0 (Android 8.1.0; Tablet; rv:65.0) Gecko/65.0 Firefox/65.0";
-        public const string SamsungInternet_GalaxyTabS4 = "Mozilla/5.0 (Linux; Android 8.1.0; SAMSUNG SM-T835 Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/9.0 Chrome/67.0.3396.87 Safari/537.36";
+        public const string SmsngInt_GlxyTabS4  = "Mozilla/5.0 (Linux; Android 8.1.0; SAMSUNG SM-T835 Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/9.0 Chrome/67.0.3396.87 Safari/537.36";
 
+        public const string Firefox_IPad = "Mozilla/5.0 (iPad; CPU OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) FxiOS/14.0b12646 Mobile/14G60 Safari/603.3.8";
     }
 }
