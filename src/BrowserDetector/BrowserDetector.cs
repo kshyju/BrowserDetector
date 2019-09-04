@@ -77,10 +77,10 @@ namespace Shyjus.BrowserDetector
             // Order is important, Go from most specific to generic
             // For example, The string "Chrome" is present in both Chrome and Edge,
             // So we will first check if it is Edge because Edge has something more specific we can check.
-            if (Firefox.TryParse(userAgentString, out var firefox))
-            {
-                return firefox;
-            }
+            //if (Firefox.TryParse(userAgentString, out var firefox))
+            //{
+            //    return firefox;
+            //}
 
             if (EdgeChromium.TryParse(userAgentString, out var edgeChromium))
             {

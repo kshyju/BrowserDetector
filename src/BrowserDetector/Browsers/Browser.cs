@@ -7,6 +7,7 @@ namespace Shyjus.BrowserDetector
     /// </summary>
     public abstract class Browser
     {
+        private string userAgent;
         /// <summary>
         /// Browser type
         /// Ex: Chrome/Edge
@@ -28,18 +29,18 @@ namespace Shyjus.BrowserDetector
         public abstract string DeviceType { get; }
 
 
-        protected string GetDeviceType(ReadOnlySpan<char> userAgent)
-        {
-            var platform = PlatformDetector.GetPlatformAndOS(userAgent);
+        //protected string GetDeviceType(ReadOnlySpan<char> userAgent)
+        //{
+        //    var platform = PlatformDetector.GetPlatformAndOS(userAgent);
 
-            if (platform.Platform == Platforms.iPad)
-            {
-                return DeviceTypes.Tablet;
-            }
-            if (platform.Platform == Platforms.iPhone)
-            {
-                return DeviceTypes.Mobile;
-            }
-        }
+        //    if (platform.Platform == Platforms.iPad)
+        //    {
+        //        return DeviceTypes.Tablet;
+        //    }
+        //    if (platform.Platform == Platforms.iPhone)
+        //    {
+        //        return DeviceTypes.Mobile;
+        //    }
+        //}
     }
 }

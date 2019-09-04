@@ -2,54 +2,95 @@
 
 namespace Shyjus.BrowserDetector.Browsers
 {
-    public class Firefox : Browser
+    public class Firefox
     {
-        public override string Name => BrowserNames.Firefox;
+        private string userAgent;
 
-        public override string DeviceType => DeviceTypes.Desktop;
+        public string Name { get; }
 
-        /// <summary>
-        /// Populates a Firefox browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeeded.
-        /// </summary>
-        /// <param name="userAgent">User agent value</param>
-        /// <param name="result">When this method returns True, the result will contain a Firefox object populated</param>
-        /// <returns>True if parsing succeeded, else False</returns>
-        public static bool TryParse(ReadOnlySpan<char> userAgent, out Firefox result)
+        public Version Version { get; }
+
+        public string Platform { get; }
+
+        public string DeviceType { get; }
+
+        public string OS { get; }
+
+        private Firefox(ReadOnlySpan<char> userAgent)
         {
-            if (userAgent == null)
+            var platform = PlatformDetector.GetPlatformAndOS(userAgent);
+
+            this.Platform = platform.Platform;
+            this.OS = platform.OS;
+
+            this.DeviceType = GetDeviceType().Value;
+
+        }
+
+        public Lazy<string> GetDeviceType()
+        {
+            return new Lazy<string>(() =>
             {
-                throw new ArgumentNullException(nameof(userAgent));
+                // to do  : Check a dictionary and see allocations difference
+
+                if (this.Platform == Platforms.iPhone)
+                {
+                    return DeviceTypes.Mobile;
+                }
+                else if (this.Platform == Platforms.iPad)
+                {
+                    return DeviceTypes.Mobile;
+                }
+                else if (this.Platform == Platforms.Macintosh || this.Platform == Platforms.Windows10)
+                {
+                    return DeviceTypes.Desktop;
+                }
+
+                return string.Empty;
+            });
+        }
+
+        private static string GetVersionIfKeyPresent(ReadOnlySpan<char> userAgent, ReadOnlySpan<char> key)
+        {
+            var keyStartIndex = userAgent.IndexOf(key);
+
+            if (keyStartIndex == -1)
+            {
+                return null;
             }
 
-            var firefoxIndex = userAgent.IndexOf("Firefox/".AsSpan());
+            var sliceWithVersionPart = userAgent.Slice(keyStartIndex + key.Length);
 
-            if (firefoxIndex > -1)
+            var endIndex = sliceWithVersionPart.IndexOf(' ');
+            if (endIndex > -1)
             {
-                var version = userAgent.Slice(firefoxIndex + 8).ToString();
+                return sliceWithVersionPart.Slice(0, endIndex).ToString(); ;
+            }
 
-                result = new Firefox()
-                {
-                    Version = Version.Parse(version)
-                };
+            return sliceWithVersionPart.ToString();
 
+        }
+
+        public static bool TryParse(ReadOnlySpan<char> userAgent, out Firefox result)
+        {
+            // Windows, Mac
+            var fireFoxVersion = GetVersionIfKeyPresent(userAgent, "Firefox/".AsSpan());
+            if (fireFoxVersion != null)
+            {
+                result = new Firefox(userAgent);
+                return true;
+            }
+
+            // IOS
+            var fxiosVersion = GetVersionIfKeyPresent(userAgent, "FxiOS/".AsSpan());
+            if (fxiosVersion != null)
+            {
+                result = new Firefox(userAgent);
                 return true;
             }
 
             result = null;
-
             return false;
         }
-
-        private string GetDeviceType(ReadOnlySpan<char> userAgent)
-        {
-            var isTabletPresent = userAgent.IndexOf("Tablet".AsSpan());
-            if (isTabletPresent > -1)
-            {
-                return DeviceTypes.Tablet;
-            }
-
-            return DeviceTypes.Desktop;
-        }
-       
     }
 }

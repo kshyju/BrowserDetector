@@ -13,7 +13,7 @@ namespace Shyjus.BrowserDetector.Browsers
         /// <param name="userAgent">User agent value</param>
         /// <param name="result">When this method returns True, the result will contain a Chrome object populated</param>
         /// <returns>True if parsing succeeded, else False</returns>
-        public static bool TryParse(ReadOnlySpan<char> userAgent, out ChromeIPad result)
+        public static bool TryParse(ReadOnlySpan<char> userAgent, out ChromeGalaxyTab result)
         {
             if (userAgent == null)
             {
@@ -31,7 +31,7 @@ namespace Shyjus.BrowserDetector.Browsers
                 {
                     var version = subStringWithVersion.Slice(0, endOfVersionIndex);
 
-                    result = new ChromeIPad()
+                    result = new ChromeGalaxyTab()
                     {
                         Version = Version.Parse(version.ToString())
                     };
