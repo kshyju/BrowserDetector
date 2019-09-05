@@ -53,19 +53,64 @@ namespace Shyjus.BrowserDetector
             var osSubString = platformSubstring.Slice(platFormPartEndIndex + 2); // ';' length +' ' length
 
             // Find the end index of platform end character from the os sub slice
-            var osPartEndIndex = osSubString.IndexOf(';');
+            var osPartEndIndex = osSubString.IndexOf(')');
 
-            // some Macintosh UA does not have an end ";" so look for ") "
-            if (osPartEndIndex == -1)
-            {
-                osPartEndIndex = osSubString.IndexOf(") ".AsSpan());
+            //// some Macintosh UA does not have an end ";" so look for ") "
+            //if (osPartEndIndex == -1)
+            //{
+            //    osPartEndIndex = osSubString.IndexOf(";".AsSpan());
 
-            }
+            //}
             // Get the OS part slice
             var operatingSystemSlice = osSubString.Slice(0, osPartEndIndex);
 
+            // If OS part starts with "Linux", check for next segment to get android veersion //Linux; Android 9; Pixel 3
+            // Linux; Android 8.1.0; SM-T835
 
-            return (Platform: platformSlice.ToString(), OS: operatingSystemSlice.ToString());
+            var p = platformSlice.ToString();
+
+            if (p == "Linux")
+            {
+                var indexOfLastSeperator = operatingSystemSlice.LastIndexOf(';');
+                var device = operatingSystemSlice.Slice(indexOfLastSeperator + 2); // 2 chars(; and space)
+                // Set device as platform
+                p = device.ToString();
+            }
+
+            var os = GetReadableOSName(p, operatingSystemSlice.ToString());
+
+            return (Platform: p, OS: os);
+        }
+
+        private static string GetReadableOSName(string platform, string operatingSystem)
+        {
+            if (platform == Platforms.iPhone ||platform == Platforms.iPad)
+            {
+                return OperatingSystems.IOS;
+            }
+            // If platform starts with "Android" (Firefox galaxy tab4)
+            if (platform == "Android")
+            {
+                return OperatingSystems.Android;
+            }
+            if (platform == "Macintosh")
+            {
+                return OperatingSystems.MacOSX;
+            }
+            if (platform == "Windows NT 10.0")
+            {
+                return OperatingSystems.Windows;
+            }
+            if (platform == "Pixel 3")
+            {
+                return OperatingSystems.Android;
+            }
+            if (platform == "SM-T835")
+            {
+                return OperatingSystems.Android;
+            }
+
+            return operatingSystem;
         }
     }
 }

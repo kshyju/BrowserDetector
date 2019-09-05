@@ -12,7 +12,7 @@ namespace Shyjus.BrowserDetector.Tests
             var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
 
             Assert.Equal(Platforms.Windows10, actual.Platform);
-            Assert.Equal(OperatingSystems.Win64, actual.OS);
+            Assert.Equal(OperatingSystems.Windows, actual.OS);
         }
 
         [Fact]
@@ -22,6 +22,8 @@ namespace Shyjus.BrowserDetector.Tests
             var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
 
             Assert.Equal(Platforms.Macintosh, actual.Platform);
+            Assert.Equal(OperatingSystems.MacOSX, actual.OS);
+
         }
 
         [Fact]
@@ -31,6 +33,8 @@ namespace Shyjus.BrowserDetector.Tests
             var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
 
             Assert.Equal(Platforms.iPhone, actual.Platform);
+            Assert.Equal(OperatingSystems.IOS, actual.OS);
+
         }
         [Fact]
         public void iPad()
@@ -38,14 +42,26 @@ namespace Shyjus.BrowserDetector.Tests
             var userAgentSpan = UserAgents.Chrome_IPad.AsSpan();
             var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
             Assert.Equal(Platforms.iPad, actual.Platform);
+            Assert.Equal(OperatingSystems.IOS, actual.OS);
+
         }
 
         [Fact]
-        public void Linux_Android()
+        public void Linux_Pixel3()
         {
             var userAgentSpan = UserAgents.Chrome_Pixel3.AsSpan();
             var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
-            Assert.Equal(Platforms.Linux, actual.Platform);
+            Assert.Equal(Platforms.Pixel3, actual.Platform);
+            Assert.Equal(OperatingSystems.Android, actual.OS);
+        }
+
+        [Fact]
+        public void Android_GalaxyTab()
+        {
+            var userAgentSpan = UserAgents.Chrome_GalaxyTabS4.AsSpan();
+            var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
+            Assert.Equal(Platforms.Pixel3, actual.Platform);
+            Assert.Equal(OperatingSystems.Android, actual.OS);
         }
     }
 }

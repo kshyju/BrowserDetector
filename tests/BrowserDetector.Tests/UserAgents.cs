@@ -25,10 +25,11 @@
         public const string Chrome_IPad = "Mozilla/5.0 (iPad; CPU OS 10_3_3 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) CriOS/71.0.3578.89 Mobile/14G60 Safari/602.1";
         public const string Chrome_Pixel3 = "Mozilla/5.0 (Linux; Android 9; Pixel 3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.136 Mobile Safari/537.36";
 
-        public const string Firefox_Windows     = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0";
-        public const string Firefox_OSX = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:68.0) Gecko/20100101 Firefox/68.0";
-        public const string Firefox_IPhone = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/18.2b15817 Mobile/15E148 Safari/605.1.15";
-        public const string Firefox_GalaxyTabS4 = "Mozilla/5.0 (Android 8.1.0; Tablet; rv:65.0) Gecko/65.0 Firefox/65.0";
+public const string Firefox_Windows     = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0";
+public const string Firefox_OSX = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:68.0) Gecko/20100101 Firefox/68.0";
+public const string Firefox_IPhone = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/18.2b15817 Mobile/15E148 Safari/605.1.15";
+public const string Firefox_GalaxyTabS4 = "Mozilla/5.0 (Android 8.1.0; Tablet; rv:65.0) Gecko/65.0 Firefox/65.0";
+public const string Firefox_IPad = "Mozilla/5.0 (iPad; CPU OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) FxiOS/14.0b12646 Mobile/14G60 Safari/603.3.8";
 
 
         // Desktop OSX
@@ -45,6 +46,5 @@
         public const string Chrome_GalaxyTabS4  = "Mozilla/5.0 (Linux; Android 8.1.0; SM-T835) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.136 Safari/537.36";
         public const string SmsngInt_GlxyTabS4  = "Mozilla/5.0 (Linux; Android 8.1.0; SAMSUNG SM-T835 Build/M1AJQ) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/9.0 Chrome/67.0.3396.87 Safari/537.36";
 
-        public const string Firefox_IPad = "Mozilla/5.0 (iPad; CPU OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) FxiOS/14.0b12646 Mobile/14G60 Safari/603.3.8";
     }
 }

@@ -23,31 +23,27 @@ namespace Shyjus.BrowserDetector.Browsers
             this.Platform = platform.Platform;
             this.OS = platform.OS;
 
-            this.DeviceType = GetDeviceType().Value;
+            this.DeviceType = GetDeviceType();
 
         }
 
-        public Lazy<string> GetDeviceType()
+        public string GetDeviceType()
         {
-            return new Lazy<string>(() =>
+            // to do  : Check a dictionary and see allocations difference
+
+            if (this.Platform == Platforms.iPhone)
             {
-                // to do  : Check a dictionary and see allocations difference
-
-                if (this.Platform == Platforms.iPhone)
-                {
-                    return DeviceTypes.Mobile;
-                }
-                else if (this.Platform == Platforms.iPad)
-                {
-                    return DeviceTypes.Mobile;
-                }
-                else if (this.Platform == Platforms.Macintosh || this.Platform == Platforms.Windows10)
-                {
-                    return DeviceTypes.Desktop;
-                }
-
-                return string.Empty;
-            });
+                return DeviceTypes.Mobile;
+            }
+            else if (this.Platform == Platforms.iPad)
+            {
+                return DeviceTypes.Mobile;
+            }
+            else if (this.Platform == Platforms.Macintosh || this.Platform == Platforms.Windows10)
+            {
+                return DeviceTypes.Desktop;
+            }
+            return string.Empty;
         }
 
         private static string GetVersionIfKeyPresent(ReadOnlySpan<char> userAgent, ReadOnlySpan<char> key)
