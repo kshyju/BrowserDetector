@@ -32,10 +32,10 @@ namespace BrowserDetector.Tests
         [Fact]
         public void Firefox_IOS_iPhone()
         {
-            var isFireFox = Firefox.TryParse(UserAgents.Firefox_OSX, out var firefox);
+            var isFireFox = Firefox.TryParse(UserAgents.Firefox_IPhone, out var firefox);
 
             Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
+            Assert.Equal(DeviceTypes.Mobile, firefox.DeviceType);
             Assert.Equal(OperatingSystems.IOS, firefox.OS);
         }
 
@@ -45,7 +45,7 @@ namespace BrowserDetector.Tests
             var isFireFox = Firefox.TryParse(UserAgents.Firefox_IPad, out var firefox);
 
             Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
+            Assert.Equal(DeviceTypes.Tablet, firefox.DeviceType);
             Assert.Equal(OperatingSystems.IOS, firefox.OS);
         }
 
@@ -56,7 +56,7 @@ namespace BrowserDetector.Tests
 
             Assert.True(isFireFox);
             Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.MacOSX, firefox.OS);
+            Assert.Equal(OperatingSystems.Android, firefox.OS);
         }
     }
 }

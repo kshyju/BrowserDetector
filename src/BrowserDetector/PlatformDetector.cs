@@ -69,6 +69,8 @@ namespace Shyjus.BrowserDetector
 
             var p = platformSlice.ToString();
 
+
+
             if (p == "Linux")
             {
                 var indexOfLastSeperator = operatingSystemSlice.LastIndexOf(';');
@@ -78,6 +80,13 @@ namespace Shyjus.BrowserDetector
             }
 
             var os = GetReadableOSName(p, operatingSystemSlice.ToString());
+
+            // Android 8.1.0; Tablet; rv:65.0
+            if (p.StartsWith("Android") && userAgentString.IndexOf("; Tablet;".AsSpan()) > -1)
+            {
+                os = OperatingSystems.Android;
+                p = "GalaxyTabS4";
+            }
 
             return (Platform: p, OS: os);
         }

@@ -60,7 +60,7 @@ namespace Shyjus.BrowserDetector.Tests
         {
             var userAgentSpan = UserAgents.Chrome_GalaxyTabS4.AsSpan();
             var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
-            Assert.Equal(Platforms.Pixel3, actual.Platform);
+            Assert.Equal(Platforms.SMT835, actual.Platform);
             Assert.Equal(OperatingSystems.Android, actual.OS);
         }
     }

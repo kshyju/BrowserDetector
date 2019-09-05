@@ -35,9 +35,9 @@ namespace Shyjus.BrowserDetector.Browsers
             {
                 return DeviceTypes.Mobile;
             }
-            else if (this.Platform == Platforms.iPad)
+            else if (this.Platform == Platforms.iPad || this.Platform == "GalaxyTabS4")
             {
-                return DeviceTypes.Mobile;
+                return DeviceTypes.Tablet;
             }
             else if (this.Platform == Platforms.Macintosh || this.Platform == Platforms.Windows10)
             {
