@@ -29,7 +29,7 @@ namespace Shyjus.BrowserDetector
     }
     public static class PlatformDetector
     {
-        public static (string Platform, string OS) GetPlatformAndOS(ReadOnlySpan<char> userAgentString)
+        public static (string Platform, string OS, bool MobileDetected) GetPlatformAndOS(ReadOnlySpan<char> userAgentString)
         {
             // Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.
 
@@ -65,25 +65,11 @@ namespace Shyjus.BrowserDetector
             var p = platformSlice.ToString();
 
 
-
-            //if (p == "Linux")
-            //{
-            //    var indexOfLastSeperator = operatingSystemSlice.LastIndexOf(';');
-            //    var device = operatingSystemSlice.Slice(indexOfLastSeperator + 2); // 2 chars(; and space)
-            //    // Set device as platform
-            //    p = device.ToString();
-            //}
+            var isMobileSlicePresent = userAgentString.IndexOf("Mobile".AsSpan()) > -1;
 
             var os = GetReadableOSName(p, operatingSystemSlice.ToString());
 
-            //// Android 8.1.0; Tablet; rv:65.0
-            //if (p.StartsWith("Android") && userAgentString.IndexOf("; Tablet;".AsSpan()) > -1)
-            //{
-            //    os = OperatingSystems.Android;
-            //    p = "GalaxyTabS4";
-            //}
-
-            return (Platform: p, OS: os);
+            return (Platform: p, OS: os, MobileDetected: isMobileSlicePresent);
         }
 
         private static string GetReadableOSName(string platform, string operatingSystem)
@@ -109,10 +95,11 @@ namespace Shyjus.BrowserDetector
             {
                 return OperatingSystems.Android;
             }
-            //if (platform == "SM-T835")
-            //{
-            //    return OperatingSystems.Android;
-            //}
+            // Pixel 3
+            if (platform == "Linux" && operatingSystem.IndexOf("Android", StringComparison.OrdinalIgnoreCase) > -1)
+            {
+                return OperatingSystems.Android;
+            }
 
             return operatingSystem;
         }

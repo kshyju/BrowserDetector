@@ -34,7 +34,7 @@ namespace Shyjus.BrowserDetector.Tests
         [Fact]
         public void IsDesktop_Windows10()
         {
-            var userAgentSpan = UserAgents.Chrome76_Windows.AsSpan();
+            var userAgentSpan = UserAgents.Chrome_Windows.AsSpan();
             var actual = DeviceDetector.IsDesktop(userAgentSpan);
 
             Assert.True(actual);

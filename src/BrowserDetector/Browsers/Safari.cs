@@ -2,10 +2,11 @@
 
 namespace Shyjus.BrowserDetector.Browsers
 {
-    public class Safari : Browser
+    public class Safari : BaseBrowser
     {
-        public override string Name => BrowserNames.Safari;
-        public override string DeviceType => DeviceTypes.Tablet;
+        public Safari(ReadOnlySpan<char> userAgent, string version) : base(userAgent, version)
+        {
+        }
 
         /// <summary>
         /// Populates a Safari browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeded.
@@ -16,36 +17,21 @@ namespace Shyjus.BrowserDetector.Browsers
         /// <exception cref="ArgumentNullException">Thrown when userAgent parameter value is null</exception>
         public static bool TryParse(ReadOnlySpan<char> userAgent, out Safari result)
         {
-            if (userAgent == null)
-            {
-                throw new ArgumentNullException(nameof(userAgent));
-            }
-
-            var safariIndex = userAgent.IndexOf("Safari/".AsSpan());
             var chromeIndex = userAgent.IndexOf("Chrome/".AsSpan());
+            var safariIndex = userAgent.IndexOf("Safari/".AsSpan());
 
             // Safari UA does not have the word "Chrome/"
             if (safariIndex > -1 && chromeIndex == -1)
             {
-                var versionIndex = userAgent.IndexOf("Version/".AsSpan());
-                var subStringWithVersion = userAgent.Slice(versionIndex + 8);
-                var endOfVersionIndex = subStringWithVersion.IndexOf(' ');
-
-                if (endOfVersionIndex > -1)
+                var fireFoxVersion = GetVersionIfKeyPresent(userAgent, "Safari/");
+                if (fireFoxVersion != null)
                 {
-                    var version = subStringWithVersion.Slice(0, endOfVersionIndex).ToString();
-
-                    result = new Safari
-                    {
-                        Version = Version.Parse(version)
-                    };
-
+                    result = new Safari(userAgent, fireFoxVersion);
                     return true;
                 }
             }
-
             result = null;
-            return false;
+            return false;            
         }
     }
 }

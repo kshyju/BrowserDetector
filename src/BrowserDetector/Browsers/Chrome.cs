@@ -24,14 +24,22 @@ namespace Shyjus.BrowserDetector.Browsers
         {
             var chromeIndex = userAgent.IndexOf("Chrome/".AsSpan());
             var safariIndex = userAgent.IndexOf("Safari/".AsSpan());
+            var crIOS = userAgent.IndexOf("CriOS/".AsSpan());
 
             // Chrome should have both "Safari" and "Chrome" words in it.
-            if (safariIndex >-1 && safariIndex > -1)
+            if (safariIndex >-1 && chromeIndex > -1 || safariIndex> -1 && crIOS> -1)
             {
                 var fireFoxVersion = GetVersionIfKeyPresent(userAgent, "Chrome/");
                 if (fireFoxVersion != null)
                 {
                     result = new Chrome(userAgent, fireFoxVersion);
+                    return true;
+                }
+
+                var chromeIosVersion = GetVersionIfKeyPresent(userAgent, "CriOS/");
+                if (chromeIosVersion != null)
+                {
+                    result = new Chrome(userAgent, chromeIosVersion);
                     return true;
                 }
             }

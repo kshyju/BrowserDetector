@@ -19,12 +19,12 @@ namespace Shyjus.BrowserDetector.Browsers
             this.platform = platform.Platform;
             this.OS = platform.OS;
 
-            this.DeviceType = GetDeviceType();
+            this.DeviceType = GetDeviceType(platform);
 
             this.BrowserVersion = version;
         }
 
-        private string GetDeviceType()
+        private string GetDeviceType((string Platform, string OS, bool MobileDetected) platform)
         {
             // to do  : Check a dictionary and see allocations difference
 
@@ -36,10 +36,21 @@ namespace Shyjus.BrowserDetector.Browsers
             {
                 return DeviceTypes.Tablet;
             }
+
+            // IPad also has Mobile in it. So make sure to check that first
+            if (platform.MobileDetected)
+            {
+                return DeviceTypes.Mobile;
+            }
+
             else if (this.platform == Platforms.Macintosh || this.platform == Platforms.Windows10)
             {
                 return DeviceTypes.Desktop;
             }
+            //else if (this.platform == "Linux" && platform.MobileDetected && this.OS.IndexOf("Android") > -1)
+            //{
+            //    return DeviceTypes.Mobile;
+            //}
             return string.Empty;
         }
 

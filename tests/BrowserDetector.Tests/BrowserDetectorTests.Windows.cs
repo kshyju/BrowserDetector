@@ -17,7 +17,7 @@ namespace Shyjus.BrowserDetector.Tests
             // Arrange
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.Chrome76_Windows }
+                { Headers.UserAgent, UserAgents.Chrome_Windows }
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);

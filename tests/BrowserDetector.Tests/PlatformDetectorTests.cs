@@ -8,7 +8,7 @@ namespace Shyjus.BrowserDetector.Tests
         [Fact]
         public void Windows10_Win64()
         {
-            var userAgentSpan = UserAgents.Chrome76_Windows.AsSpan();
+            var userAgentSpan = UserAgents.Chrome_Windows.AsSpan();
             var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
 
             Assert.Equal(Platforms.Windows10, actual.Platform);
