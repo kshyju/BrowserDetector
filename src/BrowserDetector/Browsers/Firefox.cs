@@ -2,86 +2,33 @@
 
 namespace Shyjus.BrowserDetector.Browsers
 {
-    public class Firefox
+    public class Firefox : BaseBrowser
     {
-        private string userAgent;
 
-        public string Name { get; }
+        public string Name => BrowserNames.Firefox;
 
-        public Version Version { get; }
 
         public string Platform { get; }
 
-        public string DeviceType { get; }
-
-        public string OS { get; }
-
-        private Firefox(ReadOnlySpan<char> userAgent)
-        {
-            var platform = PlatformDetector.GetPlatformAndOS(userAgent);
-
-            this.Platform = platform.Platform;
-            this.OS = platform.OS;
-
-            this.DeviceType = GetDeviceType();
-
-        }
-
-        public string GetDeviceType()
-        {
-            // to do  : Check a dictionary and see allocations difference
-
-            if (this.Platform == Platforms.iPhone)
-            {
-                return DeviceTypes.Mobile;
-            }
-            else if (this.Platform == Platforms.iPad || this.Platform == "GalaxyTabS4")
-            {
-                return DeviceTypes.Tablet;
-            }
-            else if (this.Platform == Platforms.Macintosh || this.Platform == Platforms.Windows10)
-            {
-                return DeviceTypes.Desktop;
-            }
-            return string.Empty;
-        }
-
-        private static string GetVersionIfKeyPresent(ReadOnlySpan<char> userAgent, ReadOnlySpan<char> key)
-        {
-            var keyStartIndex = userAgent.IndexOf(key);
-
-            if (keyStartIndex == -1)
-            {
-                return null;
-            }
-
-            var sliceWithVersionPart = userAgent.Slice(keyStartIndex + key.Length);
-
-            var endIndex = sliceWithVersionPart.IndexOf(' ');
-            if (endIndex > -1)
-            {
-                return sliceWithVersionPart.Slice(0, endIndex).ToString(); ;
-            }
-
-            return sliceWithVersionPart.ToString();
-
+        private Firefox(ReadOnlySpan<char> userAgent, string version):base(userAgent, version)
+        {           
         }
 
         public static bool TryParse(ReadOnlySpan<char> userAgent, out Firefox result)
         {
             // Windows, Mac
-            var fireFoxVersion = GetVersionIfKeyPresent(userAgent, "Firefox/".AsSpan());
+            var fireFoxVersion = GetVersionIfKeyPresent(userAgent, "Firefox/");
             if (fireFoxVersion != null)
             {
-                result = new Firefox(userAgent);
+                result = new Firefox(userAgent, fireFoxVersion);
                 return true;
             }
 
             // IOS
-            var fxiosVersion = GetVersionIfKeyPresent(userAgent, "FxiOS/".AsSpan());
+            var fxiosVersion = GetVersionIfKeyPresent(userAgent, "FxiOS/");
             if (fxiosVersion != null)
             {
-                result = new Firefox(userAgent);
+                result = new Firefox(userAgent, fxiosVersion);
                 return true;
             }
 

@@ -7,11 +7,12 @@ namespace Shyjus.BrowserDetector.Browsers
     /// has both "Safari" and "Chrome" in UA
     /// Sample user agent string: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
     /// </summary>
-    public class Chrome : Browser
-    {
-        public override string Name => BrowserNames.Chrome;
+    public class Chrome : BaseBrowser
 
-        public override string DeviceType => DeviceTypes.Desktop;
+    {
+        public Chrome(ReadOnlySpan<char> userAgent, string version) : base(userAgent, version)
+        {
+        }
 
         /// <summary>
         /// Populates a Chrome browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeded.
@@ -21,35 +22,20 @@ namespace Shyjus.BrowserDetector.Browsers
         /// <returns>True if parsing succeeded, else False</returns>
         public static bool TryParse(ReadOnlySpan<char> userAgent, out Chrome result)
         {
-            if (userAgent == null)
-            {
-                throw new ArgumentNullException(nameof(userAgent));
-            }
-
             var chromeIndex = userAgent.IndexOf("Chrome/".AsSpan());
             var safariIndex = userAgent.IndexOf("Safari/".AsSpan());
 
             // Chrome should have both "Safari" and "Chrome" words in it.
-            if (chromeIndex > -1 && safariIndex > -1)
+            if (safariIndex >-1 && safariIndex > -1)
             {
-                var subStringWithVersion = userAgent.Slice(chromeIndex + 7);
-                var endOfVersionIndex = subStringWithVersion.IndexOf(' ');
-
-                if (endOfVersionIndex > -1)
+                var fireFoxVersion = GetVersionIfKeyPresent(userAgent, "Chrome/");
+                if (fireFoxVersion != null)
                 {
-                    var version = subStringWithVersion.Slice(0, endOfVersionIndex);
-
-                    result = new Chrome()
-                    {
-                        Version = Version.Parse(version.ToString())
-                    };
-
+                    result = new Chrome(userAgent, fireFoxVersion);
                     return true;
                 }
             }
-
             result = null;
-
             return false;
         }
     }

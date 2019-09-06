@@ -102,10 +102,10 @@ namespace Shyjus.BrowserDetector
                 return edge;
             }
 
-            if (Chrome.TryParse(userAgentString, out var chrome))
-            {
-                return chrome;
-            }
+            //if (Chrome.TryParse(userAgentString, out var chrome))
+            //{
+            //    return chrome;
+            //}
 
             if (Safari.TryParse(userAgentString, out var safari))
             {

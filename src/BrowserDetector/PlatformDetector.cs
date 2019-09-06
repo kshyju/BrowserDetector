@@ -55,12 +55,7 @@ namespace Shyjus.BrowserDetector
             // Find the end index of platform end character from the os sub slice
             var osPartEndIndex = osSubString.IndexOf(')');
 
-            //// some Macintosh UA does not have an end ";" so look for ") "
-            //if (osPartEndIndex == -1)
-            //{
-            //    osPartEndIndex = osSubString.IndexOf(";".AsSpan());
-
-            //}
+           
             // Get the OS part slice
             var operatingSystemSlice = osSubString.Slice(0, osPartEndIndex);
 
@@ -71,22 +66,22 @@ namespace Shyjus.BrowserDetector
 
 
 
-            if (p == "Linux")
-            {
-                var indexOfLastSeperator = operatingSystemSlice.LastIndexOf(';');
-                var device = operatingSystemSlice.Slice(indexOfLastSeperator + 2); // 2 chars(; and space)
-                // Set device as platform
-                p = device.ToString();
-            }
+            //if (p == "Linux")
+            //{
+            //    var indexOfLastSeperator = operatingSystemSlice.LastIndexOf(';');
+            //    var device = operatingSystemSlice.Slice(indexOfLastSeperator + 2); // 2 chars(; and space)
+            //    // Set device as platform
+            //    p = device.ToString();
+            //}
 
             var os = GetReadableOSName(p, operatingSystemSlice.ToString());
 
-            // Android 8.1.0; Tablet; rv:65.0
-            if (p.StartsWith("Android") && userAgentString.IndexOf("; Tablet;".AsSpan()) > -1)
-            {
-                os = OperatingSystems.Android;
-                p = "GalaxyTabS4";
-            }
+            //// Android 8.1.0; Tablet; rv:65.0
+            //if (p.StartsWith("Android") && userAgentString.IndexOf("; Tablet;".AsSpan()) > -1)
+            //{
+            //    os = OperatingSystems.Android;
+            //    p = "GalaxyTabS4";
+            //}
 
             return (Platform: p, OS: os);
         }
@@ -114,10 +109,10 @@ namespace Shyjus.BrowserDetector
             {
                 return OperatingSystems.Android;
             }
-            if (platform == "SM-T835")
-            {
-                return OperatingSystems.Android;
-            }
+            //if (platform == "SM-T835")
+            //{
+            //    return OperatingSystems.Android;
+            //}
 
             return operatingSystem;
         }
