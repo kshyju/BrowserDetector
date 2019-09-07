@@ -3,6 +3,36 @@ Browser detection capabilities for asp.net core.
 
 .NET framework 4.7 has `Browser` property on  `HttpContext.Request` which gives you information about the browser, from where there HTTP request came from. Unfortunately, ASP.NET core does not have this. This package can be used to get browser information in your ASP.NET core apps.
 
+## Browsers supported
+
+| First Header  | Operating System | Device type |
+| ------------- | ------------- | ------------- |
+| Chrome  | Windows  | Desktop  |
+| Chrome  | Mac OS  | Desktop  |
+| Chrome  | iOS  | Mobile  |
+| Chrome  | iOS  | Tablet  |
+| Chrome  | Android  | Mobile  |
+| Internet Explorer 11  | Windows  | Desktop  |
+| Edge  | Windows  | Desktop  |
+| Edge  | OSX  | Desktop  |
+| Edge  | iOS  | Tablet  |
+| EdgeChromium  | Windows  | Desktop  |
+| EdgeChromium  | OSX  | Desktop  |
+| Opera  | Windows  | Desktop  |
+| Opera  | Mac OS  | Desktop  |
+| Opera  | iOS  | Mobile  |
+| Opera  | iOS  | Tablet  |
+| Safari  | Windows  | Desktop  |
+| Safari  | Mac OS  | Desktop  |
+| Safari  | iOS  | Mobile  |
+| Safari  | iOS  | Tablet  |
+| Firefox  | Windows  | Desktop  |
+| Firefox  | Mac OS  | Desktop  |
+| Firefox  | iOS  | Mobile  |
+| Firefox  | iOS  | Tablet  |
+
+If you do not see a specific browser/os/device type combo, please [open an issue](https://github.com/kshyju/BrowserDetector/issues/new)
+
 ## How to use ?
 
 **Step 1:**
@@ -51,8 +81,10 @@ Example usage in view code
 ````
 @inject Shyjus.BrowserDetector.IBrowserDetector browserDetector
 
-<h2> @browserDetector.Browser.Type.ToString() </h2>
-<h3> @browserDetector.Browser.Version.ToString() </h3>
+<h2> @browserDetector.Browser.Name </h2>
+<h3> @browserDetector.Browser.Version </h3>
+<h3> @browserDetector.Browser.OS </h3>
+<h3> @browserDetector.Browser.DeviceType </h3>
 
 ````
 

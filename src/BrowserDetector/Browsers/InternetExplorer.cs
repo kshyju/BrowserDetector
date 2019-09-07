@@ -14,13 +14,13 @@ namespace Shyjus.BrowserDetector.Browsers
         {
         }
 
-        public static bool TryParse(ReadOnlySpan<char> userAgent, out EdgeChromium result)
+        public static bool TryParse(ReadOnlySpan<char> userAgent, out InternetExplorer result)
         {
             var tridentVersion = GetVersionIfKeyPresent(userAgent, "Trident/");
 
             if (tridentVersion != null)
             {
-                result = new EdgeChromium(userAgent, tridentVersion);
+                result = new InternetExplorer(userAgent, tridentVersion);
                 return true;
             }
 

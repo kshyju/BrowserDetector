@@ -33,6 +33,27 @@ namespace Shyjus.BrowserDetector.Tests
         }
 
         [Fact]
+        public void IE11_Windows()
+        {
+            // Arrange
+            var headers = new Dictionary<string, StringValues>
+            {
+                { Headers.UserAgent, UserAgents.IE11_Windows }
+            };
+
+            var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
+            var detector = new BrowserDetector(httpContextAccessor);
+
+            // Act
+            Browser actual = detector.Browser;
+
+            // Assert
+            Assert.Equal(BrowserNames.InternetExplorer, actual.Name);
+            Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
+            Assert.Equal(OperatingSystems.Windows, actual.OS);
+        }
+
+        [Fact]
         public void Edge18_Windows()
         {
             // Arrange

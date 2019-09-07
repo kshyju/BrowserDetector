@@ -10,11 +10,11 @@ namespace Shyjus.BrowserDetector.Browsers
         private string platform;
 
         public string DeviceType { get; }
-        public Version Version { get; }
+        //public Version Version { get; }
 
-        public string BrowserVersion { get;  }
+        public string Version { get;  }
         public string OS { get; }
-        public Browser(ReadOnlySpan<char> userAgent, string version)
+        protected Browser(ReadOnlySpan<char> userAgent, string version)
         {
             var platform = PlatformDetector.GetPlatformAndOS(userAgent);
 
@@ -23,7 +23,7 @@ namespace Shyjus.BrowserDetector.Browsers
 
             this.DeviceType = GetDeviceType(platform);
 
-            this.BrowserVersion = version;
+            this.Version = version;
         }
         private string GetDeviceType((string Platform, string OS, bool MobileDetected) platform)
         {
