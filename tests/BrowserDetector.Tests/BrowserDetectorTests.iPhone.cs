@@ -23,7 +23,7 @@ namespace Shyjus.BrowserDetector.Tests
             var detector = new BrowserDetector(httpContextAccessor);
 
             // Act
-            Browser actual = detector.Browser;
+            IBrowser actual = detector.Browser;
 
             // Assert
             Assert.Equal(BrowserNames.Opera, actual.Name);

@@ -7,7 +7,7 @@ namespace Shyjus.BrowserDetector
 
     public class BrowserDetector : IBrowserDetector
     {
-        private readonly Lazy<Browser> browser;
+        private readonly Lazy<IBrowser> browser;
 
         private readonly IHttpContextAccessor httpContextAccessor;
         public BrowserDetector(IHttpContextAccessor httpContextAccessor)
@@ -16,9 +16,9 @@ namespace Shyjus.BrowserDetector
             this.browser = this.GetBrowserLazy();
         }
 
-        private Lazy<Browser> GetBrowserLazy()
+        private Lazy<IBrowser> GetBrowserLazy()
         {
-            return new Lazy<Browser>(() =>
+            return new Lazy<IBrowser>(() =>
             {
                 return GetBrowser();
             });
@@ -28,7 +28,7 @@ namespace Shyjus.BrowserDetector
         /// Populates a browser object from the userAgentString value
         /// </summary>
         /// <returns>A browser object or null</returns>
-        private Browser GetBrowser()
+        private IBrowser GetBrowser()
         {
             var userAgentString = this.httpContextAccessor.HttpContext.Request.Headers["User-Agent"][0].AsSpan();
 
@@ -40,7 +40,7 @@ namespace Shyjus.BrowserDetector
 
    
 
-        private static Browser GetDesktopBrowser(ReadOnlySpan<char> userAgentString)
+        private static IBrowser GetDesktopBrowser(ReadOnlySpan<char> userAgentString)
         {
             // Order is important, Go from most specific to generic
             // For example, The string "Chrome" is present in both Chrome and Edge,
@@ -83,7 +83,7 @@ namespace Shyjus.BrowserDetector
             return null;
         }
 
-        public Browser Browser
+        public IBrowser Browser
         {
             get
             {

@@ -1,6 +1,6 @@
 ﻿namespace Shyjus.BrowserDetector
 {
-    public class Platforms
+    internal class Platforms
     {
         public const string Windows10 = "Windows NT 10.0";
 

@@ -1,33 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Shyjus.BrowserDetector
 {
-    public static class DeviceDetector
-    {
-        public static bool IsDesktop(ReadOnlySpan<char> userAgent)
-        {
-            return userAgent.IndexOf("Mobi".AsSpan()) == -1;
-        }
-
-        public static string GetDeviceType(ReadOnlySpan<char> userAgent)
-        {
-            var isDesktop = IsDesktop(userAgent);
-
-            if (isDesktop)
-            {
-                return DeviceTypes.Desktop;
-            }
-
-            // check tablet or mobile
-
-
-
-            return string.Empty;
-        }
-    }
-    public static class PlatformDetector
+    internal static class PlatformDetector
     {
         public static (string Platform, string OS, bool MobileDetected) GetPlatformAndOS(ReadOnlySpan<char> userAgentString)
         {

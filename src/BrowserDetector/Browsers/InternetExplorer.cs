@@ -5,7 +5,7 @@ namespace Shyjus.BrowserDetector.Browsers
     /// <summary>
     /// Represents an instance of Edge Browser
     /// </summary>
-    public class InternetExplorer : Browser
+    internal class InternetExplorer : Browser
 
     {
         public override string Name => BrowserNames.InternetExplorer;

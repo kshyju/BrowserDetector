@@ -2,7 +2,7 @@
 
 namespace Shyjus.BrowserDetector.Browsers
 {
-    public class Safari : Browser
+    internal class Safari : Browser
     {
         public override string Name => BrowserNames.Safari;
 

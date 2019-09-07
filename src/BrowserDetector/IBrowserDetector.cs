@@ -7,6 +7,6 @@ namespace Shyjus.BrowserDetector
         /// <summary>
         /// Gets the browser for the current HTTP request.
         /// </summary>
-        Browser Browser { get; }
+        IBrowser Browser { get; }
     }
 }

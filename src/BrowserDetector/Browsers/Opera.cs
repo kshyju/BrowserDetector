@@ -5,7 +5,7 @@ namespace Shyjus.BrowserDetector.Browsers
     /// <summary>
     /// Represents an instance of Opera Browser
     /// </summary>
-    public class Opera : Browser
+    internal class Opera : Browser
 
     {
         public override string Name => BrowserNames.Opera;

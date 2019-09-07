@@ -1,46 +1,80 @@
-﻿//using System;
+﻿using System;
+using System.Linq;
 
-//namespace Shyjus.BrowserDetector
-//{
-//    /// <summary>
-//    /// Represents the base version of a Browser instance
-//    /// </summary>
-//    public abstract class Browser
-//    {
-//        private string userAgent;
-//        /// <summary>
-//        /// Browser type
-//        /// Ex: Chrome/Edge
-//        /// </summary>
-//        public abstract string Name { get; }
+namespace Shyjus.BrowserDetector.Browsers
+{
+    internal abstract class Browser : IBrowser
+    {
+        public abstract string Name { get; }
 
-//        /// <summary>
-//        /// Version information of the browser instance
-//        /// </summary>
-//        public Version Version { protected set; get; }
+        private string platform;
 
-//        /// <summary>
-//        /// The device type.
-//        /// Possible values are:
-//        ///     1. Mobile
-//        ///     2. Tablet
-//        ///     3. Desktop
-//        /// </summary>
-//        public abstract string DeviceType { get; }
+        public string DeviceType { get; }
+        //public Version Version { get; }
 
+        public string Version { get; }
+        public string OS { get; }
+        protected Browser(ReadOnlySpan<char> userAgent, string version)
+        {
+            var platform = PlatformDetector.GetPlatformAndOS(userAgent);
 
-//        //protected string GetDeviceType(ReadOnlySpan<char> userAgent)
-//        //{
-//        //    var platform = PlatformDetector.GetPlatformAndOS(userAgent);
+            this.platform = platform.Platform;
+            this.OS = platform.OS;
 
-//        //    if (platform.Platform == Platforms.iPad)
-//        //    {
-//        //        return DeviceTypes.Tablet;
-//        //    }
-//        //    if (platform.Platform == Platforms.iPhone)
-//        //    {
-//        //        return DeviceTypes.Mobile;
-//        //    }
-//        //}
-//    }
-//}
+            this.DeviceType = GetDeviceType(platform);
+
+            this.Version = version;
+        }
+        private string GetDeviceType((string Platform, string OS, bool MobileDetected) platform)
+        {
+            // to do  : Check a dictionary and see allocations difference
+
+            if (this.platform == Platforms.iPhone)
+            {
+                return DeviceTypes.Mobile;
+            }
+            else if (this.platform == Platforms.iPad || this.platform == "GalaxyTabS4")
+            {
+                return DeviceTypes.Tablet;
+            }
+
+            // IPad also has Mobile in it. So make sure to check that first
+            if (platform.MobileDetected)
+            {
+                return DeviceTypes.Mobile;
+            }
+
+            else if (this.platform == Platforms.Macintosh || this.platform.StartsWith("Windows NT"))
+            {
+                return DeviceTypes.Desktop;
+            }
+            //else if (this.platform == "Linux" && platform.MobileDetected && this.OS.IndexOf("Android") > -1)
+            //{
+            //    return DeviceTypes.Mobile;
+            //}
+            return string.Empty;
+        }
+
+        protected static string GetVersionIfKeyPresent(ReadOnlySpan<char> userAgent, string key)
+        {
+            var keyStartIndex = userAgent.IndexOf(key.AsSpan());
+
+            if (keyStartIndex == -1)
+            {
+                return null;
+            }
+
+            var sliceWithVersionPart = userAgent.Slice(keyStartIndex + key.Length);
+
+            var endIndex = sliceWithVersionPart.IndexOf(' ');
+            if (endIndex > -1)
+            {
+                return sliceWithVersionPart.Slice(0, endIndex).ToString(); ;
+            }
+
+            return sliceWithVersionPart.ToString();
+
+        }
+
+    }
+}

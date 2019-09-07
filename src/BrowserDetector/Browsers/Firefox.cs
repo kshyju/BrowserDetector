@@ -2,7 +2,7 @@
 
 namespace Shyjus.BrowserDetector.Browsers
 {
-    public class Firefox : Browser
+    internal class Firefox : Browser
     {
 
         public string Platform { get; }

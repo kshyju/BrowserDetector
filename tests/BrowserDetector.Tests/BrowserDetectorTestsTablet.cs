@@ -21,7 +21,7 @@ namespace Shyjus.BrowserDetector.Tests
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
             var detector = new BrowserDetector(httpContextAccessor);
 
-            Browser actual = detector.Browser;
+            var actual = detector.Browser;
 
             Assert.Equal(BrowserNames.Chrome, actual.Name);
         }
@@ -40,7 +40,7 @@ namespace Shyjus.BrowserDetector.Tests
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
             var detector = new BrowserDetector(httpContextAccessor);
 
-            Browser actual = detector.Browser;
+            var actual = detector.Browser;
 
             Assert.Equal(BrowserNames.Safari, actual.Name);
         }
@@ -59,7 +59,7 @@ namespace Shyjus.BrowserDetector.Tests
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
             var detector = new BrowserDetector(httpContextAccessor);
 
-            Browser actual = detector.Browser;
+            var actual = detector.Browser;
 
             Assert.Equal(BrowserNames.Edge, actual.Name);
         }

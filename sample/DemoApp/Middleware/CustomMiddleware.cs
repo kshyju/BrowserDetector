@@ -25,7 +25,7 @@ namespace DemoApp.Middleware
                                         httpContext.Request.Query.ContainsKey("mw");
                                         httpContext.Request.Query.ContainsKey("mw-check");
 
-
+            //Shyjus.BrowserDetector.Browser
 
             if (browser.Name == BrowserNames.Edge && isTestingMiddleware)
             {

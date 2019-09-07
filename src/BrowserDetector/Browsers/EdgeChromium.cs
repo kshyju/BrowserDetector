@@ -5,7 +5,7 @@ namespace Shyjus.BrowserDetector.Browsers
     /// <summary>
     /// Represents an instance of EdgeChromium Browser
     /// </summary>
-    public class EdgeChromium : Browser
+    internal class EdgeChromium : Browser
 
     {
         public override string Name => BrowserNames.EdgeChromium;
