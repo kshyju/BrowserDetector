@@ -7,11 +7,11 @@
     <Authors>Shyju Krishnankutty</Authors>
     <Company />
     <Product />
-    <Description>Browser detection capabilities in asp.net core.</Description>
+    <Description>Browser detection, device detection and operating system detection capabilities in asp.net core.</Description>
     <RepositoryUrl>https://github.com/kshyju/BrowserDetector</RepositoryUrl>
-    <PackageTags>BrowserDetection BrowserCapabilities BrowserDetectionASP.NETCore HttpContext.Request.Browser</PackageTags>
+    <PackageTags>BrowserDetection BrowserCapabilities BrowserDetectionASP.NETCore HttpContext.Request.Browser DeviceDetection</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.5</Version>
+    <Version>1.0.6</Version>
   </PropertyGroup>
 
   <ItemGroup>
