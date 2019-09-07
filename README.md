@@ -1,7 +1,16 @@
 # BrowserDetector
 Browser detection capabilities for asp.net core.
 
-.NET framework 4.7 has `Browser` property on  `HttpContext.Request` which gives you information about the browser, from where there HTTP request came from. Unfortunately, ASP.NET core does not have this. This package can be used to get browser information in your ASP.NET core apps.
+This libaray detects
+
+1. Brower
+2. Device type
+3. Operating System
+
+.NET framework 4.7 has `Browser` property on  `HttpContext.Request` which gives you information about the browser, from where there HTTP request came from. Unfortunately, ASP.NET core does not have this. This package can be used for browser & device detection in your ASP.NET core apps.
+
+
+
 
 ## Browsers supported
 
@@ -116,3 +125,6 @@ public class MyCustomMiddleware
 }
 ````
 
+### Help this project ?
+
+You can further help the project by visiting [http://bit.ly/detectbrowser](http://bit.ly/detectbrowser) in your browser and see the detection works. File an issue if you see wrong data.
