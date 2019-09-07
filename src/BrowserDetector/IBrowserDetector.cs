@@ -1,4 +1,6 @@
-﻿namespace Shyjus.BrowserDetector
+﻿using Shyjus.BrowserDetector.Browsers;
+
+namespace Shyjus.BrowserDetector
 {
     public interface IBrowserDetector
     {

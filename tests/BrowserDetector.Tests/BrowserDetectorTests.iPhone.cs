@@ -1,6 +1,7 @@
 using Xunit;
 using System.Collections.Generic;
 using Microsoft.Extensions.Primitives;
+using Shyjus.BrowserDetector.Browsers;
 
 namespace Shyjus.BrowserDetector.Tests
 {
@@ -25,7 +26,7 @@ namespace Shyjus.BrowserDetector.Tests
             Browser actual = detector.Browser;
 
             // Assert
-            Assert.Equal(BrowserNames.OperaTouch, actual.Name);
+            Assert.Equal(BrowserNames.Opera, actual.Name);
             Assert.Equal(DeviceTypes.Mobile, actual.DeviceType);
         }
     }

@@ -3,8 +3,10 @@ using System.Linq;
 
 namespace Shyjus.BrowserDetector.Browsers
 {
-    public class BaseBrowser
+    public abstract class Browser
     {
+        public abstract string Name { get; }
+
         private string platform;
 
         public string DeviceType { get; }
@@ -12,7 +14,7 @@ namespace Shyjus.BrowserDetector.Browsers
 
         public string BrowserVersion { get;  }
         public string OS { get; }
-        public BaseBrowser(ReadOnlySpan<char> userAgent, string version)
+        public Browser(ReadOnlySpan<char> userAgent, string version)
         {
             var platform = PlatformDetector.GetPlatformAndOS(userAgent);
 
@@ -23,7 +25,6 @@ namespace Shyjus.BrowserDetector.Browsers
 
             this.BrowserVersion = version;
         }
-
         private string GetDeviceType((string Platform, string OS, bool MobileDetected) platform)
         {
             // to do  : Check a dictionary and see allocations difference
@@ -43,7 +44,7 @@ namespace Shyjus.BrowserDetector.Browsers
                 return DeviceTypes.Mobile;
             }
 
-            else if (this.platform == Platforms.Macintosh || this.platform == Platforms.Windows10)
+            else if (this.platform == Platforms.Macintosh || this.platform.StartsWith("Windows NT"))
             {
                 return DeviceTypes.Desktop;
             }

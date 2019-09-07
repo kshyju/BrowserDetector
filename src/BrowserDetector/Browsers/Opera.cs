@@ -2,35 +2,36 @@
 
 namespace Shyjus.BrowserDetector.Browsers
 {
+    /// <summary>
+    /// Represents an instance of Opera Browser
+    /// </summary>
     public class Opera : Browser
-    {
-        public override string DeviceType => DeviceTypes.Desktop;
 
+    {
         public override string Name => BrowserNames.Opera;
+
+        public Opera(ReadOnlySpan<char> userAgent, string version) : base(userAgent, version)
+        {
+        }
 
         public static bool TryParse(ReadOnlySpan<char> userAgent, out Opera result)
         {
-            if (userAgent == null)
+            var operaVersion = GetVersionIfKeyPresent(userAgent, "OPR/");
+            var operaTouchVersion = GetVersionIfKeyPresent(userAgent, " OPT/");
+
+            if (operaVersion != null)
             {
-                throw new ArgumentNullException(nameof(userAgent));
+                result = new Opera(userAgent, operaVersion);
+                return true;
             }
 
-            var operaIndex = userAgent.IndexOf("OPR/".AsSpan());
-
-            if (operaIndex > -1)
+            if (operaTouchVersion != null)
             {
-                var version = userAgent.Slice(operaIndex + 4).ToString();
-
-                result = new Opera
-                {
-                    Version = Version.Parse(version)
-                };
-
+                result = new Opera(userAgent, operaVersion);
                 return true;
             }
 
             result = null;
-
             return false;
         }
     }

@@ -2,13 +2,12 @@
 
 namespace Shyjus.BrowserDetector.Browsers
 {
-    public class Firefox : BaseBrowser
+    public class Firefox : Browser
     {
 
-        public string Name => BrowserNames.Firefox;
-
-
         public string Platform { get; }
+
+        public override string Name => BrowserNames.Firefox;
 
         private Firefox(ReadOnlySpan<char> userAgent, string version):base(userAgent, version)
         {           

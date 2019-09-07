@@ -1,6 +1,7 @@
 using Xunit;
 using System.Collections.Generic;
 using Microsoft.Extensions.Primitives;
+using Shyjus.BrowserDetector.Browsers;
 
 namespace Shyjus.BrowserDetector.Tests
 {

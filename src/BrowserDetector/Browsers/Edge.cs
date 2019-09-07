@@ -2,41 +2,30 @@
 
 namespace Shyjus.BrowserDetector.Browsers
 {
+    /// <summary>
+    /// Represents an instance of Edge Browser
+    /// </summary>
     public class Edge : Browser
-    {
-        public override string DeviceType => DeviceTypes.Desktop;
 
+    {
         public override string Name => BrowserNames.Edge;
 
-        /// <summary>
-        /// Populates an Edge browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeeded.
-        /// </summary>
-        /// <param name="userAgent">User agent value</param>
-        /// <param name="result">When this method returns True, the result will contain an Edge object populated</param>
-        /// <returns>True if parsing succeeded, else False</returns>
-        public static bool TryParse(ReadOnlySpan<char> userAgent, out Edge result)
+        public Edge(ReadOnlySpan<char> userAgent, string version) : base(userAgent, version)
         {
-            if (userAgent == null)
+        }
+
+        public static bool TryParse(ReadOnlySpan<char> userAgent, out Browser result)
+        {
+            var edgeVersion = GetVersionIfKeyPresent(userAgent, "Edge/");
+            var edgeIosVersion = GetVersionIfKeyPresent(userAgent, "EdgiOS/");
+
+            if (edgeVersion != null || edgeIosVersion != null)
             {
-                throw new ArgumentNullException(nameof(userAgent));
-            }
-
-            var edgeIndex = userAgent.IndexOf("Edge/".AsSpan());
-
-            if (edgeIndex > -1)
-            {
-                var version = userAgent.Slice(edgeIndex + 5).ToString();
-
-                result = new Edge
-                {
-                    Version = Version.Parse(version)
-                };
-
+                result = new Edge(userAgent, edgeVersion);
                 return true;
             }
 
             result = null;
-
             return false;
         }
     }

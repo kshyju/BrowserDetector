@@ -2,8 +2,10 @@
 
 namespace Shyjus.BrowserDetector.Browsers
 {
-    public class Safari : BaseBrowser
+    public class Safari : Browser
     {
+        public override string Name => BrowserNames.Safari;
+
         public Safari(ReadOnlySpan<char> userAgent, string version) : base(userAgent, version)
         {
         }

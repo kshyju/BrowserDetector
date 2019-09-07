@@ -87,7 +87,7 @@ namespace Shyjus.BrowserDetector
             {
                 return OperatingSystems.MacOSX;
             }
-            if (platform == "Windows NT 10.0")
+            if (platform.StartsWith("Windows NT"))
             {
                 return OperatingSystems.Windows;
             }

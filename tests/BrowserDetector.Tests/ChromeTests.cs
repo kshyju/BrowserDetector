@@ -10,49 +10,50 @@ namespace BrowserDetector.Tests
         [Fact]
         public void Chrome_IPad()
         {
-            var isFireFox = Chrome.TryParse(UserAgents.Chrome_IPad, out var firefox);
+            var isChrome = Chrome.TryParse(UserAgents.Chrome_IPad, out var browser);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Tablet, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.IOS, firefox.OS);
+            Assert.True(isChrome);
+            Assert.Equal(BrowserNames.Chrome, browser.Name);
+            Assert.Equal(DeviceTypes.Tablet, browser.DeviceType);
+            Assert.Equal(OperatingSystems.IOS, browser.OS);
         }
         [Fact]
         public void Chrome_IPhone()
         {
-            var isFireFox = Chrome.TryParse(UserAgents.Chrome_IPhone, out var firefox);
+            var isChrome = Chrome.TryParse(UserAgents.Chrome_IPhone, out var browser);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Mobile, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.IOS, firefox.OS);
+            Assert.True(isChrome);
+            Assert.Equal(DeviceTypes.Mobile, browser.DeviceType);
+            Assert.Equal(OperatingSystems.IOS, browser.OS);
         }
         [Fact]
         public void Chrome_Windows_Desktop()
         {
-            var isFireFox = Chrome.TryParse(UserAgents.Chrome_Windows, out var firefox);
+            var isChrome = Chrome.TryParse(UserAgents.Chrome_Windows, out var browser);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.Windows, firefox.OS);
+            Assert.True(isChrome);
+            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(OperatingSystems.Windows, browser.OS);
         }
 
         [Fact]
         public void Chrome_OSX_Desktop()
         {
-            var isFireFox = Chrome.TryParse(UserAgents.Chrome_OSX, out var firefox);
+            var isChrome = Chrome.TryParse(UserAgents.Chrome_OSX, out var browser);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.MacOSX, firefox.OS);
+            Assert.True(isChrome);
+            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(OperatingSystems.MacOSX, browser.OS);
         }
 
         [Fact]
         public void Chrome_Pixel3()
         {
-            var isFireFox = Chrome.TryParse(UserAgents.Chrome_Pixel3, out var firefox);
+            var isChrome = Chrome.TryParse(UserAgents.Chrome_Pixel3, out var browser);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Mobile, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.Android, firefox.OS);
+            Assert.True(isChrome);
+            Assert.Equal(DeviceTypes.Mobile, browser.DeviceType);
+            Assert.Equal(OperatingSystems.Android, browser.OS);
         }
     }
 }
