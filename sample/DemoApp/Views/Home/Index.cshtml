@@ -1,11 +1,14 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Detect";
 }
 @inject Shyjus.BrowserDetector.IBrowserDetector browserDetector
 
 <div class="text-center">
     <div>
-        <h3 class="display-5">@browserDetector.Browser.Type.ToString()</h3>
-        <h3 class="display-5">@browserDetector.Browser.Version.ToString()</h3>
-</div>
+        <h3 class="display-5">@browserDetector.Browser.Name</h3>
+        <h3 class="display-5">@browserDetector.Browser.Version</h3>
+        <h3 class="display-5">@browserDetector.Browser.OS</h3>
+        <h3 class="display-5">@browserDetector.Browser.DeviceType</h3>
+
+    </div>
 </div>

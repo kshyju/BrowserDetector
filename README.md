@@ -1,9 +1,9 @@
 # BrowserDetector
 Browser detection capabilities for asp.net core.
 
-This libaray detects
+This library detects
 
-1. Brower
+1. Browser
 2. Device type
 3. Operating System
 
@@ -127,4 +127,4 @@ public class MyCustomMiddleware
 
 ### Help this project ?
 
-You can further help the project by visiting [http://bit.ly/detectbrowser](http://bit.ly/detectbrowser) in your browser and see the detection works. File an issue if you see wrong data.
+You can further help the project by visiting [http://bit.ly/detectbrowser](http://bit.ly/detectbrowser?github-repo) in your browser and see the detection works. File an issue if you see wrong data.
