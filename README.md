@@ -124,6 +124,18 @@ public class MyCustomMiddleware
     }
 }
 ````
+### What is the Perf impact on adding this package ?
+
+I ran benchmarks on Safari and Chrome desktop user agents and those seems to return the results around **~ 1 micro second.** Heap allocation varies based on the input.
+
+```
+|         Method |     Mean |
+|--------------- |---------:|
+| Chrome_Windows | 1.057 us |
+| Safari_Windows | 1.093 us |
+````
+
+> 1 micro second is one millionth of a second.
 
 ### Help this project ?
 
