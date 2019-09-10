@@ -4,7 +4,7 @@ namespace Shyjus.BrowserDetector
 {
     internal static class PlatformDetector
     {
-        public static (string Platform, string OS, bool MobileDetected) GetPlatformAndOS(ReadOnlySpan<char> userAgentString)
+        internal static (string Platform, string OS, bool MobileDetected) GetPlatformAndOS(ReadOnlySpan<char> userAgentString)
         {
             // Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.
 

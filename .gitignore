@@ -264,3 +264,4 @@ sample/DemoApp/DemoApp.csproj
 sample/DemoApp/DemoApp.csproj
 *.csproj
 sample/DemoApp/DemoApp.csproj
+perf/BrowserDetector.Benchmarks/BenchmarkDotNet.Artifact*
