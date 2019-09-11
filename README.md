@@ -21,6 +21,7 @@ This library does
 | Chrome  | iOS  | Mobile  |
 | Chrome  | iOS  | Tablet  |
 | Chrome  | Android  | Mobile  |
+| Chrome  | Android  | Tablet  |
 | Internet Explorer 11  | Windows  | Desktop  |
 | Edge  | Windows  | Desktop  |
 | Edge  | OSX  | Desktop  |

@@ -5,20 +5,7 @@ using Xunit;
 
 namespace BrowserDetector.Tests
 {
-    public class InternetExplorerTests
-    {
-        [Fact]
-        public void IE11_OSX()
-        {
-            var isEdge = InternetExplorer.TryParse(UserAgents.IE11_Windows, out var edge);
-
-            Assert.True(isEdge);
-            Assert.Equal(BrowserNames.InternetExplorer, edge.Name);
-            Assert.Equal(DeviceTypes.Desktop, edge.DeviceType);
-            Assert.Equal(OperatingSystems.Windows, edge.OS);
-        }
-    }
-        public class EdgeTests
+    public class EdgeTests
     {
         [Fact]
         public void Edge_OSX()

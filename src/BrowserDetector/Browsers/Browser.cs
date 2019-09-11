@@ -48,10 +48,11 @@ namespace Shyjus.BrowserDetection.Browsers
             {
                 return DeviceTypes.Desktop;
             }
-            //else if (this.platform == "Linux" && platform.MobileDetected && this.OS.IndexOf("Android") > -1)
-            //{
-            //    return DeviceTypes.Mobile;
-            //}
+            //Samsung Chrome_GalaxyTabS4 does not have "Mobile", but it has Linux and Android.
+            if (this.platform == "Linux" && platform.OS=="Android" && platform.MobileDetected == false)
+            {
+                return DeviceTypes.Tablet;
+            }
             return string.Empty;
         }
 

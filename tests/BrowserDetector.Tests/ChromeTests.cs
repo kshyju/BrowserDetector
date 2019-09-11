@@ -55,5 +55,25 @@ namespace BrowserDetector.Tests
             Assert.Equal(DeviceTypes.Mobile, browser.DeviceType);
             Assert.Equal(OperatingSystems.Android, browser.OS);
         }
+
+        [Fact]
+        public void Chrome_Galaxy_Note8_Mobile()
+        {
+            var isChrome = Chrome.TryParse(UserAgents.Chrome_Galaxy_Note8_Mobile, out var browser);
+
+            Assert.True(isChrome);
+            Assert.Equal(DeviceTypes.Mobile, browser.DeviceType);
+            Assert.Equal(OperatingSystems.Android, browser.OS);
+        }
+
+        [Fact]
+        public void Chrome_GalaxyTabS4()
+        {
+            var isChrome = Chrome.TryParse(UserAgents.Chrome_GalaxyTabS4, out var browser);
+
+            Assert.True(isChrome);
+            Assert.Equal(DeviceTypes.Tablet, browser.DeviceType);
+            Assert.Equal(OperatingSystems.Android, browser.OS);
+        }
     }
 }
