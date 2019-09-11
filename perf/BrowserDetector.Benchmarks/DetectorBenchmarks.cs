@@ -1,5 +1,5 @@
 ﻿using BenchmarkDotNet.Attributes;
-using Shyjus.BrowserDetector;
+using Shyjus.BrowserDetection;
 using System;
 
 namespace BrowserDetector.Benchmarks

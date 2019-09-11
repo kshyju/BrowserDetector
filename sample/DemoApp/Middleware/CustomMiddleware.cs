@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Shyjus.BrowserDetector;
+using Shyjus.BrowserDetection;
 using System.Threading.Tasks;
 
 namespace DemoApp.Middleware

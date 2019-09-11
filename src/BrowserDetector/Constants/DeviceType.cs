@@ -1,4 +1,4 @@
-﻿namespace Shyjus.BrowserDetector
+﻿namespace Shyjus.BrowserDetection
 {
     public static class DeviceTypes
     {

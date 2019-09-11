@@ -1,6 +1,6 @@
-﻿using Shyjus.BrowserDetector;
-using Shyjus.BrowserDetector.Browsers;
-using Shyjus.BrowserDetector.Tests;
+﻿using Shyjus.BrowserDetection;
+using Shyjus.BrowserDetection.Browsers;
+using Shyjus.BrowserDetection.Tests;
 using Xunit;
 
 namespace BrowserDetector.Tests

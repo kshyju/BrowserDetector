@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Shyjus.BrowserDetector;
+using Shyjus.BrowserDetection;
 
 namespace Microsoft.Extensions.DependencyInjection
 {

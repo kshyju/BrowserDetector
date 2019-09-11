@@ -88,7 +88,7 @@ public class HomeController : Controller
 Example usage in view code
 
 ````
-@inject Shyjus.BrowserDetector.IBrowserDetector browserDetector
+@inject Shyjus.BrowserDetection.IBrowserDetector browserDetector
 
 <h2> @browserDetector.Browser.Name </h2>
 <h3> @browserDetector.Browser.Version </h3>

@@ -1,7 +1,7 @@
-﻿using Shyjus.BrowserDetector.Browsers;
+﻿using Shyjus.BrowserDetection.Browsers;
 using System;
 
-namespace Shyjus.BrowserDetector
+namespace Shyjus.BrowserDetection
 {
     internal static class Detector
     {

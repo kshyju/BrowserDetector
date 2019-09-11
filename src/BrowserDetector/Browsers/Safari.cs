@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Shyjus.BrowserDetector.Browsers
+namespace Shyjus.BrowserDetection.Browsers
 {
     internal class Safari : Browser
     {

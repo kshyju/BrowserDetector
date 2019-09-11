@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Shyjus.BrowserDetector.Browsers
+namespace Shyjus.BrowserDetection.Browsers
 {
     /// <summary>
     /// Represents an instance of Chrome Browser

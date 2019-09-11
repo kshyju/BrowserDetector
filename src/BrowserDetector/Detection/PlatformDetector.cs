@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Shyjus.BrowserDetector
+namespace Shyjus.BrowserDetection
 {
     internal static class PlatformDetector
     {

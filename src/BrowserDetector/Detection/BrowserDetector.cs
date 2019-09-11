@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
-using Shyjus.BrowserDetector.Browsers;
+using Shyjus.BrowserDetection.Browsers;
 using System;
 
-namespace Shyjus.BrowserDetector
+namespace Shyjus.BrowserDetection
 {
 
     public class BrowserDetector : IBrowserDetector

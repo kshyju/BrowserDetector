@@ -1,4 +1,4 @@
-﻿namespace Shyjus.BrowserDetector.Tests
+﻿namespace Shyjus.BrowserDetection.Tests
 {
     public class UserAgents
     {

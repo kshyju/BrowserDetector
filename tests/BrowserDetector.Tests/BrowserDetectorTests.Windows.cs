@@ -3,9 +3,9 @@ using Moq;
 using Microsoft.AspNetCore.Http;
 using System.Collections.Generic;
 using Microsoft.Extensions.Primitives;
-using Shyjus.BrowserDetector.Browsers;
+using Shyjus.BrowserDetection.Browsers;
 
-namespace Shyjus.BrowserDetector.Tests
+namespace Shyjus.BrowserDetection.Tests
 {
     /// <summary>
     /// Desktop browsers in Windows.

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 
-namespace Shyjus.BrowserDetector.Browsers
+namespace Shyjus.BrowserDetection.Browsers
 {
     internal abstract class Browser : IBrowser
     {

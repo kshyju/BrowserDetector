@@ -1,7 +1,7 @@
 ﻿using Xunit;
 using System;
 
-namespace Shyjus.BrowserDetector.Tests
+namespace Shyjus.BrowserDetection.Tests
 {
     public class PlatformDetectorTests
     {
