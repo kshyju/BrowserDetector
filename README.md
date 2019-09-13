@@ -24,8 +24,9 @@ This library does
 | Chrome  | Android  | Tablet  |
 | Internet Explorer 11  | Windows  | Desktop  |
 | Edge  | Windows  | Desktop  |
-| Edge  | OSX  | Desktop  |
 | Edge  | iOS  | Tablet  |
+| Edge  | iOS  | Mobile  |
+| Edge  | Android  | Mobile  |
 | EdgeChromium  | Windows  | Desktop  |
 | EdgeChromium  | OSX  | Desktop  |
 | Opera  | Windows  | Desktop  |
