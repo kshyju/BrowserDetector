@@ -26,5 +26,7 @@ namespace BrowserDetector.Tests
             Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
             Assert.Equal(OperatingSystems.Windows, firefox.OS);
         }
+
+     
     }
 }

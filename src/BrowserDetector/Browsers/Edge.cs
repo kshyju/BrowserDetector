@@ -18,15 +18,18 @@ namespace Shyjus.BrowserDetection.Browsers
         {
             var edgeVersion = GetVersionIfKeyPresent(userAgent, "Edge/");
             var edgeIosVersion = GetVersionIfKeyPresent(userAgent, "EdgiOS/");
+            var edgeAndroidVersion = GetVersionIfKeyPresent(userAgent, "EdgA/");
 
-            if (edgeVersion != null || edgeIosVersion != null)
+            var version = edgeVersion ?? edgeIosVersion ?? edgeAndroidVersion;
+
+            if (version == null)
             {
-                result = new Edge(userAgent, edgeVersion);
-                return true;
+                result = null;
+                return false;
             }
 
-            result = null;
-            return false;
+            result = new Edge(userAgent, version);
+            return true;
         }
     }
 }
