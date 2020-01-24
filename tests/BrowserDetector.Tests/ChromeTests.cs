@@ -37,6 +37,16 @@ namespace BrowserDetector.Tests
         }
 
         [Fact]
+        public void Chrome_Windows_Desktop_32Bit()
+        {
+            var isChrome = Chrome.TryParse(UserAgents.Chrome_Windows32, out var browser);
+
+            Assert.True(isChrome);
+            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(OperatingSystems.Windows, browser.OS);
+        }
+
+        [Fact]
         public void Chrome_OSX_Desktop()
         {
             var isChrome = Chrome.TryParse(UserAgents.Chrome_OSX, out var browser);

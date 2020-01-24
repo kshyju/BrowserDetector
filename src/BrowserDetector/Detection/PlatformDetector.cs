@@ -20,6 +20,11 @@ namespace Shyjus.BrowserDetection
             // Find end index of end character of platform part.
             var platFormPartEndIndex = platformSubstring.IndexOf(';');
 
+            //For 32 bit, no ";" present, so get the closing ")";
+            if (platFormPartEndIndex == -1)
+            {
+                platFormPartEndIndex = platformSubstring.IndexOf(')');
+            }
             // Get the platform part slice
             var platformSlice = platformSubstring.Slice(0, platFormPartEndIndex);
 

@@ -41,25 +41,25 @@ namespace BrowserDetector.Tests
         }
 
 
-        [Fact]
-        public void Edge_SamsungGalaxy7()
-        {
-            var isEdge = Edge.TryParse(UserAgents.EdgeChromium_Android8_SamsungGalaxyS7, out var edge);
+        //[Fact]
+        //public void Edge_SamsungGalaxy7()
+        //{
+        //    var isEdge = Edge.TryParse(UserAgents.EdgeChromium_Android8_SamsungGalaxyS7, out var edge);
 
-            Assert.True(isEdge);
-            Assert.Equal(BrowserNames.Edge, edge.Name);
-            Assert.Equal(DeviceTypes.Mobile, edge.DeviceType);
-            Assert.Equal(OperatingSystems.Android, edge.OS);
-        }
-        [Fact]
-        public void Edge_SamsungGalaxyS9()
-        {
-            var isEdge = Edge.TryParse(UserAgents.EdgeChromium_Android9_SamsungGalaxyS9, out var edge);
+        //    Assert.True(isEdge);
+        //    Assert.Equal(BrowserNames.Edge, edge.Name);
+        //    Assert.Equal(DeviceTypes.Mobile, edge.DeviceType);
+        //    Assert.Equal(OperatingSystems.Android, edge.OS);
+        //}
+        //[Fact]
+        //public void Edge_SamsungGalaxyS9()
+        //{
+        //    var isEdge = Edge.TryParse(UserAgents.EdgeChromium_Android9_SamsungGalaxyS9, out var edge);
 
-            Assert.True(isEdge);
-            Assert.Equal(BrowserNames.Edge, edge.Name);
-            Assert.Equal(DeviceTypes.Mobile, edge.DeviceType);
-            Assert.Equal(OperatingSystems.Android, edge.OS);
-        }
+        //    Assert.True(isEdge);
+        //    Assert.Equal(BrowserNames.Edge, edge.Name);
+        //    Assert.Equal(DeviceTypes.Mobile, edge.DeviceType);
+        //    Assert.Equal(OperatingSystems.Android, edge.OS);
+        //}
     }
 }
