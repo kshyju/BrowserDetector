@@ -1,6 +1,9 @@
 ﻿namespace Shyjus.BrowserDetection
 {
-    public class BrowserNames
+    /// <summary>
+    /// Browser name constants.
+    /// </summary>
+    public static class BrowserNames
     {
         public const string Chrome = "Chrome";
         public const string Edge = "Edge";

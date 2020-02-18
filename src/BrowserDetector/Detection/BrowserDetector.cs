@@ -1,49 +1,46 @@
-﻿using Microsoft.AspNetCore.Http;
-using Shyjus.BrowserDetection.Browsers;
-using System;
-
-namespace Shyjus.BrowserDetection
+﻿namespace Shyjus.BrowserDetection
 {
+    using System;
+    using Microsoft.AspNetCore.Http;
+    using Shyjus.BrowserDetection.Browsers;
 
-    public class BrowserDetector : IBrowserDetector
+    public sealed class BrowserDetector : IBrowserDetector
     {
         private readonly Lazy<IBrowser> browser;
 
         private readonly IHttpContextAccessor httpContextAccessor;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="BrowserDetector"/> class.
+        /// </summary>
+        /// <param name="httpContextAccessor">The IHttpContextAccessor instnace.</param>
         public BrowserDetector(IHttpContextAccessor httpContextAccessor)
         {
             this.httpContextAccessor = httpContextAccessor;
             this.browser = this.GetBrowserLazy();
         }
 
+        /// <summary>
+        /// Gets the browser information.
+        /// </summary>
+        public IBrowser Browser => this.browser.Value;
+
         private Lazy<IBrowser> GetBrowserLazy()
         {
             return new Lazy<IBrowser>(() =>
             {
-                return GetBrowser();
+                return this.GetBrowser();
             });
         }
 
-
-        /// Populates a browser object from the userAgentString value
+        /// <summary>
+        /// Gets the IBrowser instance.
         /// </summary>
-        /// <returns>A browser object or null</returns>
+        /// <returns>The IBrowser instance.</returns>
         private IBrowser GetBrowser()
         {
-            var userAgentString = this.httpContextAccessor.HttpContext.Request.Headers["User-Agent"][0].AsSpan();
-
-
-            // tablet or desktop
-            return Detector.GetBrowser(userAgentString);
-
-        }
-
-        public IBrowser Browser
-        {
-            get
-            {
-                return this.browser.Value;
-            }
+            var userAgentStringSpan = this.httpContextAccessor.HttpContext.Request.Headers["User-Agent"][0].AsSpan();
+            return Detector.GetBrowser(userAgentStringSpan);
         }
     }
 }

@@ -1,10 +1,13 @@
-﻿using Shyjus.BrowserDetection;
-using Shyjus.BrowserDetection.Browsers;
-using Shyjus.BrowserDetection.Tests;
-using Xunit;
-
-namespace BrowserDetector.Tests
+﻿namespace BrowserDetector.Tests
 {
+    using Shyjus.BrowserDetection;
+    using Shyjus.BrowserDetection.Browsers;
+    using Shyjus.BrowserDetection.Tests;
+    using Xunit;
+
+    /// <summary>
+    /// Tests for <see cref="Opera"/>.
+    /// </summary>
     public class OperaTests
     {
         [Fact]

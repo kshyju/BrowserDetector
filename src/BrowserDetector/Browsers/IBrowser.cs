@@ -6,7 +6,7 @@
     public interface IBrowser
     {
         /// <summary>
-        /// The device type.
+        /// Gets the device type.
         /// Possible values are
         /// 1. Desktop
         /// 2. Tablet
@@ -15,18 +15,19 @@
         string DeviceType { get; }
 
         /// <summary>
-        /// The browser name.
+        /// Gets the browser name.
         /// Ex:"Chrome"
         /// </summary>
         string Name { get; }
+
         /// <summary>
-        /// The operating system.
+        /// Gets the operating system.
         /// Ex:"Windows"
         /// </summary>
         string OS { get; }
 
         /// <summary>
-        /// The browser version.
+        /// Gets the browser version.
         /// </summary>
         string Version { get; }
     }

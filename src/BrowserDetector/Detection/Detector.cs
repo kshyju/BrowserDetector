@@ -1,10 +1,15 @@
-﻿using Shyjus.BrowserDetection.Browsers;
-using System;
-
-namespace Shyjus.BrowserDetection
+﻿namespace Shyjus.BrowserDetection
 {
+    using System;
+    using Shyjus.BrowserDetection.Browsers;
+
     internal static class Detector
     {
+        /// <summary>
+        /// Gets an IBrowser instance from the user agent string passed in.
+        /// </summary>
+        /// <param name="userAgentString">The user agent string.</param>
+        /// <returns>An instance of IBrowser.</returns>
         internal static IBrowser GetBrowser(ReadOnlySpan<char> userAgentString)
         {
             // Order is important, Go from most specific to generic
@@ -45,7 +50,7 @@ namespace Shyjus.BrowserDetection
                 return safari;
             }
 
-            return null;
+            return default;
         }
     }
 }
