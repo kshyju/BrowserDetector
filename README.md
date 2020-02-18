@@ -1,5 +1,9 @@
 # BrowserDetector
+[![NuGet version (BrowserDetector)](https://img.shields.io/nuget/v/Shyjus.BrowserDetector.svg?style=flat-square)](https://www.nuget.org/packages/Shyjus.BrowserDetector/)
+
 Browser detection capabilities for asp.net core.
+
+
 
 This library does
 
