@@ -1,10 +1,10 @@
-﻿using System;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Shyjus.BrowserDetection;
-
-namespace Microsoft.Extensions.DependencyInjection
+﻿namespace Microsoft.Extensions.DependencyInjection
 {
+    using System;
+    using Microsoft.AspNetCore.Http;
+    using Microsoft.Extensions.DependencyInjection.Extensions;
+    using Shyjus.BrowserDetection;
+
     /// <summary>
     /// Extension methods for setting up browser detection services in an <see cref="IServiceCollection" />.
     /// </summary>
@@ -24,7 +24,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
             services.TryAddEnumerable(ServiceDescriptor.Singleton<IHttpContextAccessor, HttpContextAccessor>());
             services.AddScoped<IBrowserDetector, BrowserDetector>();
-            
+
             return services;
         }
     }

@@ -6,18 +6,6 @@
     {
         private readonly string platform;
 
-        /// <inheritdoc/>
-        public abstract string Name { get; }
-
-        /// <inheritdoc/>
-        public string DeviceType { get; }
-
-        /// <inheritdoc/>
-        public string Version { get; }
-
-        /// <inheritdoc/>
-        public string OS { get; }
-
         protected Browser(ReadOnlySpan<char> userAgent, string version)
         {
             this.Version = version;
@@ -29,6 +17,18 @@
             // Get the device type from platform info.
             this.DeviceType = this.GetDeviceType(platform);
         }
+
+        /// <inheritdoc/>
+        public abstract string Name { get; }
+
+        /// <inheritdoc/>
+        public string DeviceType { get; }
+
+        /// <inheritdoc/>
+        public string Version { get; }
+
+        /// <inheritdoc/>
+        public string OS { get; }
 
         /// <summary>
         /// Gets the version segment from user agent for the key passed in.
@@ -50,7 +50,7 @@
             var endIndex = sliceWithVersionPart.IndexOf(' ');
             if (endIndex > -1)
             {
-                return sliceWithVersionPart.Slice(0, endIndex).ToString(); ;
+                return sliceWithVersionPart.Slice(0, endIndex).ToString();
             }
 
             return sliceWithVersionPart.ToString();
@@ -77,7 +77,6 @@
             {
                 return DeviceTypes.Mobile;
             }
-
             else if (this.platform == Platforms.Macintosh || this.platform.StartsWith("Windows NT"))
             {
                 return DeviceTypes.Desktop;
@@ -90,6 +89,6 @@
             }
 
             return string.Empty;
-        }    
+        }
     }
 }

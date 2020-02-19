@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
-using Shyjus.BrowserDetection;
-using System.Threading.Tasks;
-
-namespace DemoApp.Middleware
+﻿namespace DemoApp.Middleware
 {
+    using System.Threading.Tasks;
+    using Microsoft.AspNetCore.Http;
+    using Shyjus.BrowserDetection;
+
     /// <summary>
-    /// A custom middleware which uses the browser detection feature.
+    /// A custom middle-ware which uses the browser detection feature.
     /// This sample returns a string when the request is coming form non-chromium based EDGE browser.
     /// </summary>
     public class MyCustomMiddlewareUsingBrowserDetection
@@ -15,6 +15,7 @@ namespace DemoApp.Middleware
         {
             this.next = next;
         }
+
         public async Task InvokeAsync(HttpContext httpContext, IBrowserDetector browserDetector)
         {
             var browser = browserDetector.Browser;

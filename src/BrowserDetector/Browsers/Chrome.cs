@@ -1,19 +1,20 @@
-﻿using System;
-
-namespace Shyjus.BrowserDetection.Browsers
+﻿namespace Shyjus.BrowserDetection.Browsers
 {
+    using System;
+
     /// <summary>
     /// Represents an instance of Chrome Browser
     /// has both "Safari" and "Chrome" in UA
     /// Sample user agent string: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36
     /// </summary>
     internal class Chrome : Browser
-
     {
-        public Chrome(ReadOnlySpan<char> userAgent, string version) : base(userAgent, version)
+        public Chrome(ReadOnlySpan<char> userAgent, string version)
+            : base(userAgent, version)
         {
         }
 
+        /// <inheritdoc/>
         public override string Name => BrowserNames.Chrome;
 
         /// <summary>
@@ -29,7 +30,7 @@ namespace Shyjus.BrowserDetection.Browsers
             var crIOS = userAgent.IndexOf("CriOS/".AsSpan());
 
             // Chrome should have both "Safari" and "Chrome" words in it.
-            if (safariIndex >-1 && chromeIndex > -1 || safariIndex> -1 && crIOS> -1)
+            if ((safariIndex > -1 && chromeIndex > -1) || (safariIndex > -1 && crIOS > -1))
             {
                 var fireFoxVersion = GetVersionIfKeyPresent(userAgent, "Chrome/");
                 if (fireFoxVersion != null)
@@ -45,6 +46,7 @@ namespace Shyjus.BrowserDetection.Browsers
                     return true;
                 }
             }
+
             result = null;
             return false;
         }

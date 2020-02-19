@@ -1,18 +1,18 @@
-﻿using System;
-
-namespace Shyjus.BrowserDetection.Browsers
+﻿namespace Shyjus.BrowserDetection.Browsers
 {
+    using System;
+
     /// <summary>
-    /// Represents an instance of Edge Browser
+    /// Represents an instance of Edge Browser.
     /// </summary>
     internal class Edge : Browser
-
     {
-        public override string Name => BrowserNames.Edge;
-
-        public Edge(ReadOnlySpan<char> userAgent, string version) : base(userAgent, version)
+        public Edge(ReadOnlySpan<char> userAgent, string version)
+            : base(userAgent, version)
         {
         }
+
+        public override string Name => BrowserNames.Edge;
 
         public static bool TryParse(ReadOnlySpan<char> userAgent, out Browser result)
         {

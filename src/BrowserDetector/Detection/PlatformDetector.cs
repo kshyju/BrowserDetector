@@ -62,7 +62,7 @@
         /// <returns>The OS name.</returns>
         private static string GetReadableOSName(string platform, string operatingSystem)
         {
-            if (platform == Platforms.iPhone ||platform == Platforms.iPad)
+            if (platform == Platforms.iPhone || platform == Platforms.iPad)
             {
                 return OperatingSystems.IOS;
             }

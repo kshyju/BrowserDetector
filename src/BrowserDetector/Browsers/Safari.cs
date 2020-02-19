@@ -1,14 +1,15 @@
-﻿using System;
-
-namespace Shyjus.BrowserDetection.Browsers
+﻿namespace Shyjus.BrowserDetection.Browsers
 {
+    using System;
+
     internal class Safari : Browser
     {
-        public override string Name => BrowserNames.Safari;
-
-        public Safari(ReadOnlySpan<char> userAgent, string version) : base(userAgent, version)
+        public Safari(ReadOnlySpan<char> userAgent, string version)
+            : base(userAgent, version)
         {
         }
+
+        public override string Name => BrowserNames.Safari;
 
         /// <summary>
         /// Populates a Safari browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeded.
@@ -32,8 +33,9 @@ namespace Shyjus.BrowserDetection.Browsers
                     return true;
                 }
             }
+
             result = null;
-            return false;            
+            return false;
         }
     }
 }

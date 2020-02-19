@@ -7,11 +7,12 @@
     /// </summary>
     internal class Opera : Browser
     {
-        public override string Name => BrowserNames.Opera;
-
-        public Opera(ReadOnlySpan<char> userAgent, string version) : base(userAgent, version)
+        public Opera(ReadOnlySpan<char> userAgent, string version)
+            : base(userAgent, version)
         {
         }
+
+        public override string Name => BrowserNames.Opera;
 
         /// <summary>
         /// Tries to build an instance of Opera browser from the user agent passed in and

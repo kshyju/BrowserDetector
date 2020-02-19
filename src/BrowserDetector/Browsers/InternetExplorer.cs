@@ -7,12 +7,12 @@
     /// </summary>
     internal class InternetExplorer : Browser
     {
-        public override string Name => BrowserNames.InternetExplorer;
-
         public InternetExplorer(ReadOnlySpan<char> userAgent, string version)
             : base(userAgent, version)
         {
         }
+
+        public override string Name => BrowserNames.InternetExplorer;
 
         /// <summary>
         /// Tries to build an instance of InternetExplorer browser from the user agent passed in and
