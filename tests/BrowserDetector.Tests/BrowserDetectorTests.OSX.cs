@@ -1,14 +1,11 @@
-using Xunit;
-using Moq;
-using Microsoft.AspNetCore.Http;
-using System.Collections.Generic;
-using Microsoft.Extensions.Primitives;
-using Shyjus.BrowserDetection.Browsers;
-
 namespace Shyjus.BrowserDetection.Tests
 {
+    using System.Collections.Generic;
+    using Microsoft.Extensions.Primitives;
+    using Xunit;
+
     /// <summary>
-    /// OSX Tests - Desktop
+    /// OSX Tests - Desktop.
     /// </summary>
     public partial class BrowserDetectorTests
     {

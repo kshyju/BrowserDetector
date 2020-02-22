@@ -1,49 +1,49 @@
-﻿using Shyjus.BrowserDetection;
-using Shyjus.BrowserDetection.Browsers;
-using Shyjus.BrowserDetection.Tests;
-using Xunit;
-
-namespace BrowserDetector.Tests
+﻿namespace BrowserDetector.Tests
 {
+    using Shyjus.BrowserDetection;
+    using Shyjus.BrowserDetection.Tests;
+    using Xunit;
+
     public class SafariTests
     {
         [Fact]
         public void Safari_IPad()
         {
-            var isFireFox = Safari.TryParse(UserAgents.Safari_IPad, out var firefox);
+            var isSafari = Safari.TryParse(UserAgents.Safari_IPad, out var safari);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Tablet, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.IOS, firefox.OS);
+            Assert.True(isSafari);
+            Assert.Equal(DeviceTypes.Tablet, safari.DeviceType);
+            Assert.Equal(OperatingSystems.IOS, safari.OS);
         }
 
         [Fact]
         public void Safari_IPhone()
         {
-            var isFireFox = Safari.TryParse(UserAgents.Safari_IPhone, out var firefox);
+            var isSafari = Safari.TryParse(UserAgents.Safari_IPhone, out var safari);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Mobile, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.IOS, firefox.OS);
+            Assert.True(isSafari);
+            Assert.Equal(DeviceTypes.Mobile, safari.DeviceType);
+            Assert.Equal(OperatingSystems.IOS, safari.OS);
         }
 
         [Fact]
         public void Safari_OSX()
         {
-            var isFireFox = Safari.TryParse(UserAgents.Safari12_OSX, out var firefox);
+            var isSafari = Safari.TryParse(UserAgents.Safari12_OSX, out var safari);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.MacOSX, firefox.OS);
+            Assert.True(isSafari);
+            Assert.Equal(DeviceTypes.Desktop, safari.DeviceType);
+            Assert.Equal(OperatingSystems.MacOSX, safari.OS);
         }
+
         [Fact]
         public void Safari_Windows()
         {
-            var isFireFox = Safari.TryParse(UserAgents.Safari12_Windows, out var firefox);
+            var isSafari = Safari.TryParse(UserAgents.Safari12_Windows, out var safari);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.Windows, firefox.OS);
+            Assert.True(isSafari);
+            Assert.Equal(DeviceTypes.Desktop, safari.DeviceType);
+            Assert.Equal(OperatingSystems.Windows, safari.OS);
         }
     }
 }

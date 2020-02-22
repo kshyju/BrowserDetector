@@ -1,4 +1,4 @@
-﻿namespace Shyjus.BrowserDetection.Browsers
+﻿namespace Shyjus.BrowserDetection
 {
     /// <summary>
     /// A type representing the browser information.

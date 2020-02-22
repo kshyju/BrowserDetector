@@ -1,32 +1,30 @@
-﻿using Shyjus.BrowserDetection;
-using Shyjus.BrowserDetection.Browsers;
-using Shyjus.BrowserDetection.Tests;
-using Xunit;
-
-namespace BrowserDetector.Tests
+﻿namespace BrowserDetector.Tests
 {
+    using Shyjus.BrowserDetection;
+    using Shyjus.BrowserDetection.Tests;
+    using Xunit;
+
     public class EdgeChromiumTests
     {
         [Fact]
         public void EdgeChromium_OSX()
         {
-            var isFireFox = EdgeChromium.TryParse(UserAgents.EdgeChromium_OSX, out var firefox);
+            var isEdgeChromiun = EdgeChromium.TryParse(UserAgents.EdgeChromium_OSX, out var edgeChromium);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.MacOSX, firefox.OS);
+            Assert.True(isEdgeChromiun);
+            Assert.Equal(DeviceTypes.Desktop, edgeChromium.DeviceType);
+            Assert.Equal(OperatingSystems.MacOSX, edgeChromium.OS);
         }
 
         [Fact]
         public void EdgeChromium_Windows()
         {
-            var isFireFox = EdgeChromium.TryParse(UserAgents.EdgeChrome_Windows, out var firefox);
+            var isEdgeChromium = EdgeChromium.TryParse(UserAgents.EdgeChrome_Windows, out var edgeChromium);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.Windows, firefox.OS);
+            Assert.True(isEdgeChromium);
+            Assert.Equal(DeviceTypes.Desktop, edgeChromium.DeviceType);
+            Assert.Equal(OperatingSystems.Windows, edgeChromium.OS);
         }
 
-     
     }
 }

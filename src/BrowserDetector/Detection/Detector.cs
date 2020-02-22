@@ -1,8 +1,10 @@
 ﻿namespace Shyjus.BrowserDetection
 {
     using System;
-    using Shyjus.BrowserDetection.Browsers;
 
+    /// <summary>
+    /// The browser detector.
+    /// </summary>
     internal static class Detector
     {
         /// <summary>

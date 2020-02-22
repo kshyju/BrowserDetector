@@ -1,8 +1,11 @@
-﻿using Xunit;
-using System;
-
-namespace Shyjus.BrowserDetection.Tests
+﻿namespace Shyjus.BrowserDetection.Tests
 {
+    using System;
+    using Xunit;
+
+    /// <summary>
+    /// Tests for PlatformDetector.
+    /// </summary>
     public class PlatformDetectorTests
     {
         [Fact]
@@ -34,8 +37,8 @@ namespace Shyjus.BrowserDetection.Tests
 
             Assert.Equal(Platforms.iPhone, actual.Platform);
             Assert.Equal(OperatingSystems.IOS, actual.OS);
-
         }
+
         [Fact]
         public void iPad()
         {

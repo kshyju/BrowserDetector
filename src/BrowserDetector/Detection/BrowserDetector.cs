@@ -2,8 +2,10 @@
 {
     using System;
     using Microsoft.AspNetCore.Http;
-    using Shyjus.BrowserDetection.Browsers;
 
+    /// <summary>
+    /// A class to get browser and platform information.
+    /// </summary>
     public sealed class BrowserDetector : IBrowserDetector
     {
         private readonly Lazy<IBrowser> browser;
@@ -13,7 +15,7 @@
         /// <summary>
         /// Initializes a new instance of the <see cref="BrowserDetector"/> class.
         /// </summary>
-        /// <param name="httpContextAccessor">The IHttpContextAccessor instnace.</param>
+        /// <param name="httpContextAccessor">The IHttpContextAccessor instance.</param>
         public BrowserDetector(IHttpContextAccessor httpContextAccessor)
         {
             this.httpContextAccessor = httpContextAccessor;

@@ -1,10 +1,12 @@
-﻿using Shyjus.BrowserDetection;
-using Shyjus.BrowserDetection.Browsers;
-using Shyjus.BrowserDetection.Tests;
-using Xunit;
-
-namespace BrowserDetector.Tests
+﻿namespace BrowserDetector.Tests
 {
+    using Shyjus.BrowserDetection;
+    using Shyjus.BrowserDetection.Tests;
+    using Xunit;
+
+    /// <summary>
+    /// Tests for Chrome.
+    /// </summary>
     public class ChromeTests
     {
         [Fact]
@@ -17,6 +19,7 @@ namespace BrowserDetector.Tests
             Assert.Equal(DeviceTypes.Tablet, browser.DeviceType);
             Assert.Equal(OperatingSystems.IOS, browser.OS);
         }
+
         [Fact]
         public void Chrome_IPhone()
         {
@@ -26,6 +29,7 @@ namespace BrowserDetector.Tests
             Assert.Equal(DeviceTypes.Mobile, browser.DeviceType);
             Assert.Equal(OperatingSystems.IOS, browser.OS);
         }
+
         [Fact]
         public void Chrome_Windows_Desktop()
         {

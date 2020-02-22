@@ -4,7 +4,7 @@ namespace Shyjus.BrowserDetection.Tests
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Primitives;
     using Moq;
-    using Shyjus.BrowserDetection.Browsers;
+    using Shyjus.BrowserDetection;
     using Xunit;
 
     /// <summary>

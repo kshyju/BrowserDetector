@@ -1,12 +1,17 @@
-﻿using Shyjus.BrowserDetection;
-using Shyjus.BrowserDetection.Browsers;
-using Shyjus.BrowserDetection.Tests;
-using Xunit;
-
-namespace BrowserDetector.Tests
+﻿namespace BrowserDetector.Tests
 {
-    public class EdgeTests
+    using Shyjus.BrowserDetection;
+    using Shyjus.BrowserDetection.Tests;
+    using Xunit;
+
+    /// <summary>
+    /// Tests for Edge browser.
+    /// </summary>
+    public sealed class EdgeTests
     {
+        /// <summary>
+        /// Verifies Edge 18 in desktop.
+        /// </summary>
         [Fact]
         public void Edge18_Windows()
         {
@@ -18,6 +23,9 @@ namespace BrowserDetector.Tests
             Assert.Equal(OperatingSystems.Windows, edge.OS);
         }
 
+        /// <summary>
+        /// Verifies Edge in iPad.
+        /// </summary>
         [Fact]
         public void Edge_IPad()
         {
@@ -29,6 +37,9 @@ namespace BrowserDetector.Tests
             Assert.Equal(OperatingSystems.IOS, edge.OS);
         }
 
+        /// <summary>
+        /// Verifies Edge in iPhone.
+        /// </summary>
         [Fact]
         public void Edge_IPhone()
         {
@@ -39,27 +50,5 @@ namespace BrowserDetector.Tests
             Assert.Equal(DeviceTypes.Mobile, edge.DeviceType);
             Assert.Equal(OperatingSystems.IOS, edge.OS);
         }
-
-
-        //[Fact]
-        //public void Edge_SamsungGalaxy7()
-        //{
-        //    var isEdge = Edge.TryParse(UserAgents.EdgeChromium_Android8_SamsungGalaxyS7, out var edge);
-
-        //    Assert.True(isEdge);
-        //    Assert.Equal(BrowserNames.Edge, edge.Name);
-        //    Assert.Equal(DeviceTypes.Mobile, edge.DeviceType);
-        //    Assert.Equal(OperatingSystems.Android, edge.OS);
-        //}
-        //[Fact]
-        //public void Edge_SamsungGalaxyS9()
-        //{
-        //    var isEdge = Edge.TryParse(UserAgents.EdgeChromium_Android9_SamsungGalaxyS9, out var edge);
-
-        //    Assert.True(isEdge);
-        //    Assert.Equal(BrowserNames.Edge, edge.Name);
-        //    Assert.Equal(DeviceTypes.Mobile, edge.DeviceType);
-        //    Assert.Equal(OperatingSystems.Android, edge.OS);
-        //}
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Shyjus.BrowserDetection.Browsers
+﻿namespace Shyjus.BrowserDetection
 {
     using System;
 
@@ -12,8 +12,15 @@
         {
         }
 
+        /// <inheritdoc/>
         public override string Name => BrowserNames.Edge;
 
+        /// <summary>
+        /// Tries to create an Edge browser object from the user agent passed in.
+        /// </summary>
+        /// <param name="userAgent">The user agent.</param>
+        /// <param name="result">An instance of Edge browser, if parsing was successful.</param>
+        /// <returns>A boolean value indicating whether the parsing was successful.</returns>
         public static bool TryParse(ReadOnlySpan<char> userAgent, out Browser result)
         {
             var edgeVersion = GetVersionIfKeyPresent(userAgent, "Edge/");

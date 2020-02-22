@@ -1,7 +1,5 @@
 ﻿namespace Shyjus.BrowserDetection
 {
-    using Shyjus.BrowserDetection.Browsers;
-
     /// <summary>
     /// An abstraction to get browser information.
     /// </summary>

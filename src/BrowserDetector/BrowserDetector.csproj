@@ -11,8 +11,8 @@
     <RepositoryUrl>https://github.com/kshyju/BrowserDetector</RepositoryUrl>
     <PackageTags>BrowserDetection BrowserCapabilities BrowserDetectionASP.NETCore HttpContext.Request.Browser DeviceDetection</PackageTags>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.1.0</Version>
-    <PackageReleaseNotes>Support for Edge on Android</PackageReleaseNotes>
+    <Version>1.1.1</Version>
+    <PackageReleaseNotes>Signing the assembly.</PackageReleaseNotes>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>browserdetector.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>

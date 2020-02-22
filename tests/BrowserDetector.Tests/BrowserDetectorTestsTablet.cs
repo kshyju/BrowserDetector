@@ -1,10 +1,9 @@
-using Xunit;
-using System.Collections.Generic;
-using Microsoft.Extensions.Primitives;
-using Shyjus.BrowserDetection.Browsers;
-
 namespace Shyjus.BrowserDetection.Tests
 {
+    using System.Collections.Generic;
+    using Microsoft.Extensions.Primitives;
+    using Xunit;
+
     public partial class BrowserDetectorTests
     {
         /// <summary>
