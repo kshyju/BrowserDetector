@@ -12,5 +12,6 @@
         public const string Safari = "Safari";
         public const string EdgeChromium = "EdgeChromium";
         public const string InternetExplorer = "InternetExplorer";
+        public const string Instagram = "Instagram";
     }
 }

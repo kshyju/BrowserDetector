@@ -38,6 +38,9 @@
         public const string Safari_IPhone = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.1.2 Mobile/15E148 Safari/604.1";
         public const string Safari_IPad = "Mozilla/5.0 (iPad; CPU OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Version/10.0 Mobile/14G60 Safari/602.1";
 
+        public const string Instagram_IPhone = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 147.0.0.30.121 (iPhone9,3; iOS 12_4_1; tr_TR; tr-TR; scale=2.00; 750x1334; 224680684)";
+        public const string Instagram_IPad = "Mozilla/5.0 (iPad; CPU OS 13_5_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148 Instagram 132.1.0.21.129 (iPad5,1; iOS 13_5_1; tr_TR; tr-TR; scale=2.00; 750x1334; 202764138)";
+
         // Mobile IOS
 
         // Mobile Android
