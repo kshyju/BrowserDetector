@@ -52,6 +52,11 @@
                 return safari;
             }
 
+            if (Instagram.TryParse(userAgentString, out var instagram))
+            {
+                return instagram;
+            }
+
             return default;
         }
     }
