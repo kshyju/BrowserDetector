@@ -39,10 +39,14 @@
         /// Gets the IBrowser instance.
         /// </summary>
         /// <returns>The IBrowser instance.</returns>
-        private IBrowser GetBrowser()
+        private IBrowser? GetBrowser()
         {
-            var userAgentStringSpan = this.httpContextAccessor.HttpContext.Request.Headers[Headers.UserAgent][0].AsSpan();
-            return Detector.GetBrowser(userAgentStringSpan);
+            if (this.httpContextAccessor.HttpContext?.Request?.Headers?.TryGetValue(Headers.UserAgent, out var uaHeader) == true)
+            {
+                return Detector.GetBrowser(uaHeader[0].AsSpan());
+            }
+
+            return default;
         }
     }
 }

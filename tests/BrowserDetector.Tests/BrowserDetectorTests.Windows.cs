@@ -1,3 +1,5 @@
+using System.Net.Http.Headers;
+
 namespace Shyjus.BrowserDetection.Tests
 {
     using System.Collections.Generic;
@@ -109,7 +111,22 @@ namespace Shyjus.BrowserDetection.Tests
             Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
 
         }
+        [Fact]
+        public void Handles_Gracefully_When_UserAgent_Header_Missing()
+        {
+            var headers = new Dictionary<string, StringValues>
+            {
+                { "UA-Header-Missing", UserAgents.Opera_Windows }
+            };
 
+            var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
+            var detector = new BrowserDetector(httpContextAccessor);
+
+            var actual = detector.Browser;
+
+            Assert.Null(actual);
+
+        }
         private IHttpContextAccessor GetMockedHttpContextAccessor(Dictionary<string, StringValues> headers)
         {
             var headerDictionary = new HeaderDictionary(headers);
