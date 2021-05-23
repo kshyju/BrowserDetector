@@ -41,7 +41,7 @@
         /// <returns>The IBrowser instance.</returns>
         private IBrowser GetBrowser()
         {
-            var userAgentStringSpan = this.httpContextAccessor.HttpContext.Request.Headers["User-Agent"][0].AsSpan();
+            var userAgentStringSpan = this.httpContextAccessor.HttpContext.Request.Headers[Headers.UserAgent][0].AsSpan();
             return Detector.GetBrowser(userAgentStringSpan);
         }
     }

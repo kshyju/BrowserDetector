@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
-    <SignAssembly>true</SignAssembly>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>browserdetectorperf.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\BrowserDetector\BrowserDetector.csproj" />
+    <ProjectReference Include="..\..\src\BrowserDetector.NET5\BrowserDetector.NetCore.csproj" />
   </ItemGroup>
 
 </Project>

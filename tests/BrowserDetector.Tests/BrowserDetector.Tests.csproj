@@ -1,11 +1,11 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
 
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
 
     <AssemblyOriginatorKeyFile>browserdetectortests.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
@@ -25,7 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\BrowserDetector\BrowserDetector.csproj" />
+    <ProjectReference Include="..\..\src\BrowserDetector.NET5\BrowserDetector.NetCore.csproj" />
   </ItemGroup>
 
 </Project>
