@@ -1,0 +1,29 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <AssemblyName>Shyjus.BrowserDetector</AssemblyName>
+    <RootNamespace>Shyjus.BrowserDetector</RootNamespace>
+    <Version>2.0.0</Version>
+    <Description>Browser detection, device detection and operating system detection capabilities in asp.net core.</Description>
+    <Authors>Shyju Krishnankutty</Authors>
+    <Company />
+    <RepositoryUrl>https://github.com/kshyju/BrowserDetector</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/kshyju/BrowserDetector</PackageProjectUrl>
+    <PackageTags>AspNetCoreBrowserDetection, BrowserDetection BrowserCapabilities BrowserDetectionASP.NETCore HttpContext.Request.Browser DeviceDetection</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageReleaseNotes>Updated target framework to .net core 3.0 (from .net standard 2.2)</PackageReleaseNotes>
+    <TargetFrameworks>net5.0;netcoreapp3.0</TargetFrameworks>
+    <PackageVersion>2.0.1</PackageVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>BrowserDetector.Tests</_Parameter1>
+    </AssemblyAttribute>
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>BrowserDetector.Benchmarks</_Parameter1>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+</Project>
