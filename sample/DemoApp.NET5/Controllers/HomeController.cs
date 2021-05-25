@@ -20,6 +20,8 @@ namespace DemoApp.NET5.Controllers
         [HttpGet]
         public string Get()
         {
+            this._logger.LogInformation("Inside GET action method");
+
             IBrowser browser = this.browserDetector.Browser;
             
             return $".NET 5.0 APP. Browser:{browser.Name}, Version: {browser.Version},Device type: {browser.DeviceType}, OS: {browser.OS}";

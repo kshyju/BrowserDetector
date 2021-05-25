@@ -2,9 +2,6 @@
 using Microsoft.Extensions.Logging;
 using Shyjus.BrowserDetection;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DemoApp.NET3._1.Controllers
 {
@@ -23,6 +20,8 @@ namespace DemoApp.NET3._1.Controllers
         [HttpGet]
         public string Get()
         {
+            this._logger.LogInformation("Inside GET action method");
+
             IBrowser browser = this.browserDetector.Browser;
 
             return $".NET CORE 3.1 APP. Browser:{browser.Name}, Version: {browser.Version},Device type: {browser.DeviceType}, OS: {browser.OS}";
