@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Shyjus.BrowserDetection;
 
 namespace DemoApp.NET5.Controllers
@@ -25,7 +22,7 @@ namespace DemoApp.NET5.Controllers
         {
             IBrowser browser = this.browserDetector.Browser;
             
-            return $"Browser:{browser.Name}, Version: {browser.Version},Device type: {browser.DeviceType}, OS: {browser.OS}";
+            return $".NET 5.0 APP. Browser:{browser.Name}, Version: {browser.Version},Device type: {browser.DeviceType}, OS: {browser.OS}";
         }
     }
     
