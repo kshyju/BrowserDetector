@@ -15,7 +15,7 @@
         [Fact]
         public void Edge18_Windows()
         {
-            var isEdge = Edge.TryParse(UserAgents.Edge18_Windows, out var edge);
+            var isEdge = Edge.TryParse(UserAgents.Edge18Windows, out var edge);
 
             Assert.True(isEdge);
             Assert.Equal(BrowserNames.Edge, edge.Name);
@@ -29,7 +29,7 @@
         [Fact]
         public void Edge_IPad()
         {
-            var isEdge = Edge.TryParse(UserAgents.Edge_IPad, out var edge);
+            var isEdge = Edge.TryParse(UserAgents.EdgeIPad, out var edge);
 
             Assert.True(isEdge);
             Assert.Equal(BrowserNames.Edge, edge.Name);
@@ -43,7 +43,7 @@
         [Fact]
         public void Edge_IPhone()
         {
-            var isEdge = Edge.TryParse(UserAgents.Edge_IPhone, out var edge);
+            var isEdge = Edge.TryParse(UserAgents.EdgeIPhone, out var edge);
 
             Assert.True(isEdge);
             Assert.Equal(BrowserNames.Edge, edge.Name);

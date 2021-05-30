@@ -16,7 +16,7 @@ namespace Shyjus.BrowserDetection.Tests
             // Arrange
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.OperaTouch_IPhone }
+                { Headers.UserAgent, UserAgents.OperaTouchIPhone },
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);

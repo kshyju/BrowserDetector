@@ -1,5 +1,3 @@
-using System.Net.Http.Headers;
-
 namespace Shyjus.BrowserDetection.Tests
 {
     using System.Collections.Generic;
@@ -20,7 +18,7 @@ namespace Shyjus.BrowserDetection.Tests
             // Arrange
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.Chrome_Windows }
+                { Headers.UserAgent, UserAgents.ChromeWindows },
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
@@ -40,7 +38,7 @@ namespace Shyjus.BrowserDetection.Tests
             // Arrange
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.IE11_Windows }
+                { Headers.UserAgent, UserAgents.Ie11Windows },
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
@@ -61,7 +59,7 @@ namespace Shyjus.BrowserDetection.Tests
             // Arrange
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.Edge18_Windows }
+                { Headers.UserAgent, UserAgents.Edge18Windows },
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
@@ -73,7 +71,6 @@ namespace Shyjus.BrowserDetection.Tests
             // Assert
             Assert.Equal(BrowserNames.Edge, actual.Name);
             Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
-
         }
 
         [Fact]
@@ -81,7 +78,7 @@ namespace Shyjus.BrowserDetection.Tests
         {
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.EdgeChrome_Windows }
+                { Headers.UserAgent, UserAgents.EdgeChromeWindows },
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
@@ -91,7 +88,6 @@ namespace Shyjus.BrowserDetection.Tests
 
             Assert.Equal(BrowserNames.EdgeChromium, actual.Name);
             Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
-
         }
 
         [Fact]
@@ -99,7 +95,7 @@ namespace Shyjus.BrowserDetection.Tests
         {
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.Opera_Windows }
+                { Headers.UserAgent, UserAgents.OperaWindows }
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
@@ -109,14 +105,14 @@ namespace Shyjus.BrowserDetection.Tests
 
             Assert.Equal(BrowserNames.Opera, actual.Name);
             Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
-
         }
+
         [Fact]
         public void Handles_Gracefully_When_UserAgent_Header_Missing()
         {
             var headers = new Dictionary<string, StringValues>
             {
-                { "UA-Header-Missing", UserAgents.Opera_Windows }
+                { "UA-Header-Missing", UserAgents.OperaWindows }
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
@@ -125,8 +121,8 @@ namespace Shyjus.BrowserDetection.Tests
             var actual = detector.Browser;
 
             Assert.Null(actual);
-
         }
+
         private IHttpContextAccessor GetMockedHttpContextAccessor(Dictionary<string, StringValues> headers)
         {
             var headerDictionary = new HeaderDictionary(headers);

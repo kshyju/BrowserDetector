@@ -12,7 +12,7 @@
         [Fact]
         public void Opera_OSX()
         {
-            var isOpera = Opera.TryParse(UserAgents.Opera_OSX, out var opera);
+            var isOpera = Opera.TryParse(UserAgents.OperaOsx, out var opera);
 
             Assert.True(isOpera);
             Assert.Equal(DeviceTypes.Desktop, opera.DeviceType);
@@ -22,7 +22,7 @@
         [Fact]
         public void Opera_Windows()
         {
-            var isOpera = Opera.TryParse(UserAgents.Opera_Windows, out var operea);
+            var isOpera = Opera.TryParse(UserAgents.OperaWindows, out var operea);
 
             Assert.True(isOpera);
             Assert.Equal(DeviceTypes.Desktop, operea.DeviceType);
@@ -32,7 +32,7 @@
         [Fact]
         public void Opera_IPhone()
         {
-            var isOpera = Opera.TryParse(UserAgents.OperaTouch_IPhone, out var opera);
+            var isOpera = Opera.TryParse(UserAgents.OperaTouchIPhone, out var opera);
 
             Assert.True(isOpera);
             Assert.Equal(DeviceTypes.Mobile, opera.DeviceType);

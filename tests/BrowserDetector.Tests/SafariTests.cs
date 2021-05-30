@@ -9,7 +9,7 @@
         [Fact]
         public void Safari_IPad()
         {
-            var isSafari = Safari.TryParse(UserAgents.Safari_IPad, out var safari);
+            var isSafari = Safari.TryParse(UserAgents.SafariIPad, out var safari);
 
             Assert.True(isSafari);
             Assert.Equal(DeviceTypes.Tablet, safari.DeviceType);
@@ -19,7 +19,7 @@
         [Fact]
         public void Safari_IPhone()
         {
-            var isSafari = Safari.TryParse(UserAgents.Safari_IPhone, out var safari);
+            var isSafari = Safari.TryParse(UserAgents.SafariIPhone, out var safari);
 
             Assert.True(isSafari);
             Assert.Equal(DeviceTypes.Mobile, safari.DeviceType);
@@ -29,7 +29,7 @@
         [Fact]
         public void Safari_OSX()
         {
-            var isSafari = Safari.TryParse(UserAgents.Safari12_OSX, out var safari);
+            var isSafari = Safari.TryParse(UserAgents.Safari12Osx, out var safari);
 
             Assert.True(isSafari);
             Assert.Equal(DeviceTypes.Desktop, safari.DeviceType);
@@ -39,7 +39,7 @@
         [Fact]
         public void Safari_Windows()
         {
-            var isSafari = Safari.TryParse(UserAgents.Safari12_Windows, out var safari);
+            var isSafari = Safari.TryParse(UserAgents.Safari12Windows, out var safari);
 
             Assert.True(isSafari);
             Assert.Equal(DeviceTypes.Desktop, safari.DeviceType);

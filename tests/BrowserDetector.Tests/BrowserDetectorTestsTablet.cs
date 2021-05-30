@@ -7,14 +7,14 @@ namespace Shyjus.BrowserDetection.Tests
     public partial class BrowserDetectorTests
     {
         /// <summary>
-        /// Verify Chrome in iPad browser detection. 
+        /// Verify Chrome in iPad browser detection.
         /// </summary>
         [Fact]
         public void Chrome_In_IPad()
         {
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.Chrome_IPad }
+                { Headers.UserAgent, UserAgents.ChromeIPad },
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
@@ -26,15 +26,13 @@ namespace Shyjus.BrowserDetection.Tests
         }
 
         /// <summary>
-        /// Verify Chrome in iPad browser detection. 
+        /// Verify Chrome in iPad browser detection.
         /// </summary>
         [Fact]
         public void Safari_In_IPad()
         {
-            var headers = new Dictionary<string, StringValues>
-            {
-                { Headers.UserAgent, UserAgents.Safari_IPad }
-            };
+            var headers = new Dictionary<string, StringValues>();
+            headers.Add(Headers.UserAgent, UserAgents.SafariIPad);
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
             var detector = new BrowserDetector(httpContextAccessor);
@@ -45,14 +43,14 @@ namespace Shyjus.BrowserDetection.Tests
         }
 
         /// <summary>
-        /// Verify Chrome in iPad browser detection. 
+        /// Verify Chrome in iPad browser detection.
         /// </summary>
         [Fact]
         public void Edge_In_IPad()
         {
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.Edge_IPad }
+                { Headers.UserAgent, UserAgents.EdgeIPad },
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);

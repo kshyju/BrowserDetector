@@ -12,7 +12,7 @@
         [Fact]
         public void IE11()
         {
-            var isInternetExplorer = InternetExplorer.TryParse(UserAgents.IE11_Windows, out var internetExplorer);
+            var isInternetExplorer = InternetExplorer.TryParse(UserAgents.Ie11Windows, out var internetExplorer);
 
             Assert.True(isInternetExplorer);
             Assert.Equal(BrowserNames.InternetExplorer, internetExplorer.Name);

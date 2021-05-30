@@ -11,7 +11,7 @@
         [Fact]
         public void Windows10_Win64()
         {
-            var userAgentSpan = UserAgents.Chrome_Windows.AsSpan();
+            var userAgentSpan = UserAgents.ChromeWindows.AsSpan();
             var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
 
             Assert.Equal(Platforms.Windows10, actual.Platform);
@@ -21,18 +21,17 @@
         [Fact]
         public void Macintosh()
         {
-            var userAgentSpan = UserAgents.Chrome_OSX.AsSpan();
+            var userAgentSpan = UserAgents.ChromeOsx.AsSpan();
             var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
 
             Assert.Equal(Platforms.Macintosh, actual.Platform);
             Assert.Equal(OperatingSystems.MacOSX, actual.OS);
-
         }
 
         [Fact]
         public void IPhone()
         {
-            var userAgentSpan = UserAgents.Chrome_IPhone.AsSpan();
+            var userAgentSpan = UserAgents.ChromeIPhone.AsSpan();
             var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
 
             Assert.Equal(Platforms.iPhone, actual.Platform);
@@ -42,7 +41,7 @@
         [Fact]
         public void iPad()
         {
-            var userAgentSpan = UserAgents.Chrome_IPad.AsSpan();
+            var userAgentSpan = UserAgents.ChromeIPad.AsSpan();
             var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
             Assert.Equal(Platforms.iPad, actual.Platform);
             Assert.Equal(OperatingSystems.IOS, actual.OS);
@@ -52,7 +51,7 @@
         [Fact]
         public void Linux_Pixel3()
         {
-            var userAgentSpan = UserAgents.Chrome_Pixel3.AsSpan();
+            var userAgentSpan = UserAgents.ChromePixel3.AsSpan();
             var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
             //Assert.Equal(Platforms.Pixel3, actual.Platform);
             Assert.Equal(OperatingSystems.Android, actual.OS);
@@ -61,7 +60,7 @@
         [Fact]
         public void Android_GalaxyTab()
         {
-            var userAgentSpan = UserAgents.Chrome_GalaxyTabS4.AsSpan();
+            var userAgentSpan = UserAgents.ChromeGalaxyTabS4.AsSpan();
             var actual = PlatformDetector.GetPlatformAndOS(userAgentSpan);
             Assert.Equal(OperatingSystems.Android, actual.OS);
         }

@@ -14,7 +14,7 @@ namespace Shyjus.BrowserDetection.Tests
         {
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.Opera_OSX }
+                { Headers.UserAgent, UserAgents.OperaOsx },
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
@@ -30,7 +30,7 @@ namespace Shyjus.BrowserDetection.Tests
         {
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.Chrome_OSX }
+                { Headers.UserAgent, UserAgents.ChromeOsx },
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
@@ -46,7 +46,7 @@ namespace Shyjus.BrowserDetection.Tests
         {
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.Safari12_OSX }
+                { Headers.UserAgent, UserAgents.Safari12Osx },
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
@@ -62,7 +62,7 @@ namespace Shyjus.BrowserDetection.Tests
         {
             var headers = new Dictionary<string, StringValues>
             {
-                { Headers.UserAgent, UserAgents.Firefox_OSX }
+                { Headers.UserAgent, UserAgents.FirefoxOsx }
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
