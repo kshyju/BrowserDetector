@@ -18,7 +18,7 @@ This library does
 
 ## Browsers supported
 
-| First Header  | Operating System | Device type |
+| Name    | Operating System | Device type |
 | ------------- | ------------- | ------------- |
 | Chrome  | Windows  | Desktop  |
 | Chrome  | Mac OS  | Desktop  |
@@ -130,6 +130,15 @@ public class MyCustomMiddleware
     }
 }
 ````
+
+### Interpreting the Name values returned by `IBrowser.Name`
+
+ * Firefox - Firefox browser.
+ * EdgeChromium - The new Chromium based Microsoft Edge browser.
+ * Edge - The legacy Edge browser.
+ * Safari - The Safari browser.
+ * Chrome - The Chrome browser.
+
 ### What is the Perf impact on adding this package ?
 
 I ran benchmarks on Safari and Chrome desktop user agents and those seems to return the results around **~ 1 micro second.** Heap allocation varies based on the input.
