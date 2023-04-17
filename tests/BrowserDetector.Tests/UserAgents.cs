@@ -28,6 +28,7 @@
         public const string ChromeGalaxyNote8Mobile = "Mozilla/5.0 (Linux; Android 8.1.0; SM-N960F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.136 Mobile Safari/537.36";
 
         public const string FirefoxWindows = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101 Firefox/68.0";
+        public const string FirefoxAndroid = "Mozilla/5.0 (Android 13; Mobile; rv:68.0) Gecko/68.0 Firefox/112.0";
         public const string FirefoxOsx = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:68.0) Gecko/20100101 Firefox/68.0";
         public const string FirefoxIPhone = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) FxiOS/18.2b15817 Mobile/15E148 Safari/605.1.15";
         public const string FirefoxGalaxyTabS4 = "Mozilla/5.0 (Android 8.1.0; Tablet; rv:65.0) Gecko/65.0 Firefox/65.0";
