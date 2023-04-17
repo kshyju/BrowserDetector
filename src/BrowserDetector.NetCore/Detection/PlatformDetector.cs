@@ -68,7 +68,7 @@
             }
 
             // If platform starts with "Android" (Firefox galaxy tab4)
-            if (platform == "Android")
+            if (platform.StartsWith("Android")
             {
                 return OperatingSystems.Android;
             }
