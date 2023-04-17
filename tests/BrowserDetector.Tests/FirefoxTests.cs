@@ -45,5 +45,15 @@
             Assert.Equal(DeviceTypes.Tablet, firefox.DeviceType);
             Assert.Equal(OperatingSystems.IOS, firefox.OS);
         }
+        
+        [Fact]
+        public void Firefox_Android()
+        {
+            var isFireFox = Firefox.TryParse(UserAgents.FirefoxAndroid, out var firefox);
+
+            Assert.True(isFireFox);
+            Assert.Equal(DeviceTypes.Mobile, firefox.DeviceType);
+            Assert.Equal(OperatingSystems.Android, firefox.OS);
+        }
     }
 }
