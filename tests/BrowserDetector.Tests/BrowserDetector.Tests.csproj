@@ -25,7 +25,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\BrowserDetector.NET5\BrowserDetector.NetCore.csproj" />
     <ProjectReference Include="..\..\src\BrowserDetector.NetCore\BrowserDetector.NetCore.csproj" />
   </ItemGroup>
 

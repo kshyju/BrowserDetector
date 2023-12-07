@@ -1,4 +1,7 @@
-﻿namespace Shyjus.BrowserDetection
+﻿using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("BrowserDetector.Tests")]
+namespace Shyjus.BrowserDetection
 {
     using System;
 
