@@ -39,7 +39,7 @@
         /// Gets the IBrowser instance.
         /// </summary>
         /// <returns>The IBrowser instance.</returns>
-        private IBrowser? GetBrowser()
+        private IBrowser GetBrowser()
         {
             if (this.httpContextAccessor.HttpContext?.Request?.Headers?.TryGetValue(Headers.UserAgent, out var uaHeader) == true)
             {
