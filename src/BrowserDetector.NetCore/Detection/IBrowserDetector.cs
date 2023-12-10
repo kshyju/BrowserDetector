@@ -1,4 +1,5 @@
-﻿namespace Shyjus.BrowserDetection
+﻿#nullable enable
+namespace Shyjus.BrowserDetection
 {
     /// <summary>
     /// An abstraction to get browser information.

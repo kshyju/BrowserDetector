@@ -260,7 +260,3 @@ paket-files/
 __pycache__/
 *.pyc
 sample/DemoApp/Properties/PublishProfiles/browser-detection - Web Deploy.pubxml
-sample/DemoApp/DemoApp.csproj
-sample/DemoApp/DemoApp.csproj
-*.csproj
-sample/DemoApp/DemoApp.csproj

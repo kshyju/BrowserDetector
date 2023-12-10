@@ -1,4 +1,8 @@
-﻿namespace Shyjus.BrowserDetection
+﻿using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("BrowserDetector.Benchmarks")]
+
+namespace Shyjus.BrowserDetection
 {
     using System;
 
@@ -12,7 +16,7 @@
         /// </summary>
         /// <param name="userAgentString">The user agent string.</param>
         /// <returns>An instance of IBrowser.</returns>
-        internal static IBrowser? GetBrowser(ReadOnlySpan<char> userAgentString)
+        internal static IBrowser GetBrowser(ReadOnlySpan<char> userAgentString)
         {
             // Order is important, Go from most specific to generic
             // For example, The string "Chrome" is present in both Chrome and Edge,

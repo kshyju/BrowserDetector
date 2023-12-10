@@ -2,22 +2,17 @@
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>browserdetectorperf.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="BenchmarkDotNet" Version="0.11.5" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="BenchmarkDotNet" Version="0.13.11" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\BrowserDetector.NET5\BrowserDetector.NetCore.csproj" />
-    <ProjectReference Include="..\..\src\BrowserDetector.NetCore\BrowserDetector.NetCore.csproj" />
+    <ProjectReference Include="..\..\src\BrowserDetector.NetCore\BrowserDetector.Net.csproj" />
   </ItemGroup>
 
 </Project>

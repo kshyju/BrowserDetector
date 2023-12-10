@@ -1,4 +1,5 @@
-﻿namespace Shyjus.BrowserDetection
+﻿#nullable enable
+namespace Shyjus.BrowserDetection
 {
     using System;
     using Microsoft.AspNetCore.Http;
@@ -8,7 +9,7 @@
     /// </summary>
     public sealed class BrowserDetector : IBrowserDetector
     {
-        private readonly Lazy<IBrowser> browser;
+        private readonly Lazy<IBrowser?> browser;
 
         private readonly IHttpContextAccessor httpContextAccessor;
 
@@ -25,13 +26,13 @@
         /// <summary>
         /// Gets the browser information.
         /// </summary>
-        public IBrowser Browser => this.browser.Value;
+        public IBrowser? Browser => this.browser.Value;
 
-        private Lazy<IBrowser> GetBrowserLazy()
+        private Lazy<IBrowser?> GetBrowserLazy()
         {
-            return new Lazy<IBrowser>(() =>
+            return new Lazy<IBrowser?>(() =>
             {
-                return this.GetBrowser();
+                return GetBrowser();
             });
         }
 
