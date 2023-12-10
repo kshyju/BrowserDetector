@@ -31,6 +31,7 @@ namespace Shyjus.BrowserDetection
         /// <inheritdoc/>
         public string OS { get; }
 
+        /// <inheritdoc/>
         public bool IsValid => !string.IsNullOrEmpty(Version);
 
         /// <summary>

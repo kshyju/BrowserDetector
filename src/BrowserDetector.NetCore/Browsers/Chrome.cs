@@ -13,8 +13,6 @@
         /// Populates a Chrome browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeded.
         /// </summary>
         /// <param name="userAgent">User agent value</param>
-        /// <param name="result">When this method returns True, the result will contain a Chrome object populated</param>
-        /// <returns>True if parsing succeeded, else False</returns>
         public Chrome(string userAgent)
             : base(userAgent)
         {

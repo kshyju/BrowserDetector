@@ -10,8 +10,6 @@
         /// returns a value that indicates whether the parsing succeeded.
         /// </summary>
         /// <param name="userAgent">The user agent value.</param>
-        /// <param name="result">A Firefox browser instance.</param>
-        /// <returns>A boolean value that indicates whether the parsing succeeded.</returns>
         public Firefox(string userAgent)
     : base(userAgent)
         {
