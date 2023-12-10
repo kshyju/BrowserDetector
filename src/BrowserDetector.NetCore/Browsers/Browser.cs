@@ -9,10 +9,8 @@ namespace Shyjus.BrowserDetection
     {
         private readonly string platform;
 
-        protected Browser(ReadOnlySpan<char> userAgent, string version)
+        protected Browser(ReadOnlySpan<char> userAgent)
         {
-            this.Version = version;
-
             var platform = PlatformDetector.GetPlatformAndOS(userAgent);
             this.platform = platform.Platform;
             this.OS = platform.OS;
@@ -28,10 +26,13 @@ namespace Shyjus.BrowserDetection
         public string DeviceType { get; }
 
         /// <inheritdoc/>
-        public string Version { get; }
+        public abstract string Version { get; }
 
         /// <inheritdoc/>
         public string OS { get; }
+
+        /// <inheritdoc/>
+        public bool IsValid => !string.IsNullOrEmpty(Version);
 
         /// <summary>
         /// Gets the version segment from user agent for the key passed in.
@@ -39,7 +40,7 @@ namespace Shyjus.BrowserDetection
         /// <param name="userAgent">The user agent value.</param>
         /// <param name="key">The key to use for looking up the version segment.</param>
         /// <returns>The version segment.</returns>
-        protected static string GetVersionIfKeyPresent(ReadOnlySpan<char> userAgent, string key)
+        protected static string? GetVersionIfKeyIsPresent(ReadOnlySpan<char> userAgent, string key)
         {
             var keyStartIndex = userAgent.IndexOf(key.AsSpan());
 

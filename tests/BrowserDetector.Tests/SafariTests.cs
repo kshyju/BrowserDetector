@@ -9,41 +9,44 @@
         [Fact]
         public void Safari_IPad()
         {
-            var isSafari = Safari.TryParse(UserAgents.SafariIPad, out var safari);
+            var browser = new Safari(UserAgents.SafariIPad);
 
-            Assert.True(isSafari);
-            Assert.Equal(DeviceTypes.Tablet, safari.DeviceType);
-            Assert.Equal(OperatingSystems.IOS, safari.OS);
+            Assert.True(browser.IsValid);
+            Assert.Equal(DeviceTypes.Tablet, browser.DeviceType);
+            Assert.Equal(OperatingSystems.IOS, browser.OS);
         }
 
         [Fact]
         public void Safari_IPhone()
         {
-            var isSafari = Safari.TryParse(UserAgents.SafariIPhone, out var safari);
+            var browser = new Safari(UserAgents.SafariIPhone);
 
-            Assert.True(isSafari);
-            Assert.Equal(DeviceTypes.Mobile, safari.DeviceType);
-            Assert.Equal(OperatingSystems.IOS, safari.OS);
+
+            Assert.True(browser.IsValid);
+            Assert.Equal(DeviceTypes.Mobile, browser.DeviceType);
+            Assert.Equal(OperatingSystems.IOS, browser.OS);
         }
 
         [Fact]
         public void Safari_OSX()
         {
-            var isSafari = Safari.TryParse(UserAgents.Safari12Osx, out var safari);
+            var browser = new Safari(UserAgents.Safari12Osx);
 
-            Assert.True(isSafari);
-            Assert.Equal(DeviceTypes.Desktop, safari.DeviceType);
-            Assert.Equal(OperatingSystems.MacOSX, safari.OS);
+
+            Assert.True(browser.IsValid);
+            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(OperatingSystems.MacOSX, browser.OS);
         }
 
         [Fact]
         public void Safari_Windows()
         {
-            var isSafari = Safari.TryParse(UserAgents.Safari12Windows, out var safari);
+            var browser = new Safari(UserAgents.Safari12Windows);
 
-            Assert.True(isSafari);
-            Assert.Equal(DeviceTypes.Desktop, safari.DeviceType);
-            Assert.Equal(OperatingSystems.Windows, safari.OS);
+
+            Assert.True(browser.IsValid);
+            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(OperatingSystems.Windows, browser.OS);
         }
     }
 }

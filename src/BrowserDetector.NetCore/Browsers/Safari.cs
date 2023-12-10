@@ -4,38 +4,26 @@
 
     internal class Safari : Browser
     {
-        public Safari(ReadOnlySpan<char> userAgent, string version)
-            : base(userAgent, version)
-        {
-        }
-
-        public override string Name => BrowserNames.Safari;
-
         /// <summary>
         /// Populates a Safari browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeded.
         /// </summary>
         /// <param name="userAgent">User agent value</param>
-        /// <param name="result">When this method returns True, the result will contain a Safari object populated</param>
-        /// <returns>True if parsing succeeded, else False</returns>
-        /// <exception cref="ArgumentNullException">Thrown when userAgent parameter value is null</exception>
-        public static bool TryParse(ReadOnlySpan<char> userAgent, out Safari result)
+        public Safari(string userAgent)
+            : base(userAgent)
         {
-            var chromeIndex = userAgent.IndexOf("Chrome/".AsSpan());
-            var safariIndex = userAgent.IndexOf("Safari/".AsSpan());
+            Version = string.Empty;
+
+            var chromeIndex = userAgent.AsSpan().IndexOf("Chrome/".AsSpan());
+            var safariIndex = userAgent.AsSpan().IndexOf("Safari/".AsSpan());
 
             // Safari UA does not have the word "Chrome/"
-            if (safariIndex > -1 && chromeIndex == -1)
-            {
-                var fireFoxVersion = GetVersionIfKeyPresent(userAgent, "Safari/");
-                if (fireFoxVersion != null)
-                {
-                    result = new Safari(userAgent, fireFoxVersion);
-                    return true;
-                }
-            }
+            if (safariIndex <= -1 || chromeIndex > -1)
+                return;
 
-            result = null;
-            return false;
+            Version = GetVersionIfKeyIsPresent(userAgent, "Safari/") ?? string.Empty;
         }
+
+        public override string Name => BrowserNames.Safari;
+        public override string Version { get; }
     }
 }

@@ -12,12 +12,12 @@
         [Fact]
         public void IE11()
         {
-            var isInternetExplorer = InternetExplorer.TryParse(UserAgents.Ie11Windows, out var internetExplorer);
+            var browser = new InternetExplorer(UserAgents.Ie11Windows);
 
-            Assert.True(isInternetExplorer);
-            Assert.Equal(BrowserNames.InternetExplorer, internetExplorer.Name);
-            Assert.Equal(DeviceTypes.Desktop, internetExplorer.DeviceType);
-            Assert.Equal(OperatingSystems.Windows, internetExplorer.OS);
+            Assert.True(browser.IsValid);
+            Assert.Equal(BrowserNames.InternetExplorer, browser.Name);
+            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(OperatingSystems.Windows, browser.OS);
         }
     }
 }

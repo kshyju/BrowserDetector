@@ -9,46 +9,38 @@
     /// </summary>
     internal class Chrome : Browser
     {
-        public Chrome(ReadOnlySpan<char> userAgent, string version)
-            : base(userAgent, version)
-        {
-        }
-
-        /// <inheritdoc/>
-        public override string Name => BrowserNames.Chrome;
-
         /// <summary>
         /// Populates a Chrome browser object from the userAgent value passed in. A return value indicates the parsing and populating the browser instance succeeded.
         /// </summary>
         /// <param name="userAgent">User agent value</param>
-        /// <param name="result">When this method returns True, the result will contain a Chrome object populated</param>
-        /// <returns>True if parsing succeeded, else False</returns>
-        public static bool TryParse(ReadOnlySpan<char> userAgent, out Chrome result)
+        public Chrome(string userAgent)
+            : base(userAgent)
         {
-            var chromeIndex = userAgent.IndexOf("Chrome/".AsSpan());
-            var safariIndex = userAgent.IndexOf("Safari/".AsSpan());
-            var crIOS = userAgent.IndexOf("CriOS/".AsSpan());
+            Version = string.Empty;
+
+            var chromeIndex = userAgent.AsSpan().IndexOf("Chrome/".AsSpan());
+            var safariIndex = userAgent.AsSpan().IndexOf("Safari/".AsSpan());
+            var crIOS = userAgent.AsSpan().IndexOf("CriOS/".AsSpan());
 
             // Chrome should have both "Safari" and "Chrome" words in it.
             if ((safariIndex > -1 && chromeIndex > -1) || (safariIndex > -1 && crIOS > -1))
             {
-                var fireFoxVersion = GetVersionIfKeyPresent(userAgent, "Chrome/");
+                var fireFoxVersion = GetVersionIfKeyIsPresent(userAgent, "Chrome/");
                 if (fireFoxVersion != null)
                 {
-                    result = new Chrome(userAgent, fireFoxVersion);
-                    return true;
+                    Version = fireFoxVersion;
+                    return;
                 }
+                    
 
-                var chromeIosVersion = GetVersionIfKeyPresent(userAgent, "CriOS/");
+                var chromeIosVersion = GetVersionIfKeyIsPresent(userAgent, "CriOS/");
                 if (chromeIosVersion != null)
-                {
-                    result = new Chrome(userAgent, chromeIosVersion);
-                    return true;
-                }
+                    Version = chromeIosVersion;
             }
-
-            result = null;
-            return false;
         }
+
+        /// <inheritdoc/>
+        public override string Name => BrowserNames.Chrome;
+        public override string Version { get; }
     }
 }

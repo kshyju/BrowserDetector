@@ -1,8 +1,7 @@
-﻿#nullable enable
-namespace Shyjus.BrowserDetection
+﻿namespace Shyjus.BrowserDetection
 {
-    using System;
     using Microsoft.AspNetCore.Http;
+    using System;
 
     /// <summary>
     /// A class to get browser and platform information.
@@ -44,7 +43,7 @@ namespace Shyjus.BrowserDetection
         {
             if (this.httpContextAccessor.HttpContext?.Request?.Headers?.TryGetValue(Headers.UserAgent, out var uaHeader) == true)
             {
-                return Detector.GetBrowser(uaHeader[0].AsSpan());
+                return Detector.GetBrowser(uaHeader[0]);
             }
 
             return default;
