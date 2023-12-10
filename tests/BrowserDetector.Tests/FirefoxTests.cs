@@ -49,11 +49,11 @@
         [Fact]
         public void Firefox_Android()
         {
-            var isFireFox = Firefox.TryParse(UserAgents.FirefoxAndroid, out var firefox);
+            var browser = new Firefox(UserAgents.FirefoxAndroid);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Mobile, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.Android, firefox.OS);
+            Assert.True(browser.IsValid);
+            Assert.Equal(DeviceTypes.Mobile, browser.DeviceType);
+            Assert.Equal(OperatingSystems.Android, browser.OS);
         }
     }
 }
