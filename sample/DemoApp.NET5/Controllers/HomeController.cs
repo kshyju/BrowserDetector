@@ -24,7 +24,7 @@ namespace DemoApp.NET5.Controllers
 
             IBrowser browser = this.browserDetector.Browser;
             
-            return $".NET 5.0 APP. Browser:{browser.Name}, Version: {browser.Version},Device type: {browser.DeviceType}, OS: {browser.OS}";
+            return $".NET APP. Browser:{browser.Name}, Version: {browser.Version},Device type: {browser.DeviceType}, OS: {browser.OS}";
         }
     }
     
