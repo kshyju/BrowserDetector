@@ -1,4 +1,8 @@
-﻿namespace Shyjus.BrowserDetection
+﻿using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("BrowserDetector.Tests")]
+
+namespace Shyjus.BrowserDetection
 {
     using System;
 
@@ -7,7 +11,7 @@
     /// </summary>
     internal class EdgeChromium : Browser
     {
-        public EdgeChromium(ReadOnlySpan<char> userAgent, string version)
+        private EdgeChromium(ReadOnlySpan<char> userAgent, string version)
             : base(userAgent, version)
         {
         }

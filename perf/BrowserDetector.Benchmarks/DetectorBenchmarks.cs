@@ -1,4 +1,5 @@
-﻿namespace BrowserDetector.Benchmarks
+﻿
+namespace BrowserDetector.Benchmarks
 {
     using System;
     using BenchmarkDotNet.Attributes;

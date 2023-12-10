@@ -7,7 +7,7 @@
     /// </summary>
     internal class Edge : Browser
     {
-        public Edge(ReadOnlySpan<char> userAgent, string version)
+        private Edge(ReadOnlySpan<char> userAgent, string version)
             : base(userAgent, version)
         {
         }

@@ -7,7 +7,7 @@
     /// </summary>
     internal class InternetExplorer : Browser
     {
-        public InternetExplorer(ReadOnlySpan<char> userAgent, string version)
+        private protected InternetExplorer(ReadOnlySpan<char> userAgent, string version)
             : base(userAgent, version)
         {
         }

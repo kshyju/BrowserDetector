@@ -1,10 +1,10 @@
-﻿namespace Microsoft.Extensions.DependencyInjection
-{
-    using Microsoft.AspNetCore.Http;
-    using Microsoft.Extensions.DependencyInjection.Extensions;
-    using Shyjus.BrowserDetection;
-    using System;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Shyjus.BrowserDetection;
+using System;
 
+namespace Microsoft.Extensions.DependencyInjection
+{
     /// <summary>
     /// Extension methods for setting up browser detection services in an <see cref="IServiceCollection" />.
     /// </summary>

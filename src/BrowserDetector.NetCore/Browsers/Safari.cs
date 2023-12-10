@@ -4,7 +4,7 @@
 
     internal class Safari : Browser
     {
-        public Safari(ReadOnlySpan<char> userAgent, string version)
+        private Safari(ReadOnlySpan<char> userAgent, string version)
             : base(userAgent, version)
         {
         }

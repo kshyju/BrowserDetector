@@ -7,7 +7,6 @@
 
     <SignAssembly>false</SignAssembly>
 
-    <AssemblyOriginatorKeyFile>browserdetectortests.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>

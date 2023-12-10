@@ -7,7 +7,7 @@
     /// </summary>
     internal class Opera : Browser
     {
-        public Opera(ReadOnlySpan<char> userAgent, string version)
+        private protected Opera(ReadOnlySpan<char> userAgent, string version)
             : base(userAgent, version)
         {
         }

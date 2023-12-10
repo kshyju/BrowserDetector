@@ -260,3 +260,4 @@ paket-files/
 __pycache__/
 *.pyc
 sample/DemoApp/Properties/PublishProfiles/browser-detection - Web Deploy.pubxml
+/src/BrowserDetector.NetCore/BrowserDetector.Net.csproj
