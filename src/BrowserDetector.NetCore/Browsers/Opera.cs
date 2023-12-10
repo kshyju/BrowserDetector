@@ -1,7 +1,5 @@
 ﻿namespace Shyjus.BrowserDetection
 {
-    using System;
-
     /// <summary>
     /// Represents an instance of Opera Browser.
     /// </summary>
@@ -14,7 +12,7 @@
         /// <param name="userAgent">The user agent value.</param>
         /// <param name="result">An instance of Opera browser.</param>
         /// <returns>A boolean value that indicates whether the parsing succeeded.</returns>
-        public Opera(ReadOnlySpan<char> userAgent)
+        public Opera(string userAgent)
             : base(userAgent)
         {
             Version = string.Empty;

@@ -11,13 +11,13 @@
         /// <param name="result">When this method returns True, the result will contain a Safari object populated</param>
         /// <returns>True if parsing succeeded, else False</returns>
         /// <exception cref="ArgumentNullException">Thrown when userAgent parameter value is null</exception>
-        public Safari(ReadOnlySpan<char> userAgent)
+        public Safari(string userAgent)
             : base(userAgent)
         {
             Version = string.Empty;
 
-            var chromeIndex = userAgent.IndexOf("Chrome/".AsSpan());
-            var safariIndex = userAgent.IndexOf("Safari/".AsSpan());
+            var chromeIndex = userAgent.AsSpan().IndexOf("Chrome/".AsSpan());
+            var safariIndex = userAgent.AsSpan().IndexOf("Safari/".AsSpan());
 
             // Safari UA does not have the word "Chrome/"
             if (safariIndex <= -1 || chromeIndex > -1)

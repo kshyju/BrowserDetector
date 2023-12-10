@@ -1,7 +1,5 @@
 ﻿namespace Shyjus.BrowserDetection
 {
-    using System;
-
     /// <summary>
     /// A type representing the FireFox browser instance.
     /// </summary>
@@ -14,7 +12,7 @@
         /// <param name="userAgent">The user agent value.</param>
         /// <param name="result">A Firefox browser instance.</param>
         /// <returns>A boolean value that indicates whether the parsing succeeded.</returns>
-        public Firefox(ReadOnlySpan<char> userAgent)
+        public Firefox(string userAgent)
     : base(userAgent)
         {
             Version = string.Empty;

@@ -1,7 +1,5 @@
 ﻿namespace Shyjus.BrowserDetection
 {
-    using System;
-
     /// <summary>
     /// Represents an instance of Edge Browser.
     /// </summary>
@@ -13,7 +11,7 @@
         /// <param name="userAgent">The user agent.</param>
         /// <param name="result">An instance of Edge browser, if parsing was successful.</param>
         /// <returns>A boolean value indicating whether the parsing was successful.</returns>
-        public Edge(ReadOnlySpan<char> userAgent)
+        public Edge(string userAgent)
             : base(userAgent)
         {
             var edgeVersion = GetVersionIfKeyIsPresent(userAgent, "Edge/");

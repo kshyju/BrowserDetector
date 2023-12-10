@@ -15,14 +15,14 @@
         /// <param name="userAgent">User agent value</param>
         /// <param name="result">When this method returns True, the result will contain a Chrome object populated</param>
         /// <returns>True if parsing succeeded, else False</returns>
-        public Chrome(ReadOnlySpan<char> userAgent)
+        public Chrome(string userAgent)
             : base(userAgent)
         {
             Version = string.Empty;
 
-            var chromeIndex = userAgent.IndexOf("Chrome/".AsSpan());
-            var safariIndex = userAgent.IndexOf("Safari/".AsSpan());
-            var crIOS = userAgent.IndexOf("CriOS/".AsSpan());
+            var chromeIndex = userAgent.AsSpan().IndexOf("Chrome/".AsSpan());
+            var safariIndex = userAgent.AsSpan().IndexOf("Safari/".AsSpan());
+            var crIOS = userAgent.AsSpan().IndexOf("CriOS/".AsSpan());
 
             // Chrome should have both "Safari" and "Chrome" words in it.
             if ((safariIndex > -1 && chromeIndex > -1) || (safariIndex > -1 && crIOS > -1))

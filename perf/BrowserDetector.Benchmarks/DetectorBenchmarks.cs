@@ -1,6 +1,5 @@
 ﻿namespace BrowserDetector.Benchmarks
 {
-    using System;
     using BenchmarkDotNet.Attributes;
     using Shyjus.BrowserDetection;
 
@@ -13,13 +12,13 @@
         [Benchmark]
         public string Chrome_Windows()
         {
-            return Detector.GetBrowser(this.chromeWindows.AsSpan()).Name;
+            return Detector.GetBrowser(this.chromeWindows).Name;
         }
 
         [Benchmark]
         public string Safari_Windows()
         {
-            return Detector.GetBrowser(this.safariWindows.AsSpan()).Name;
+            return Detector.GetBrowser(this.safariWindows).Name;
         }
     }
 }
