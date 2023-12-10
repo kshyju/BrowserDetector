@@ -15,12 +15,12 @@
         [Fact]
         public void Edge18_Windows()
         {
-            var isEdge = Edge.TryParse(UserAgents.Edge18Windows, out var edge);
+            var browser = new Edge(UserAgents.Edge18Windows);
 
-            Assert.True(isEdge);
-            Assert.Equal(BrowserNames.Edge, edge.Name);
-            Assert.Equal(DeviceTypes.Desktop, edge.DeviceType);
-            Assert.Equal(OperatingSystems.Windows, edge.OS);
+            Assert.True(browser.IsValid);
+            Assert.Equal(BrowserNames.Edge, browser.Name);
+            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(OperatingSystems.Windows, browser.OS);
         }
 
         /// <summary>
@@ -29,12 +29,12 @@
         [Fact]
         public void Edge_IPad()
         {
-            var isEdge = Edge.TryParse(UserAgents.EdgeIPad, out var edge);
+            var browser = new Edge(UserAgents.EdgeIPad);
 
-            Assert.True(isEdge);
-            Assert.Equal(BrowserNames.Edge, edge.Name);
-            Assert.Equal(DeviceTypes.Tablet, edge.DeviceType);
-            Assert.Equal(OperatingSystems.IOS, edge.OS);
+            Assert.True(browser.IsValid);
+            Assert.Equal(BrowserNames.Edge, browser.Name);
+            Assert.Equal(DeviceTypes.Tablet, browser.DeviceType);
+            Assert.Equal(OperatingSystems.IOS, browser.OS);
         }
 
         /// <summary>
@@ -43,12 +43,12 @@
         [Fact]
         public void Edge_IPhone()
         {
-            var isEdge = Edge.TryParse(UserAgents.EdgeIPhone, out var edge);
+            var browser = new Edge(UserAgents.EdgeIPhone);
 
-            Assert.True(isEdge);
-            Assert.Equal(BrowserNames.Edge, edge.Name);
-            Assert.Equal(DeviceTypes.Mobile, edge.DeviceType);
-            Assert.Equal(OperatingSystems.IOS, edge.OS);
+            Assert.True(browser.IsValid);
+            Assert.Equal(BrowserNames.Edge, browser.Name);
+            Assert.Equal(DeviceTypes.Mobile, browser.DeviceType);
+            Assert.Equal(OperatingSystems.IOS, browser.OS);
         }
     }
 }

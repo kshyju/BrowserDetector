@@ -11,50 +11,50 @@ namespace Shyjus.BrowserDetection
     /// </summary>
     internal static class Detector
     {
+
+
         /// <summary>
         /// Gets an IBrowser instance from the user agent string passed in.
         /// </summary>
         /// <param name="userAgentString">The user agent string.</param>
         /// <returns>An instance of IBrowser.</returns>
-        internal static IBrowser GetBrowser(ReadOnlySpan<char> userAgentString)
+        internal static IBrowser? GetBrowser(ReadOnlySpan<char> userAgentString)
         {
             // Order is important, Go from most specific to generic
             // For example, The string "Chrome" is present in both Chrome and Edge,
             // So we will first check if it is Edge because Edge has something more specific we can check.
-            if (Firefox.TryParse(userAgentString, out var firefox))
-            {
+
+            //TODO: neue Eigenschaft "OrderNumber" im Browser (Go from most specific to generic)
+            //alle implemntierungen von Browser per reflaction holen und nach ordernumber sortieren
+            //danach die liste durchlaufen und abbrechen, sobald eines valid ist
+
+            var firefox = new Firefox(userAgentString);
+            if (firefox.IsValid)
                 return firefox;
-            }
 
-            if (EdgeChromium.TryParse(userAgentString, out var edgeChromium))
-            {
+            var edgeChromium = new EdgeChromium(userAgentString);
+            if (edgeChromium.IsValid)
                 return edgeChromium;
-            }
 
-            if (InternetExplorer.TryParse(userAgentString, out var ie))
-            {
-                return ie;
-            }
+            var internetexplorer = new InternetExplorer(userAgentString);
+            if (internetexplorer.IsValid)
+                return internetexplorer;
 
-            if (Opera.TryParse(userAgentString, out var opera))
-            {
+            var opera = new Opera(userAgentString);
+            if (opera.IsValid)
                 return opera;
-            }
 
-            if (Edge.TryParse(userAgentString, out var edge))
-            {
+            var edge = new Edge(userAgentString);
+            if (edge.IsValid)
                 return edge;
-            }
 
-            if (Chrome.TryParse(userAgentString, out var chrome))
-            {
+            var chrome = new Chrome(userAgentString);
+            if (chrome.IsValid)
                 return chrome;
-            }
 
-            if (Safari.TryParse(userAgentString, out var safari))
-            {
+            var safari = new Safari(userAgentString);
+            if (safari.IsValid)
                 return safari;
-            }
 
             return default;
         }

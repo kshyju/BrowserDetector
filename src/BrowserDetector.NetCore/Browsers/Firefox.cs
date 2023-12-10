@@ -7,16 +7,6 @@
     /// </summary>
     internal class Firefox : Browser
     {
-        private Firefox(ReadOnlySpan<char> userAgent, string version)
-    : base(userAgent, version)
-        {
-        }
-
-        public string Platform { get; }
-
-        /// <inheritdoc/>
-        public override string Name => BrowserNames.Firefox;
-
         /// <summary>
         /// Tries to build a Firefox browser instance from the user agent passed in and
         /// returns a value that indicates whether the parsing succeeded.
@@ -24,26 +14,29 @@
         /// <param name="userAgent">The user agent value.</param>
         /// <param name="result">A Firefox browser instance.</param>
         /// <returns>A boolean value that indicates whether the parsing succeeded.</returns>
-        public static bool TryParse(ReadOnlySpan<char> userAgent, out Firefox result)
+        public Firefox(ReadOnlySpan<char> userAgent)
+    : base(userAgent)
         {
+            Version = string.Empty;
+
             // Desktop version of Firefox.
-            var fireFoxVersion = GetVersionIfKeyPresent(userAgent, "Firefox/");
+            var fireFoxVersion = GetVersionIfKeyIsPresent(userAgent, "Firefox/");
             if (fireFoxVersion != null)
             {
-                result = new Firefox(userAgent, fireFoxVersion);
-                return true;
+                Version = fireFoxVersion;
+                return;
             }
 
             // IOS version of Firefox.
-            var fxiosVersion = GetVersionIfKeyPresent(userAgent, "FxiOS/");
+            var fxiosVersion = GetVersionIfKeyIsPresent(userAgent, "FxiOS/");
             if (fxiosVersion != null)
-            {
-                result = new Firefox(userAgent, fxiosVersion);
-                return true;
-            }
-
-            result = null;
-            return false;
+                Version = fxiosVersion;
+            
         }
+
+        /// <inheritdoc/>
+        public override string Name => BrowserNames.Firefox;
+
+        public override string Version { get; }
     }
 }

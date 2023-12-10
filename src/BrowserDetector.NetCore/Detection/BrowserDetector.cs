@@ -1,5 +1,4 @@
-﻿#nullable enable
-namespace Shyjus.BrowserDetection
+﻿namespace Shyjus.BrowserDetection
 {
     using System;
     using Microsoft.AspNetCore.Http;

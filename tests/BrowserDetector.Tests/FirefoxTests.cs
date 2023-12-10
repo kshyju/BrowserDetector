@@ -9,41 +9,41 @@
         [Fact]
         public void Firefox_Windows_Desktop()
         {
-            var isFireFox = Firefox.TryParse(UserAgents.FirefoxWindows, out var firefox);
+            var browser = new Firefox(UserAgents.FirefoxWindows);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.Windows, firefox.OS);
+            Assert.True(browser.IsValid);
+            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(OperatingSystems.Windows, browser.OS);
         }
 
         [Fact]
         public void Firefox_OSX_Desktop()
         {
-            var isFireFox = Firefox.TryParse(UserAgents.FirefoxOsx, out var firefox);
+            var browser = new Firefox(UserAgents.FirefoxOsx);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.MacOSX, firefox.OS);
+            Assert.True(browser.IsValid);
+            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(OperatingSystems.MacOSX, browser.OS);
         }
 
         [Fact]
         public void Firefox_IOS_iPhone()
         {
-            var isFireFox = Firefox.TryParse(UserAgents.FirefoxIPhone, out var firefox);
+            var browser = new Firefox(UserAgents.FirefoxIPhone);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Mobile, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.IOS, firefox.OS);
+            Assert.True(browser.IsValid);
+            Assert.Equal(DeviceTypes.Mobile, browser.DeviceType);
+            Assert.Equal(OperatingSystems.IOS, browser.OS);
         }
 
         [Fact]
         public void Firefox_IOS_iPad()
         {
-            var isFireFox = Firefox.TryParse(UserAgents.FirefoxIPad, out var firefox);
+            var browser = new Firefox(UserAgents.FirefoxIPad);
 
-            Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Tablet, firefox.DeviceType);
-            Assert.Equal(OperatingSystems.IOS, firefox.OS);
+            Assert.True(browser.IsValid);
+            Assert.Equal(DeviceTypes.Tablet, browser.DeviceType);
+            Assert.Equal(OperatingSystems.IOS, browser.OS);
         }
         
         [Fact]

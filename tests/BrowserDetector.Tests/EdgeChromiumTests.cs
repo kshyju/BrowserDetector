@@ -9,21 +9,21 @@
         [Fact]
         public void EdgeChromium_OSX()
         {
-            var isEdgeChromiun = EdgeChromium.TryParse(UserAgents.EdgeChromiumOsx, out var edgeChromium);
+            var browser = new EdgeChromium(UserAgents.EdgeChromiumOsx);
 
-            Assert.True(isEdgeChromiun);
-            Assert.Equal(DeviceTypes.Desktop, edgeChromium.DeviceType);
-            Assert.Equal(OperatingSystems.MacOSX, edgeChromium.OS);
+            Assert.True(browser.IsValid);
+            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(OperatingSystems.MacOSX, browser.OS);
         }
 
         [Fact]
         public void EdgeChromium_Windows()
         {
-            var isEdgeChromium = EdgeChromium.TryParse(UserAgents.EdgeChromeWindows, out var edgeChromium);
+            var browser = new EdgeChromium(UserAgents.EdgeChromeWindows);
 
-            Assert.True(isEdgeChromium);
-            Assert.Equal(DeviceTypes.Desktop, edgeChromium.DeviceType);
-            Assert.Equal(OperatingSystems.Windows, edgeChromium.OS);
+            Assert.True(browser.IsValid);
+            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(OperatingSystems.Windows, browser.OS);
         }
     }
 }
