@@ -31,8 +31,10 @@ namespace Shyjus.BrowserDetection
         /// <inheritdoc/>
         public string OS { get; }
 
-        /// <inheritdoc/>
-        public bool IsValid => !string.IsNullOrEmpty(Version);
+        /// <summary>
+        /// Check for valid parsing of user-agent-string.
+        /// </summary>
+        internal bool IsValid => !string.IsNullOrEmpty(Version);
 
         /// <summary>
         /// Gets the version segment from user agent for the key passed in.
