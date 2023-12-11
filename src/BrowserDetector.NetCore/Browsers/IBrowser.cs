@@ -30,10 +30,5 @@
         /// Gets the browser version.
         /// </summary>
         string Version { get; }
-
-        /// <summary>
-        /// Check for valid parsing of user-agent-string.
-        /// </summary>
-        public bool IsValid { get; }
     }
 }

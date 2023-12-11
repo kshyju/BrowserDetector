@@ -38,7 +38,7 @@ namespace Shyjus.BrowserDetection
 
             foreach (var type in browserTypeList)
             {
-                var browser = Activator.CreateInstance(type, userAgentString) as IBrowser;
+                var browser = Activator.CreateInstance(type, userAgentString) as Browser;
 
                 if (browser?.IsValid == true)
                     return browser;
