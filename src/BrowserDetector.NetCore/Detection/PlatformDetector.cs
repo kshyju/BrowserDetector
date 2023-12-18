@@ -12,10 +12,10 @@
             // Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.
 
             // Platform starts with a "(". So get it's index
-            var platformSearhKeyStartIndex = " (".AsSpan();
+            var platformSearchKeyStartIndex = " (".AsSpan();
 
             // The index of substring where platform part starts
-            var platformSubstringStartIndex = userAgentString.IndexOf(platformSearhKeyStartIndex) + platformSearhKeyStartIndex.Length;
+            var platformSubstringStartIndex = userAgentString.IndexOf(platformSearchKeyStartIndex) + platformSearchKeyStartIndex.Length;
 
             // Get substring which starts with platform part (Trim out anything before platform)
             var platformSubstring = userAgentString.Slice(platformSubstringStartIndex);
@@ -42,25 +42,25 @@
             // Get the OS part slice
             var operatingSystemSlice = osSubString.Slice(0, osPartEndIndex);
 
-            // If OS part starts with "Linux", check for next segment to get android veersion //Linux; Android 9; Pixel 3
+            // If OS part starts with "Linux", check for next segment to get android version //Linux; Android 9; Pixel 3
             // Linux; Android 8.1.0; SM-T835
             var platform = platformSlice.ToString();
 
             var isMobileSlicePresent = userAgentString.IndexOf("Mobile".AsSpan()) > -1;
 
-            var os = GetReadableOSName(platform, operatingSystemSlice.ToString());
+            var os = GetReadableOsName(platform, operatingSystemSlice.ToString());
 
             return (Platform: platform, OS: os, MobileDetected: isMobileSlicePresent);
         }
 
         /// <summary>
         /// Gets a readable OS name from the platform & operatingSystem info.
-        /// For some cases, the "operatingSystem" param value is not enought and we rely on the platform param value.
+        /// For some cases, the "operatingSystem" param value is not enough and we rely on the platform param value.
         /// </summary>
         /// <param name="platform"></param>
         /// <param name="operatingSystem"></param>
         /// <returns>The OS name.</returns>
-        private static string GetReadableOSName(string platform, string operatingSystem)
+        private static string GetReadableOsName(string platform, string operatingSystem)
         {
             if (platform == Platforms.iPhone || platform == Platforms.iPad)
             {

@@ -1,4 +1,5 @@
-﻿namespace BrowserDetector.Benchmarks
+﻿
+namespace BrowserDetector.Benchmarks
 {
     using BenchmarkDotNet.Attributes;
     using Shyjus.BrowserDetection;

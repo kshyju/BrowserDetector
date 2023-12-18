@@ -1,4 +1,8 @@
-﻿namespace Shyjus.BrowserDetection
+﻿using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("BrowserDetector.Tests")]
+
+namespace Shyjus.BrowserDetection
 {
     /// <summary>
     /// Represents an instance of EdgeChromium Browser.

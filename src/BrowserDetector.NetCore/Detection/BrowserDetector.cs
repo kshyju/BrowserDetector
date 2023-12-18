@@ -8,9 +8,9 @@
     /// </summary>
     public sealed class BrowserDetector : IBrowserDetector
     {
-        private readonly Lazy<IBrowser?> browser;
+        private readonly Lazy<IBrowser?> _browser;
 
-        private readonly IHttpContextAccessor httpContextAccessor;
+        private readonly IHttpContextAccessor _httpContextAccessor;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="BrowserDetector"/> class.
@@ -18,21 +18,18 @@
         /// <param name="httpContextAccessor">The IHttpContextAccessor instance.</param>
         public BrowserDetector(IHttpContextAccessor httpContextAccessor)
         {
-            this.httpContextAccessor = httpContextAccessor;
-            this.browser = this.GetBrowserLazy();
+            _httpContextAccessor = httpContextAccessor;
+            _browser = this.GetBrowserLazy();
         }
 
         /// <summary>
         /// Gets the browser information.
         /// </summary>
-        public IBrowser? Browser => this.browser.Value;
+        public IBrowser? Browser => _browser.Value;
 
         private Lazy<IBrowser?> GetBrowserLazy()
         {
-            return new Lazy<IBrowser?>(() =>
-            {
-                return GetBrowser();
-            });
+            return new Lazy<IBrowser?>(GetBrowser);
         }
 
         /// <summary>
@@ -41,7 +38,7 @@
         /// <returns>The IBrowser instance.</returns>
         private IBrowser? GetBrowser()
         {
-            if (this.httpContextAccessor.HttpContext?.Request?.Headers?.TryGetValue(Headers.UserAgent, out var uaHeader) == true)
+            if (_httpContextAccessor.HttpContext?.Request?.Headers?.TryGetValue(Headers.UserAgent, out var uaHeader) == true)
             {
                 return Detector.GetBrowser(uaHeader[0]);
             }
