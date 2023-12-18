@@ -9,7 +9,7 @@
     /// </summary>
     internal class Chrome : Browser
     {
-        public Chrome(ReadOnlySpan<char> userAgent, string version)
+        private Chrome(ReadOnlySpan<char> userAgent, string version)
             : base(userAgent, version)
         {
         }

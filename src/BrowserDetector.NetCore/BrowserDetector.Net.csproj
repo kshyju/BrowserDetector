@@ -2,6 +2,15 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+    <PackageId>Shyjus.BrowserDetector</PackageId>
+    <AssemblyName>Shyjus.BrowserDetector</AssemblyName>
+    <RootNamespace>Shyjus.BrowserDetector</RootNamespace>
+    <Authors>Shyju Krishnankutty</Authors>
+    <Description>Browser detection, device detection and operating system detection capabilities in asp.net core.</Description>
+    <RepositoryUrl>https://github.com/kshyju/BrowserDetector</RepositoryUrl>
+    <PackageTags>BrowserDetection BrowserCapabilities BrowserDetectionASP.NETCore HttpContext.Request.Browser DeviceDetection</PackageTags>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>2.0.1-preview1</Version>
 	</PropertyGroup>
 
 	<ItemGroup>
