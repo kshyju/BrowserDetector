@@ -1,6 +1,6 @@
 ﻿namespace Shyjus.BrowserDetection
 {
-    internal class Headers
+    internal static class Headers
     {
         public const string UserAgent = "User-Agent";
     }
