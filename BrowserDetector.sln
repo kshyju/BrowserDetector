@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrowserDetector.Benchmarks"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrowserDetector.Net", "src\BrowserDetector.NetCore\BrowserDetector.Net.csproj", "{2E0D3C7A-98AA-475A-816B-3B51EA377C6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BrowserDetector.WebApi", "sample\BrowserDetector.WebApi\BrowserDetector.WebApi.csproj", "{6369627B-5878-4CFE-A996-859D8663603C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BrowserDetector.WebApi", "sample\BrowserDetector.WebApi\BrowserDetector.WebApi.csproj", "{6369627B-5878-4CFE-A996-859D8663603C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{31BD75C3-015A-4308-9B08-07786C191BAC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
