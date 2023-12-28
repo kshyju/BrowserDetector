@@ -58,20 +58,14 @@ Install the [BrowserDetector nuget package](https://www.nuget.org/packages/Shyju
 Install-Package Shyjus.BrowserDetector
 ````
 
-**Step 2:** Enable the browser detection service inside the `ConfigureServices` method of `Startup.cs`.
+**Step 2:** Enable the browser detection service by calling `AddBrowserDetection` method on `IServiceCollection` in your startup code.
 
 ````
-public void ConfigureServices(IServiceCollection services)
-{
-    // Add browser detection service
-    services.AddBrowserDetection();
-
-    services.AddMvc();
-}
+services.AddBrowserDetection();
 ````
 **Step 3:** Inject `IBrowserDetector` to your controller class or view file or middleware and access the `Browser` property.
 
-Example usage in controller code
+#### Example usage in controller code
 
 ````
 public class HomeController : Controller
@@ -91,7 +85,7 @@ public class HomeController : Controller
 }
 ````
 
-Example usage in view code
+#### Example usage in view code
 
 ````
 @inject Shyjus.BrowserDetection.IBrowserDetector browserDetector
@@ -103,7 +97,7 @@ Example usage in view code
 
 ````
 
-Example usage in custom middlware
+#### Example usage in custom middleware
 
 You can inject the `IBrowserDetector` to the `InvokeAsync` method.
 
