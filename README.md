@@ -1,9 +1,13 @@
 # BrowserDetector
 [![NuGet version (BrowserDetector)](https://img.shields.io/nuget/v/Shyjus.BrowserDetector.svg?style=flat-square)](https://www.nuget.org/packages/Shyjus.BrowserDetector/)
 
-Browser detection capabilities for asp.net core.
+Browser detection capabilities for asp.net core Web API. 
 
+### Supported frameworks
 
+ - .NET6.0
+ - .NET7.0
+ - .NET8.0
 
 This library does
 
@@ -146,6 +150,4 @@ I ran benchmarks on Safari and Chrome desktop user agents and those seems to ret
 
 > 1 micro second is one millionth of a second.
 
-### Help this project ?
 
-You can further help the project by visiting [http://bit.ly/detectbrowser](http://bit.ly/detectbrowser?github-repo) in your browser and see the detection works. File an issue if you see wrong data.
