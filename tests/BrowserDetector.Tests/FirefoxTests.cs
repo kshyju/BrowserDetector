@@ -2,6 +2,7 @@
 {
     using Shyjus.BrowserDetection;
     using Shyjus.BrowserDetection.Tests;
+    using Shyjus.BrowserDetector;
     using Xunit;
 
     public class FirefoxTests
@@ -12,7 +13,7 @@
             var isFireFox = Firefox.TryParse(UserAgents.FirefoxWindows, out var firefox);
 
             Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
+            Assert.Equal(DeviceType.Desktop, firefox.DeviceType);
             Assert.Equal(OperatingSystems.Windows, firefox.OS);
         }
 
@@ -22,7 +23,7 @@
             var isFireFox = Firefox.TryParse(UserAgents.FirefoxOsx, out var firefox);
 
             Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Desktop, firefox.DeviceType);
+            Assert.Equal(DeviceType.Desktop, firefox.DeviceType);
             Assert.Equal(OperatingSystems.MacOSX, firefox.OS);
         }
 
@@ -32,7 +33,7 @@
             var isFireFox = Firefox.TryParse(UserAgents.FirefoxIPhone, out var firefox);
 
             Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Mobile, firefox.DeviceType);
+            Assert.Equal(DeviceType.Mobile, firefox.DeviceType);
             Assert.Equal(OperatingSystems.IOS, firefox.OS);
         }
 
@@ -42,7 +43,7 @@
             var isFireFox = Firefox.TryParse(UserAgents.FirefoxIPad, out var firefox);
 
             Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Tablet, firefox.DeviceType);
+            Assert.Equal(DeviceType.Tablet, firefox.DeviceType);
             Assert.Equal(OperatingSystems.IOS, firefox.OS);
         }
         
@@ -52,7 +53,7 @@
             var isFireFox = Firefox.TryParse(UserAgents.FirefoxAndroid, out var firefox);
 
             Assert.True(isFireFox);
-            Assert.Equal(DeviceTypes.Mobile, firefox.DeviceType);
+            Assert.Equal(DeviceType.Mobile, firefox.DeviceType);
             Assert.Equal(OperatingSystems.Android, firefox.OS);
         }
     }

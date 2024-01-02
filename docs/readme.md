@@ -3,13 +3,15 @@
 
 Browser detection capabilities for asp.net core.
 
-
-
 This library does
 
 1. Browser detection
 2. Device type detection
 3. Operating System detection
+
+> For browser detection in Azure Functions .NET Isolated, check `Shyjus.BrowserDetector.AzureFunctions` package.
+
+#### Getting started
 
 **Step 1:**
 Install the [BrowserDetector nuget package](https://www.nuget.org/packages/Shyjus.BrowserDetector/)

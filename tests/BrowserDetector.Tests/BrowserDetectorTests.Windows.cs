@@ -1,6 +1,7 @@
 namespace Shyjus.BrowserDetection.Tests
 {
     using System.Collections.Generic;
+    using BrowserDetector;
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Primitives;
     using Moq;
@@ -22,14 +23,14 @@ namespace Shyjus.BrowserDetection.Tests
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
-            var detector = new BrowserDetector(httpContextAccessor);
+            var detector = new AspNetCoreBrowserDetector(httpContextAccessor);
 
             // Act
             var actual = detector.Browser;
 
             // Assert
             Assert.Equal(BrowserNames.Chrome, actual.Name);
-            Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
+            Assert.Equal(DeviceType.Desktop, actual.DeviceType);
         }
 
         [Fact]
@@ -42,19 +43,19 @@ namespace Shyjus.BrowserDetection.Tests
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
-            var detector = new BrowserDetector(httpContextAccessor);
+            var detector = new AspNetCoreBrowserDetector(httpContextAccessor);
 
             // Act
             var actual = detector.Browser;
 
             // Assert
             Assert.Equal(BrowserNames.InternetExplorer, actual.Name);
-            Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
+            Assert.Equal(DeviceType.Desktop, actual.DeviceType);
             Assert.Equal(OperatingSystems.Windows, actual.OS);
         }
 
         [Fact]
-        public void Edge18_Windows()
+        public void EdgeLegacy_Windows()
         {
             // Arrange
             var headers = new Dictionary<string, StringValues>
@@ -63,14 +64,14 @@ namespace Shyjus.BrowserDetection.Tests
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
-            var detector = new BrowserDetector(httpContextAccessor);
+            var detector = new AspNetCoreBrowserDetector(httpContextAccessor);
 
             // Act
             var actual = detector.Browser;
 
             // Assert
-            Assert.Equal(BrowserNames.Edge, actual.Name);
-            Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
+            Assert.Equal(BrowserNames.EdgeLegacy, actual.Name);
+            Assert.Equal(DeviceType.Desktop, actual.DeviceType);
         }
 
         [Fact]
@@ -82,12 +83,12 @@ namespace Shyjus.BrowserDetection.Tests
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
-            var detector = new BrowserDetector(httpContextAccessor);
+            var detector = new AspNetCoreBrowserDetector(httpContextAccessor);
 
-            var actual = detector.Browser;
+            IBrowser actual = detector.Browser;
 
             Assert.Equal(BrowserNames.EdgeChromium, actual.Name);
-            Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
+            Assert.Equal(DeviceType.Desktop, actual.DeviceType);
         }
 
         [Fact]
@@ -99,12 +100,12 @@ namespace Shyjus.BrowserDetection.Tests
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
-            var detector = new BrowserDetector(httpContextAccessor);
+            var detector = new AspNetCoreBrowserDetector(httpContextAccessor);
 
             var actual = detector.Browser;
 
             Assert.Equal(BrowserNames.Opera, actual.Name);
-            Assert.Equal(DeviceTypes.Desktop, actual.DeviceType);
+            Assert.Equal(DeviceType.Desktop, actual.DeviceType);
         }
 
         [Fact]
@@ -116,7 +117,7 @@ namespace Shyjus.BrowserDetection.Tests
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
-            var detector = new BrowserDetector(httpContextAccessor);
+            var detector = new AspNetCoreBrowserDetector(httpContextAccessor);
 
             var actual = detector.Browser;
 

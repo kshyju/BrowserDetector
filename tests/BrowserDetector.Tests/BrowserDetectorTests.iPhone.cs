@@ -1,6 +1,7 @@
 namespace Shyjus.BrowserDetection.Tests
 {
     using System.Collections.Generic;
+    using BrowserDetector;
     using Microsoft.Extensions.Primitives;
     using Shyjus.BrowserDetection;
     using Xunit;
@@ -20,14 +21,14 @@ namespace Shyjus.BrowserDetection.Tests
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
-            var detector = new BrowserDetector(httpContextAccessor);
+            var detector = new AspNetCoreBrowserDetector(httpContextAccessor);
 
             // Act
             IBrowser actual = detector.Browser;
 
             // Assert
             Assert.Equal(BrowserNames.Opera, actual.Name);
-            Assert.Equal(DeviceTypes.Mobile, actual.DeviceType);
+            Assert.Equal(DeviceType.Mobile, actual.DeviceType);
         }
     }
 }

@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Shyjus.BrowserDetection;
+using Shyjus.BrowserDetector;
 
 namespace BrowserDetector.WebApi.Controllers
 {

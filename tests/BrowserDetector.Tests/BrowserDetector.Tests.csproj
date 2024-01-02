@@ -2,8 +2,9 @@
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
+	  <AssemblyName>BrowserDetector.Tests</AssemblyName>
 
-    <IsPackable>false</IsPackable>
+	  <IsPackable>false</IsPackable>
 
     <SignAssembly>false</SignAssembly>
 
@@ -20,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\BrowserDetector.NetCore\BrowserDetector.Net.csproj" />
+    <ProjectReference Include="..\..\src\BrowserDetector.AspNetCore\BrowserDetector.AspNetCore.csproj" />
   </ItemGroup>
 
 </Project>

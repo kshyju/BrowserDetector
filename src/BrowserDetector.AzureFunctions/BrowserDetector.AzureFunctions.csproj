@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<PackageId>Shyjus.BrowserDetector.AzureFunctions</PackageId>
+		<AssemblyName>Shyjus.BrowserDetector.AzureFunctions</AssemblyName>
+		<RootNamespace>Shyjus.BrowserDetector.AzureFunctions</RootNamespace>
+		<Authors>Shyju Krishnankutty</Authors>
+		<Description>Browser detection, device detection and operating system detection capabilities in Azure Functions .NET Isolated model.</Description>
+		<RepositoryUrl>https://github.com/kshyju/BrowserDetector</RepositoryUrl>
+		<PackageTags>BrowserDetection BrowserCapabilities BrowserDetectionAzureFunction HttpContext.Request.Browser DeviceDetection</PackageTags>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<Version>1.0.0-preview1</Version>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="..\..\docs\readme.md" Pack="true" PackagePath="\"></None>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Azure.Functions.Worker.Core" Version="1.16.0" />
+		<PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="6.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\BrowserDetector.Abstractions\BrowserDetector.Abstractions.csproj" />
+		<ProjectReference Include="..\BrowserDetector.Core\BrowserDetector.Core.csproj" />
+	</ItemGroup>
+
+</Project>
