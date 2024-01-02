@@ -1,5 +1,7 @@
 ﻿namespace Shyjus.BrowserDetection.Tests
 {
+    using Shyjus.BrowserDetector;
+    using Shyjus.BrowserDetector.Core;
     using System;
     using Xunit;
 

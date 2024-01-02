@@ -2,6 +2,7 @@
 {
     using Shyjus.BrowserDetection;
     using Shyjus.BrowserDetection.Tests;
+    using Shyjus.BrowserDetector;
     using Xunit;
 
     /// <summary>
@@ -16,7 +17,7 @@
 
             Assert.True(isInternetExplorer);
             Assert.Equal(BrowserNames.InternetExplorer, internetExplorer.Name);
-            Assert.Equal(DeviceTypes.Desktop, internetExplorer.DeviceType);
+            Assert.Equal(DeviceType.Desktop, internetExplorer.DeviceType);
             Assert.Equal(OperatingSystems.Windows, internetExplorer.OS);
         }
     }

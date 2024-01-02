@@ -1,5 +1,5 @@
 using BrowserDetector.WebApi.Middlewares;
-
+using Shyjus.BrowserDetector;
 namespace BrowserDetector.WebApi
 {
     public class Program
@@ -18,7 +18,7 @@ namespace BrowserDetector.WebApi
 
             app.MapControllers();
             
-            app.UseMiddleware<BrowserDetectionMiddleware>();
+            app.UseMiddleware<MyBrowserDetectionMiddleware>();
 
             app.Run();
         }

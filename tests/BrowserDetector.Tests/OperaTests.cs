@@ -2,6 +2,7 @@
 {
     using Shyjus.BrowserDetection;
     using Shyjus.BrowserDetection.Tests;
+    using Shyjus.BrowserDetector;
     using Xunit;
 
     /// <summary>
@@ -15,7 +16,7 @@
             var isOpera = Opera.TryParse(UserAgents.OperaOsx, out var opera);
 
             Assert.True(isOpera);
-            Assert.Equal(DeviceTypes.Desktop, opera.DeviceType);
+            Assert.Equal(DeviceType.Desktop, opera.DeviceType);
             Assert.Equal(OperatingSystems.MacOSX, opera.OS);
         }
 
@@ -25,7 +26,7 @@
             var isOpera = Opera.TryParse(UserAgents.OperaWindows, out var operea);
 
             Assert.True(isOpera);
-            Assert.Equal(DeviceTypes.Desktop, operea.DeviceType);
+            Assert.Equal(DeviceType.Desktop, operea.DeviceType);
             Assert.Equal(OperatingSystems.Windows, operea.OS);
         }
 
@@ -35,7 +36,7 @@
             var isOpera = Opera.TryParse(UserAgents.OperaTouchIPhone, out var opera);
 
             Assert.True(isOpera);
-            Assert.Equal(DeviceTypes.Mobile, opera.DeviceType);
+            Assert.Equal(DeviceType.Mobile, opera.DeviceType);
             Assert.Equal(OperatingSystems.IOS, opera.OS);
         }
     }

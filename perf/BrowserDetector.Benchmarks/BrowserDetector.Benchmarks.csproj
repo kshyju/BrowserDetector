@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\BrowserDetector.NetCore\BrowserDetector.Net.csproj" />
+    <ProjectReference Include="..\..\sample\BrowserDetector.WebApi\BrowserDetector.WebApi.csproj" />
   </ItemGroup>
 
 </Project>

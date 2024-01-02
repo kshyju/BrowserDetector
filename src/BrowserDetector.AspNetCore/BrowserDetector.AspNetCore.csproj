@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
+		<Nullable>enable</Nullable>
+		<PackageId>Shyjus.BrowserDetector</PackageId>
+		<AssemblyName>Shyjus.BrowserDetector.AspNetCore</AssemblyName>
+		<RootNamespace>Shyjus.BrowserDetector</RootNamespace>
+		<Authors>Shyju Krishnankutty</Authors>
+		<Description>Browser detection, device detection and operating system detection capabilities in asp.net core.</Description>
+		<RepositoryUrl>https://github.com/kshyju/BrowserDetector</RepositoryUrl>
+		<PackageTags>BrowserDetection BrowserCapabilities BrowserDetectionASP.NETCore HttpContext.Request.Browser DeviceDetection</PackageTags>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+		<PublishSingleFile>true</PublishSingleFile>
+		<Version>3.0.0-preview2</Version>
+		<PackageReadmeFile>readme.md</PackageReadmeFile>
+	</PropertyGroup>
+	<ItemGroup>
+		<None Include="..\..\docs\readme.md" Pack="true" PackagePath="\"></None>
+	</ItemGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\BrowserDetector.Abstractions\BrowserDetector.Abstractions.csproj" />
+	  <ProjectReference Include="..\BrowserDetector.Core\BrowserDetector.Core.csproj" />
+	</ItemGroup>
+</Project>

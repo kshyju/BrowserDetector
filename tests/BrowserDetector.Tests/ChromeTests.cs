@@ -2,6 +2,7 @@
 {
     using Shyjus.BrowserDetection;
     using Shyjus.BrowserDetection.Tests;
+    using Shyjus.BrowserDetector;
     using Xunit;
 
     /// <summary>
@@ -16,7 +17,7 @@
 
             Assert.True(isChrome);
             Assert.Equal(BrowserNames.Chrome, browser.Name);
-            Assert.Equal(DeviceTypes.Tablet, browser.DeviceType);
+            Assert.Equal(DeviceType.Tablet, browser.DeviceType);
             Assert.Equal(OperatingSystems.IOS, browser.OS);
         }
 
@@ -26,7 +27,7 @@
             var isChrome = Chrome.TryParse(UserAgents.ChromeIPhone, out var browser);
 
             Assert.True(isChrome);
-            Assert.Equal(DeviceTypes.Mobile, browser.DeviceType);
+            Assert.Equal(DeviceType.Mobile, browser.DeviceType);
             Assert.Equal(OperatingSystems.IOS, browser.OS);
         }
 
@@ -36,7 +37,7 @@
             var isChrome = Chrome.TryParse(UserAgents.ChromeWindows, out var browser);
 
             Assert.True(isChrome);
-            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(DeviceType.Desktop, browser.DeviceType);
             Assert.Equal(OperatingSystems.Windows, browser.OS);
         }
 
@@ -46,7 +47,7 @@
             var isChrome = Chrome.TryParse(UserAgents.ChromeWindows32, out var browser);
 
             Assert.True(isChrome);
-            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(DeviceType.Desktop, browser.DeviceType);
             Assert.Equal(OperatingSystems.Windows, browser.OS);
         }
 
@@ -56,7 +57,7 @@
             var isChrome = Chrome.TryParse(UserAgents.ChromeOsx, out var browser);
 
             Assert.True(isChrome);
-            Assert.Equal(DeviceTypes.Desktop, browser.DeviceType);
+            Assert.Equal(DeviceType.Desktop, browser.DeviceType);
             Assert.Equal(OperatingSystems.MacOSX, browser.OS);
         }
 
@@ -66,7 +67,7 @@
             var isChrome = Chrome.TryParse(UserAgents.ChromePixel3, out var browser);
 
             Assert.True(isChrome);
-            Assert.Equal(DeviceTypes.Mobile, browser.DeviceType);
+            Assert.Equal(DeviceType.Mobile, browser.DeviceType);
             Assert.Equal(OperatingSystems.Android, browser.OS);
         }
 
@@ -76,7 +77,7 @@
             var isChrome = Chrome.TryParse(UserAgents.ChromeGalaxyNote8Mobile, out var browser);
 
             Assert.True(isChrome);
-            Assert.Equal(DeviceTypes.Mobile, browser.DeviceType);
+            Assert.Equal(DeviceType.Mobile, browser.DeviceType);
             Assert.Equal(OperatingSystems.Android, browser.OS);
         }
 
@@ -86,7 +87,7 @@
             var isChrome = Chrome.TryParse(UserAgents.ChromeGalaxyTabS4, out var browser);
 
             Assert.True(isChrome);
-            Assert.Equal(DeviceTypes.Tablet, browser.DeviceType);
+            Assert.Equal(DeviceType.Tablet, browser.DeviceType);
             Assert.Equal(OperatingSystems.Android, browser.OS);
         }
     }

@@ -1,6 +1,7 @@
 namespace Shyjus.BrowserDetection.Tests
 {
     using System.Collections.Generic;
+    using BrowserDetector;
     using Microsoft.Extensions.Primitives;
     using Xunit;
 
@@ -18,7 +19,7 @@ namespace Shyjus.BrowserDetection.Tests
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
-            var detector = new BrowserDetector(httpContextAccessor);
+            var detector = new AspNetCoreBrowserDetector(httpContextAccessor);
 
             var actual = detector.Browser;
 
@@ -35,7 +36,7 @@ namespace Shyjus.BrowserDetection.Tests
             headers.Add(Headers.UserAgent, UserAgents.SafariIPad);
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
-            var detector = new BrowserDetector(httpContextAccessor);
+            var detector = new AspNetCoreBrowserDetector(httpContextAccessor);
 
             var actual = detector.Browser;
 
@@ -54,11 +55,11 @@ namespace Shyjus.BrowserDetection.Tests
             };
 
             var httpContextAccessor = this.GetMockedHttpContextAccessor(headers);
-            var detector = new BrowserDetector(httpContextAccessor);
+            var detector = new AspNetCoreBrowserDetector(httpContextAccessor);
 
             var actual = detector.Browser;
 
-            Assert.Equal(BrowserNames.Edge, actual.Name);
+            Assert.Equal(BrowserNames.EdgeLegacy, actual.Name);
         }
     }
 }

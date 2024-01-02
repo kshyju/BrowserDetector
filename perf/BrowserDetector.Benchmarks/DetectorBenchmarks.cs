@@ -3,7 +3,7 @@ namespace BrowserDetector.Benchmarks
 {
     using System;
     using BenchmarkDotNet.Attributes;
-    using Shyjus.BrowserDetection;
+    using Shyjus.BrowserDetector;
 
     [MemoryDiagnoser]
     public class DetectorBenchmarks
