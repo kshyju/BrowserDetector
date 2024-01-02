@@ -1,9 +1,7 @@
 
-# BrowserDetector
+# Shyjus.BrowserDetector.AzureFunctions
 
 Browser detection capabilities for Azure functions .NET Isolated model.
-
-
 
 This library does
 
@@ -37,7 +35,7 @@ host.Run();
 ````
 **Step 3:** Inject `IBrowserDetector` to your function class e and access the `Browser` property.
 
-### Example usage in controller code
+### Example usage
 
 ```csharp
 public class Function1
@@ -64,7 +62,7 @@ public class Function1
 
 
 
-### Example usage in custom middleware
+### Example usage in functions middleware
 
 You can get instance of the `IBrowserDetector` from FunctionContext.
 

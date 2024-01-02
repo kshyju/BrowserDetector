@@ -9,13 +9,16 @@
 		<Authors>Shyju Krishnankutty</Authors>
 		<Description>Browser detection, device detection and operating system detection capabilities in Azure Functions .NET Isolated model.</Description>
 		<RepositoryUrl>https://github.com/kshyju/BrowserDetector</RepositoryUrl>
-		<PackageTags>BrowserDetection BrowserCapabilities BrowserDetectionAzureFunction HttpContext.Request.Browser DeviceDetection</PackageTags>
+		<PackageTags>BrowserDetection BrowserCapabilities BrowserDetectionAzureFunction .NET Isolated DeviceDetection</PackageTags>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 		<Version>1.0.0-preview1</Version>
 		<PackageReadmeFile>readme.md</PackageReadmeFile>
 	</PropertyGroup>
+	<PropertyGroup>
+		<PackageLicenseExpression>MIT</PackageLicenseExpression>
+	</PropertyGroup>
 	<ItemGroup>
-		<None Include="..\..\docs\readme.md" Pack="true" PackagePath="\"></None>
+		<None Include="..\..\docs\azfunc\readme.md" Pack="true" PackagePath="\"></None>
 	</ItemGroup>
 	<ItemGroup>
 		<PackageReference Include="Microsoft.Azure.Functions.Worker.Core" Version="1.16.0" />
